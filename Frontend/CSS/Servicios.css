@@ -1,0 +1,39 @@
+.card-service {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card-service:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.card-img-top {
+    height: 160px;
+    object-fit: cover;
+}
+
+.text-truncate-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.navbar {
+    border-bottom: 2px solid #1a73e8;
+}
+
+.nav-link.active {
+    color: #1a73e8 !important;
+    font-weight: 700;
+}
+
+.btn-primary {
+    background-color: #1a73e8;
+    border: none;
+    padding: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #1557b0;
+}

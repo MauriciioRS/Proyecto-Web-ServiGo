@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - ServiGo</title>
+    <link rel="stylesheet" href="../CSS/registro.css">
+</head>
+<body>
+    <main class="contenedor">
+        <section class="panel-derecho">
+            <img src="../../Images/Index.png" alt="Imagen de registro">
+        </section>
+        <section class="panel-izquierdo">
+            <div class="tarjeta-formulario">
+               
+                <h2>Crear Cuenta</h2>
+                <p class="subtitulo">Regístrate para acceder a nuestros servicios</p>
+                <form class="formulario-registro">
+                    <div class="grupo-formulario">
+                        <label for="nombres">Nombres</label>
+                        <input type="text" id="nombres" name="nombres" placeholder="Ingresa tus nombres" required>
+                    </div>
+                    <div class="grupo-formulario">
+                        <label for="apellidos">Apellidos</label>
+                        <input type="text" id="apellidos" name="apellidos" placeholder="Ingresa tus apellidos" required>
+                    </div>
+                    <div class="grupo-formulario">
+                        <label for="dni">DNI</label>
+                        <input type="text" id="dni" name="dni" placeholder="Ingresa tu DNI" required>
+                    </div>
+                    <div class="grupo-formulario">
+                        <label for="fecha-nacimiento">Fecha de Nacimiento</label>
+                        <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required>
+                    </div>
+                    <div class="grupo-formulario">
+                        <label for="direccion">Dirección</label>
+                        <input type="text" id="direccion" name="direccion" placeholder="Ingresa tu dirección" required>
+                    </div>
+                    <div class="grupo-formulario">
+                        <label for="distrito">Distrito</label>
+                        <input type="text" id="distrito" name="distrito" placeholder="Ingresa tu distrito" required>
+                    </div>
+                    <div class="grupo-formulario">
+                        <label for="tipo-cuenta">Tipo de Cuenta</label>
+                        <select id="tipo-cuenta" name="tipo-cuenta" required>
+                            <option value="">Selecciona un tipo</option>
+                            <option value="cliente">Cliente</option>
+                            <option value="contratista">Contratista</option>
+                        </select>
+                    </div>
+                   
+                    <div class="grupo-formulario">
+                        <label for="telefono">Número de Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Ingresa tu teléfono" required>
+                    </div>
+                     <div class="grupo-formulario">
+                        <label for="correo">Correo Electrónico</label>
+                        <input type="email" id="correo" name="correo" placeholder="Ingresa tu correo electrónico" required>
+                    </div>
+                    <div class="grupo-formulario">
+                        <label for="contrasena">Contraseña</label>
+                        <input type="password" id="contrasena" name="contrasena" placeholder="Ingresa tu contraseña" required>
+                    </div>
+                    <div class="grupo-formulario boton-registro">
+                        <button type="submit">Registrarse</button>
+                    </div>
+                    <div class="grupo-formulario Iniciar-sesion">
+                        <a href="IniciarSesion.html">Ir</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

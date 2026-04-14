@@ -1,0 +1,38 @@
+.about-header {
+    background: linear-gradient(rgba(146, 92, 164, 0.9), rgba(26, 115, 232, 0.9)), 
+                url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1500');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+}
+
+.stats-section {
+    background-color: #36b392;
+    padding: 60px 0;
+}
+
+.rounded-4 {
+    border-radius: 20px;
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.text-primary {
+    color: #23a3a1 !important;
+}
+
+.about-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+}
+
+.about-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+}

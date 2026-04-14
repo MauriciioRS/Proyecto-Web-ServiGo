@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajes - ServiGo</title>
+    <link rel="stylesheet" href="../CSS/Mensajes.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+                <form class="d-flex me-auto" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">
+                        <i class="bi bi-search"></i></button>
+                </form>
+
+
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="Inicio.html">
+                            <i class="bi bi-house-door-fill"></i>Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-suit-heart-fill"></i>Favoritos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-suitcase-lg-fill"></i>Notificaciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Mensajes.html">
+                            <i class="bi bi-chat-dots-fill"></i>Mensajes</a>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-person-circle"></i>Yo
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Perfil</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="index.html">Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <div class="messaging">
+            <div class="inbox_msg">
+                <div class="inbox_people">
+                    <div class="headind_srch">
+                        <div class="recent_heading">
+                            <h4>Recientes</h4>
+                        </div>
+                        <div class="srch_bar">
+                            <div class="stylish-input-group">
+                                <input type="text" class="search-bar" placeholder="Buscar">
+                                <span class="input-group-addon">
+                                    <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inbox_chat">
+                        <div class="chat_list active_chat">
+                            <div class="chat_people">
+                                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png"
+                                        alt="Juan"> </div>
+                                <div class="chat_ib">
+                                    <h5>Juan Ríos <span class="chat_date">Hoy</span></h5>
+                                    <p>Hola, ¿a qué hora necesita que llegue?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat_list">
+                            <div class="chat_people">
+                                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png"
+                                        alt="Maria"> </div>
+                                <div class="chat_ib">
+                                    <h5>María Vega <span class="chat_date">Ayer</span></h5>
+                                    <p>Gracias por contratarme, fue un placer.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat_list">
+                            <div class="chat_people">
+                                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png"
+                                        alt="Carlos"> </div>
+                                <div class="chat_ib">
+                                    <h5>Carlos Paz <span class="chat_date">Lun</span></h5>
+                                    <p>¿Cuántos metros tiene la pared a pintar?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat_list">
+                            <div class="chat_people">
+                                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png"
+                                        alt="Luis"> </div>
+                                <div class="chat_ib">
+                                    <h5>Luis Torres <span class="chat_date">Dom</span></h5>
+                                    <p>El trabajo quedó listo, puede revisarlo.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat_list">
+                            <div class="chat_people">
+                                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png"
+                                        alt="Ana"> </div>
+                                <div class="chat_ib">
+                                    <h5>Ana López <span class="chat_date">Sáb</span></h5>
+                                    <p>¿Puede venir el próximo martes?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat_list">
+                            <div class="chat_people">
+                                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png"
+                                        alt="Pedro"> </div>
+                                <div class="chat_ib">
+                                    <h5>Pedro Mora <span class="chat_date">Vie</span></h5>
+                                    <p>Listo, el problema eléctrico ya fue resuelto.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat_list">
+                            <div class="chat_people">
+                                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png"
+                                        alt="Rosa"> </div>
+                                <div class="chat_ib">
+                                    <h5>Rosa Campos <span class="chat_date">Jue</span></h5>
+                                    <p>Le envío el presupuesto en un momento.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mesgs">
+                    <div class="msg_history">
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png"
+                                    alt="Juan"> </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>Hola, ¿a qué hora necesita que llegue?</p>
+                                    <span class="time_date"> 10:30 AM | Hoy</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outgoing_msg">
+                            <div class="sent_msg">
+                                <p>Buenas tardes, si puede ser a las 3pm sería perfecto.</p>
+                                <span class="time_date"> 10:32 AM | Hoy</span>
+                            </div>
+                        </div>
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png"
+                                    alt="Juan"> </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>Perfecto, ahí estaré puntual.</p>
+                                    <span class="time_date"> 10:33 AM | Hoy</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="outgoing_msg">
+                            <div class="sent_msg">
+                                <p>Muchas gracias, lo espero.</p>
+                                <span class="time_date"> 10:35 AM | Hoy</span>
+                            </div>
+                        </div>
+                        <div class="incoming_msg">
+                            <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png"
+                                    alt="Juan"> </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p>¿Tiene las herramientas o llevo las mías?</p>
+                                    <span class="time_date"> 10:36 AM | Hoy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="type_msg">
+                        <div class="input_msg_write">
+                            <input type="text" class="write_msg" placeholder="Escribe un mensaje..." />
+                            <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o"
+                                    aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+</body>
+    <!-- link de de chat de boostrap: https://bootsnipp.com/snippets/featured/simple-chat-conversation -->
+</html>
