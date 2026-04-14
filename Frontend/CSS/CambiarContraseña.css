@@ -1,0 +1,153 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    color: #111;
+}
+
+.contenedor {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 2rem;
+    min-height: 100vh;
+}
+
+.panel-izquierdo,
+.panel-derecho {
+    flex: 1 1 60%;
+    
+}
+
+.panel-izquierdo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6;
+    padding: 2rem;
+}
+
+.tarjeta-formulario {
+    width: min(420px, 100%);
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 1.5rem;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+}
+
+.tarjeta-formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+button + button {
+    margin-top: 0.25rem;
+}
+
+.grupo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+
+input {
+    width: 100%;
+    padding: 1rem 1.1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background: #f8fafc;
+    font-size: 1rem;
+    color: #0f172a;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+button {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: none;
+    border-radius: 16px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+
+
+.redes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.btn-secondary {
+    width: auto;
+    align-self: center;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    color: #6b7280;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem 0;
+}
+.btn-secondary:hover {
+    color: #1f2937;
+    background: rgba(15, 23, 42, 0.04);
+}
+
+.registro {
+    margin-top: 1.5rem;
+    text-align: center;
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+
+
+.panel-derecho {
+    position: relative;
+    overflow: hidden;
+}
+
+.panel-derecho img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 900px) {
+    .contenedor {
+        flex-direction: column;
+    }
+
+    .panel-derecho img {
+        height: 350px;
+    }
+
+    .panel-izquierdo {
+        padding: 1.5rem;
+    }
+
+    .tarjeta-formulario {
+        padding: 1.8rem;
+    }
+}
