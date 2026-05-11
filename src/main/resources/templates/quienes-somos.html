@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiénes Somos - ServiGo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="/CSS/QuienesSomos.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-light shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">
+                <i class="bi bi-tools"></i> ServiGo
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="bi bi-house-door-fill"></i> Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/servicios}">
+                            <i class="bi bi-suitcase-lg-fill"></i> Servicios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <i class="bi bi-info-circle-fill"></i> Quiénes Somos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/contactanos}">
+                            <i class="bi bi-envelope-fill"></i> Contáctanos
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-person-circle"></i> Yo
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/iniciar-sesion}">Iniciar Sesión</a></li>
+                            <li><a class="dropdown-item" th:href="@{/registro}">Registrarse</a></li>
+                            <li><a class="dropdown-item" th:href="@{/cambiar-contrasena}">Cambiar Contraseña</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-about">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Quiénes Somos</h1>
+            <p class="lead mb-0">Conectando a las mejores personas con los mejores servicios desde 2020</p>
+        </div>
+    </section>
+
+    <div class="container py-5">
+        <!-- Nuestra Historia -->
+        <div class="row mb-5">
+            <div class="col-lg-6">
+                <h2 class="mb-4">Nuestra Historia</h2>
+                <p class="lead">
+                    ServiGo nació con la visión de revolucionar la forma en que las personas encuentran y contratan servicios profesionales en Perú.
+                </p>
+                <p>
+                    Comenzamos en 2020 como una pequeña plataforma que conectaba a plomeros locales con familias que necesitaban reparaciones urgentes. Hoy, somos la plataforma líder en servicios domésticos y profesionales en todo el país.
+                </p>
+                <p>
+                    Nuestra misión es simple: hacer que encontrar un servicio de calidad sea tan fácil como pedir comida a domicilio. Creemos que todos merecen acceso a profesionales confiables y verificados.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://via.placeholder.com/600x400?text=Nuestra+Historia" class="img-fluid rounded" alt="Nuestra historia">
+            </div>
+        </div>
+
+        <!-- Estadísticas -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-3 mb-4">
+                        <div class="stat-number">50,000+</div>
+                        <p class="mb-0">Usuarios Registrados</p>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="stat-number">10,000+</div>
+                        <p class="mb-0">Profesionales Verificados</p>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="stat-number">25,000+</div>
+                        <p class="mb-0">Servicios Completados</p>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="stat-number">4.8★</div>
+                        <p class="mb-0">Calificación Promedio</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nuestros Valores -->
+        <div class="row mb-5">
+            <div class="col-12 text-center mb-4">
+                <h2>Nuestros Valores</h2>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card card h-100">
+                    <div class="card-body">
+                        <i class="bi bi-shield-check text-primary fs-1 mb-3"></i>
+                        <h5 class="card-title">Confianza</h5>
+                        <p class="card-text">Todos nuestros profesionales pasan por un riguroso proceso de verificación para garantizar la calidad y seguridad de los servicios.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card card h-100">
+                    <div class="card-body">
+                        <i class="bi bi-lightning-charge text-warning fs-1 mb-3"></i>
+                        <h5 class="card-title">Rapidez</h5>
+                        <p class="card-text">Conectamos a clientes con profesionales disponibles en menos de 24 horas, facilitando soluciones rápidas a tus necesidades.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card card h-100">
+                    <div class="card-body">
+                        <i class="bi bi-heart text-danger fs-1 mb-3"></i>
+                        <h5 class="card-title">Calidad</h5>
+                        <p class="card-text">Nos comprometemos con la excelencia en cada servicio, asegurando que tanto clientes como profesionales tengan la mejor experiencia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nuestro Equipo -->
+        <div class="row">
+            <div class="col-12 text-center mb-4">
+                <h2>Nuestro Equipo</h2>
+                <p class="text-muted">Las personas detrás de ServiGo</p>
+            </div>
+            <div class="col-md-4">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/120x120?text=CEO" alt="CEO">
+                    <h5>María González</h5>
+                    <p class="text-muted">CEO & Fundadora</p>
+                    <p class="small">Apasionada por conectar personas y crear soluciones innovadoras para el mercado de servicios.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/120x120?text=CTO" alt="CTO">
+                    <h5>Carlos Rodríguez</h5>
+                    <p class="text-muted">CTO</p>
+                    <p class="small">Experto en tecnología con más de 10 años desarrollando plataformas digitales escalables.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/120x120?text=COO" alt="COO">
+                    <h5>Ana López</h5>
+                    <p class="text-muted">COO</p>
+                    <p class="small">Especialista en operaciones y experiencia de usuario, enfocada en la satisfacción del cliente.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-4 mt-5 border-top">
+        <div class="container">
+            <p class="text-muted">© 2025 ServiGo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

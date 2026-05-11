@@ -1,52 +1,88 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f3f4f6;
-    color: #111;
-}
-
 .contenedor {
     display: flex;
-    align-items: stretch;
-    justify-content: center;
-    gap: 2rem;
     min-height: 100vh;
-}
-
-.panel-izquierdo,
-.panel-derecho {
-    flex: 1 1 60%;
-    
-}
-
-.panel-izquierdo {
-    display: flex;
     align-items: center;
     justify-content: center;
-    background: #f3f4f6;
-    padding: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 .tarjeta-formulario {
-    width: min(420px, 100%);
-    background: #ffffff;
-    border-radius: 30px;
-    padding: 1.5rem;
-    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
 }
 
-.tarjeta-formulario form {
+.formulario-password {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 1rem;
 }
 
-button + button {
-    margin-top: 0.25rem;
+.grupo-formulario {
+    display: flex;
+    flex-direction: column;
+}
+
+.grupo-formulario label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.grupo-formulario input {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn-cambiar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-cambiar:hover {
+    transform: translateY(-2px);
+}
+
+.volver {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.volver a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.volver a:hover {
+    text-decoration: underline;
+}
+
+.password-strength {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.strength-weak {
+    color: #dc3545;
+}
+
+.strength-medium {
+    color: #ffc107;
+}
+
+.strength-strong {
+    color: #28a745;
 }
 
 .grupo-formulario {

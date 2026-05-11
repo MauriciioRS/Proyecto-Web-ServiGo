@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajes - ServiGo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="/CSS/Mensajes.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-light shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">
+                <i class="bi bi-tools"></i> ServiGo
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="bi bi-house-door-fill"></i> Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/servicios}">
+                            <i class="bi bi-suitcase-lg-fill"></i> Servicios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/quienes-somos}">
+                            <i class="bi bi-info-circle-fill"></i> Quiénes Somos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/contactanos}">
+                            <i class="bi bi-envelope-fill"></i> Contáctanos
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-person-circle"></i> Yo
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/iniciar-sesion}">Iniciar Sesión</a></li>
+                            <li><a class="dropdown-item" th:href="@{/registro}">Registrarse</a></li>
+                            <li><a class="dropdown-item" th:href="@{/cambiar-contrasena}">Cambiar Contraseña</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <h1 class="mb-4">
+            <i class="bi bi-chat-dots-fill text-primary me-2"></i>
+            Mensajes
+        </h1>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card chat-container">
+                    <div class="chat-sidebar">
+                        <div class="p-3 border-bottom">
+                            <h6 class="mb-0">Conversaciones</h6>
+                        </div>
+                        <div class="chat-list">
+                            <!-- Conversación 1 -->
+                            <div class="chat-item active">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/40x40?text=CR" class="rounded-circle me-3" alt="Avatar">
+                                    <div class="flex-grow-1">
+                                        <div class="fw-bold">Carlos Ruiz</div>
+                                        <small class="text-muted">Electricista</small>
+                                    </div>
+                                    <small class="text-muted">2h</small>
+                                </div>
+                                <div class="mt-1">
+                                    <small class="text-muted">¿Cuándo podemos agendar la reparación?</small>
+                                </div>
+                            </div>
+
+                            <!-- Conversación 2 -->
+                            <div class="chat-item">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/40x40?text=MG" class="rounded-circle me-3" alt="Avatar">
+                                    <div class="flex-grow-1">
+                                        <div class="fw-bold">María García</div>
+                                        <small class="text-muted">Plomera</small>
+                                    </div>
+                                    <small class="text-muted">1d</small>
+                                </div>
+                                <div class="mt-1">
+                                    <small class="text-muted">El trabajo quedó perfecto, gracias!</small>
+                                </div>
+                            </div>
+
+                            <!-- Conversación 3 -->
+                            <div class="chat-item">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/40x40?text=JR" class="rounded-circle me-3" alt="Avatar">
+                                    <div class="flex-grow-1">
+                                        <div class="fw-bold">Juan Rodríguez</div>
+                                        <small class="text-muted">Pintor</small>
+                                    </div>
+                                    <small class="text-muted">3d</small>
+                                </div>
+                                <div class="mt-1">
+                                    <small class="text-muted">¿Tienes disponibilidad esta semana?</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card chat-container">
+                    <div class="chat-messages">
+                        <!-- Header del chat -->
+                        <div class="p-3 border-bottom bg-white">
+                            <div class="d-flex align-items-center">
+                                <img src="https://via.placeholder.com/40x40?text=CR" class="rounded-circle me-3" alt="Avatar">
+                                <div>
+                                    <h6 class="mb-0">Carlos Ruiz</h6>
+                                    <small class="text-muted">Electricista • En línea</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mensajes -->
+                        <div class="messages-list">
+                            <div class="message received">
+                                <div class="message-bubble">
+                                    Hola, vi tu solicitud para reparación eléctrica. ¿Cuándo te vendría bien que vaya?
+                                </div>
+                                <small class="text-muted ms-2">10:30 AM</small>
+                            </div>
+
+                            <div class="message sent">
+                                <div class="message-bubble">
+                                    ¡Hola Carlos! Me vendría bien mañana por la tarde, alrededor de las 3 PM.
+                                </div>
+                                <small class="text-muted me-2">10:35 AM</small>
+                            </div>
+
+                            <div class="message received">
+                                <div class="message-bubble">
+                                    Perfecto, mañana a las 3 PM. ¿Cuál es la dirección exacta?
+                                </div>
+                                <small class="text-muted ms-2">10:36 AM</small>
+                            </div>
+
+                            <div class="message sent">
+                                <div class="message-bubble">
+                                    Av. Larco 123, Miraflores. ¿Necesitas algún material específico?
+                                </div>
+                                <small class="text-muted me-2">10:40 AM</small>
+                            </div>
+
+                            <div class="message received">
+                                <div class="message-bubble">
+                                    No, llevaré todo lo necesario. ¿Cuándo podemos agendar la reparación?
+                                </div>
+                                <small class="text-muted ms-2">Ahora</small>
+                            </div>
+                        </div>
+
+                        <!-- Input de mensaje -->
+                        <div class="message-input">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Escribe un mensaje..." aria-label="Mensaje">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="bi bi-send"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-4 mt-5 border-top">
+        <div class="container">
+            <p class="text-muted">© 2025 ServiGo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

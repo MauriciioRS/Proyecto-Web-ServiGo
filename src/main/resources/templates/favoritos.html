@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Favoritos - ServiGo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="/CSS/Favoritos.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-light shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">
+                <i class="bi bi-tools"></i> ServiGo
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="bi bi-house-door-fill"></i> Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/servicios}">
+                            <i class="bi bi-suitcase-lg-fill"></i> Servicios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/quienes-somos}">
+                            <i class="bi bi-info-circle-fill"></i> Quiénes Somos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/contactanos}">
+                            <i class="bi bi-envelope-fill"></i> Contáctanos
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-person-circle"></i> Yo
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/iniciar-sesion}">Iniciar Sesión</a></li>
+                            <li><a class="dropdown-item" th:href="@{/registro}">Registrarse</a></li>
+                            <li><a class="dropdown-item" th:href="@{/cambiar-contrasena}">Cambiar Contraseña</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="d-flex align-items-center mb-4">
+            <h1 class="fw-bold m-0 me-3">
+                <i class="bi bi-suit-heart-fill text-danger me-2"></i>
+                Mis Favoritos
+            </h1>
+            <span class="badge bg-danger rounded-pill">2 Guardados</span>
+        </div>
+
+        <!-- Favoritos -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Favorito 1 -->
+            <div class="col">
+                <div class="card h-100 border-0 shadow-sm fav-card">
+                    <div class="position-relative">
+                        <img src="https://via.placeholder.com/400x200?text=Carlos+Ruiz" class="card-img-top rounded-top" alt="Profesional">
+                        <button class="btn-fav-active">
+                            <i class="bi bi-suit-heart-fill"></i>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <h6 class="fw-bold mb-0">Carlos Ruiz</h6>
+                                <small class="text-primary fw-bold">Electricista Matriculado</small>
+                            </div>
+                            <div class="text-end">
+                                <div class="text-warning mb-1">
+                                    ★★★★☆
+                                </div>
+                                <small class="text-muted">4.2 (28)</small>
+                            </div>
+                        </div>
+                        <p class="card-text text-muted small mb-3">
+                            Especialista en instalaciones eléctricas residenciales y comerciales.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong class="text-success">$60/hora</strong>
+                                <br>
+                                <small class="text-muted">Lima, Miraflores</small>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Contactar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Favorito 2 -->
+            <div class="col">
+                <div class="card h-100 border-0 shadow-sm fav-card">
+                    <div class="position-relative">
+                        <img src="https://via.placeholder.com/400x200?text=María+García" class="card-img-top rounded-top" alt="Profesional">
+                        <button class="btn-fav-active">
+                            <i class="bi bi-suit-heart-fill"></i>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <div>
+                                <h6 class="fw-bold mb-0">María García</h6>
+                                <small class="text-primary fw-bold">Plomera Profesional</small>
+                            </div>
+                            <div class="text-end">
+                                <div class="text-warning mb-1">
+                                    ★★★★★
+                                </div>
+                                <small class="text-muted">5.0 (45)</small>
+                            </div>
+                        </div>
+                        <p class="card-text text-muted small mb-3">
+                            Reparaciones de plomería, instalación de tuberías y mantenimiento.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong class="text-success">$50/hora</strong>
+                                <br>
+                                <small class="text-muted">Lima, San Isidro</small>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Contactar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estado vacío para más favoritos -->
+            <div class="col">
+                <div class="card h-100 border-0 shadow-sm fav-card">
+                    <div class="card-body d-flex align-items-center justify-content-center empty-state">
+                        <div>
+                            <i class="bi bi-plus-circle"></i>
+                            <h6>Agregar más favoritos</h6>
+                            <p class="mb-0">Explora servicios y guarda tus preferidos</p>
+                            <a th:href="@{/servicios}" class="btn btn-outline-primary btn-sm mt-2">Ver Servicios</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-4 mt-5 border-top">
+        <div class="container">
+            <p class="text-muted">© 2025 ServiGo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

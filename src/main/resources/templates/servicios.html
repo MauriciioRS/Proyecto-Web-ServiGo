@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - ServiGo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="/CSS/Servicios.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-light shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">
+                <i class="bi bi-tools"></i> ServiGo
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="bi bi-house-door-fill"></i> Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/servicios">
+                            <i class="bi bi-suitcase-lg-fill"></i> Servicios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/quienes-somos}">
+                            <i class="bi bi-info-circle-fill"></i> Quiénes Somos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/contactanos}">
+                            <i class="bi bi-envelope-fill"></i> Contáctanos
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-person-circle"></i> Yo
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/iniciar-sesion}">Iniciar Sesión</a></li>
+                            <li><a class="dropdown-item" th:href="@{/registro}">Registrarse</a></li>
+                            <li><a class="dropdown-item" th:href="@{/cambiar-contrasena}">Cambiar Contraseña</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <h1 class="mb-4">Todos los Servicios</h1>
+
+        <!-- Filtros -->
+        <div class="filtro-section">
+            <h5>Filtrar por Categoría</h5>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <select class="form-select">
+                        <option>Todas las categorías</option>
+                        <option>Plomería</option>
+                        <option>Electricidad</option>
+                        <option>Pintura</option>
+                        <option>Limpieza</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <select class="form-select">
+                        <option>Ordenar por...</option>
+                        <option>Precio menor</option>
+                        <option>Precio mayor</option>
+                        <option>Mejor calificación</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de Servicios -->
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mb-4" th:each="servicio : ${servicios}">
+                <div class="card servicio-card h-100 shadow-sm">
+                    <div class="card-body">
+                        <span class="badge bg-info mb-2" th:text="${servicio.categoria}">Categoría</span>
+                        <h5 class="card-title" th:text="${servicio.nombre}">Nombre Servicio</h5>
+                        <p class="card-text text-muted" th:text="${servicio.descripcion}">Descripción</p>
+                        
+                        <div class="mb-3">
+                            <small class="text-muted">Calificación:</small>
+                            <div>
+                                <span class="text-warning" th:text="${servicio.calificacion} + '★'">Rating</span>
+                                <span class="badge bg-success" th:if="${servicio.disponible}">Disponible</span>
+                                <span class="badge bg-danger" th:unless="${servicio.disponible}">No disponible</span>
+                            </div>
+                        </div>
+                        
+                        <h4 class="text-primary" th:text="'$' + ${servicio.precio}">Precio</h4>
+                    </div>
+                    <div class="card-footer bg-white border-top">
+                        <a th:href="'/servicios/' + ${servicio.id}" class="btn btn-primary w-100 btn-sm">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-4 mt-5 border-top">
+        <div class="container">
+            <p class="text-muted">© 2025 ServiGo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

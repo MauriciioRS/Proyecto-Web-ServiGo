@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - ServiGo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/CSS/IniciarSesion.css" rel="stylesheet">
+</head>
+
+<body>
+    <main class="contenedor">
+        <section class="panel-derecho">
+            <img src="https://via.placeholder.com/500x400?text=Bienvenido+a+ServiGo" alt="Imagen de servicio">
+        </section>
+
+        <section class="panel-izquierdo">
+            <div class="tarjeta-formulario">
+                <h2 class="text-center mb-3">Bienvenido</h2>
+                <p class="subtitulo text-center text-muted mb-4">Inicia sesión para continuar</p>
+
+                <form class="formulario-login">
+                    <div class="grupo-formulario">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+                    </div>
+
+                    <a class="olvidado" th:href="@{/cambiar-contrasena}">¿Olvidaste tu contraseña?</a>
+
+                    <button type="submit" class="btn-login" onclick="window.location.href='/'">Iniciar Sesión</button>
+
+                    <div class="separador">
+                        <span>O continúa con</span>
+                    </div>
+
+                    <div class="redes">
+                        <button type="button" class="social" onclick="window.open('https://accounts.google.com')">Gmail</button>
+                        <button type="button" class="social" onclick="window.open('https://www.facebook.com')">Facebook</button>
+                    </div>
+
+                    <p class="registro">¿No tienes una cuenta? <a th:href="@{/registro}">Regístrate</a></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

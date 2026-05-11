@@ -1,53 +1,93 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f3f4f6;
-    color: #111;
-}
-
 .contenedor {
     display: flex;
-    align-items: stretch;
-    justify-content: center;
-    gap: 2rem;
     min-height: 100vh;
 }
 
-.panel-izquierdo,
 .panel-derecho {
-    flex: 1 1 60%;
+    flex: 1;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
 
+.panel-derecho img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
 .panel-izquierdo {
+    flex: 1;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    background: #f3f4f6;
-    padding: 1.6rem 2rem 1.2rem;
+    padding: 2rem;
+    background-color: #f8f9fa;
 }
 
 .tarjeta-formulario {
-    width: min(580px, 100%);
-    max-width: 580px;
-    background: #ffffff;
-    border-radius: 30px;
-    padding: 1.8rem 1.8rem 1.4rem;
-    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
 }
 
+.formulario-registro {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
+.grupo-formulario {
+    display: flex;
+    flex-direction: column;
+}
 
-h2 {
-    margin: 0;
-    margin-bottom: 0.35rem;
-    font-size: 2rem;
+.grupo-formulario label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.grupo-formulario input, .grupo-formulario select {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.btn-registro {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-registro:hover {
+    transform: translateY(-2px);
+}
+
+.registro {
     text-align: center;
-    color: #111827;
+    margin-top: 1rem;
+}
+
+.registro a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.registro a:hover {
+    text-decoration: underline;
+}
 }
 
 .subtitulo {
