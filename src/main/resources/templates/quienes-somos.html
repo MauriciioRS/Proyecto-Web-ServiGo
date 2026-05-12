@@ -45,14 +45,33 @@
                             <i class="bi bi-envelope-fill"></i> Contáctanos
                         </a>
                     </li>
+                    <li class="nav-item" th:if="${session.usuarioLogueado != null}">
+                        <a class="nav-link" th:href="@{/favoritos}">
+                            <i class="bi bi-heart-fill"></i> Favoritos
+                        </a>
+                    </li>
+                    <li class="nav-item" th:if="${session.usuarioLogueado != null}">
+                        <a class="nav-link" th:href="@{/mensajes}">
+                            <i class="bi bi-chat-dots-fill"></i> Mensajes
+                        </a>
+                    </li>
+                    <li class="nav-item" th:if="${session.usuarioLogueado != null}">
+                        <a class="nav-link" th:href="@{/notificaciones}">
+                            <i class="bi bi-bell-fill"></i> Notificaciones
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <i class="bi bi-person-circle"></i> Yo
+                            <i class="bi bi-person-circle"></i>
+                            <span th:if="${session.usuarioLogueado == null}">Yo</span>
+                            <span th:if="${session.usuarioLogueado != null}" th:text="${session.usuarioLogueado.nombre}">Yo</span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" th:href="@{/iniciar-sesion}">Iniciar Sesión</a></li>
-                            <li><a class="dropdown-item" th:href="@{/registro}">Registrarse</a></li>
+                            <li th:if="${session.usuarioLogueado == null}"><a class="dropdown-item" th:href="@{/iniciar-sesion}">Iniciar Sesión</a></li>
+                            <li th:if="${session.usuarioLogueado == null}"><a class="dropdown-item" th:href="@{/registro}">Registrarse</a></li>
+                            <li th:if="${session.usuarioLogueado != null}"><a class="dropdown-item" th:href="@{/perfil}">Mi Perfil</a></li>
+                            <li th:if="${session.usuarioLogueado != null}"><a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a></li>
                             <li><a class="dropdown-item" th:href="@{/cambiar-contrasena}">Cambiar Contraseña</a></li>
                         </ul>
                     </li>
@@ -84,8 +103,8 @@
                     Nuestra misión es simple: hacer que encontrar un servicio de calidad sea tan fácil como pedir comida a domicilio. Creemos que todos merecen acceso a profesionales confiables y verificados.
                 </p>
             </div>
-            <div class="col-lg-6">
-                <img src="https://via.placeholder.com/600x400?text=Nuestra+Historia" class="img-fluid rounded" alt="Nuestra historia">
+            <div class="col-lg-6 d-flex align-items-center">
+                <img th:src="@{/img/quienesSomos.png}" class="img-fluid rounded shadow w-100" alt="Equipo de ServiGo atendiendo a una familia en el hogar">
             </div>
         </div>
 
@@ -155,7 +174,7 @@
             </div>
             <div class="col-md-4">
                 <div class="team-member">
-                    <img src="https://via.placeholder.com/120x120?text=CEO" alt="CEO">
+                    <img th:src="@{/img/gerente1.png}" class="rounded-circle" alt="Retrato de María González, CEO y fundadora de ServiGo">
                     <h5>María González</h5>
                     <p class="text-muted">CEO & Fundadora</p>
                     <p class="small">Apasionada por conectar personas y crear soluciones innovadoras para el mercado de servicios.</p>
@@ -163,7 +182,7 @@
             </div>
             <div class="col-md-4">
                 <div class="team-member">
-                    <img src="https://via.placeholder.com/120x120?text=CTO" alt="CTO">
+                    <img th:src="@{/img/gerente2.png}" class="rounded-circle" alt="Retrato de Carlos Rodríguez, CTO de ServiGo">
                     <h5>Carlos Rodríguez</h5>
                     <p class="text-muted">CTO</p>
                     <p class="small">Experto en tecnología con más de 10 años desarrollando plataformas digitales escalables.</p>
@@ -171,7 +190,7 @@
             </div>
             <div class="col-md-4">
                 <div class="team-member">
-                    <img src="https://via.placeholder.com/120x120?text=COO" alt="COO">
+                    <img th:src="@{/img/gerente3.png}" class="rounded-circle" alt="Retrato de Ana López, COO de ServiGo">
                     <h5>Ana López</h5>
                     <p class="text-muted">COO</p>
                     <p class="small">Especialista en operaciones y experiencia de usuario, enfocada en la satisfacción del cliente.</p>

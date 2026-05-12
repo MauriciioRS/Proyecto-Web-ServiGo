@@ -5459,3 +5459,70 @@ WARNING: Unmatched cancel notification for request id 178
 2026.05.11 09:51:05 INFO  compiling servigo (12 java sources)
 2026.05.11 09:51:12 WARN  javac exited with exit code 1
 2026.05.11 09:51:12 INFO  time: compiled servigo in 7.17s
+may. 11, 2026 3:40:07 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.05.12 10:50:00 INFO  compiling servigo (12 java sources)
+2026.05.12 10:50:04 WARN  javac exited with exit code 1
+2026.05.12 10:50:04 INFO  time: compiled servigo in 3.87s
+2026.05.12 11:25:40 INFO  compiling servigo (12 java sources)
+2026.05.12 11:25:55 WARN  javac exited with exit code 1
+2026.05.12 11:25:55 INFO  time: compiled servigo in 14s
+2026.05.12 11:25:55 INFO  compiling servigo (12 java sources)
+2026.05.12 11:26:09 WARN  javac exited with exit code 1
+2026.05.12 11:26:09 INFO  time: compiled servigo in 13s
+2026.05.12 11:26:30 INFO  compiling servigo (12 java sources)
+2026.05.12 11:26:34 WARN  javac exited with exit code 1
+2026.05.12 11:26:34 INFO  time: compiled servigo in 4.69s
+2026.05.12 11:36:25 INFO  compiling servigo (12 java sources)
+2026.05.12 11:36:29 WARN  javac exited with exit code 1
+2026.05.12 11:36:29 INFO  time: compiled servigo in 4.55s
+may. 12, 2026 12:46:13 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 68
+2026.05.12 12:56:16 INFO  compiling servigo (13 java sources)
+2026.05.12 12:56:30 WARN  javac exited with exit code 1
+2026.05.12 12:56:30 INFO  time: compiled servigo in 14s
+2026.05.12 12:58:23 INFO  Started: Metals version 1.6.6 in folders 'C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main' for client Cursor 1.105.1.
+2026.05.12 12:58:23 INFO  time: initialize in 0.13s
+2026.05.12 12:58:23 INFO  Memory monitor started
+2026.05.12 12:58:26 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.05.12 12:58:27 INFO  Attempting to connect to the build server...
+2026.05.12 12:58:27 INFO  Found a Bloop server running
+2026.05.12 12:58:28 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\bsp.trace.json or C:\Users\mauri\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.05.12 12:58:29 INFO  time: Connected to build server in 2.08s
+2026.05.12 12:58:28 INFO  Connected to Build server: Bloop v2.0.19
+2026.05.12 12:58:31 INFO  time: Imported build in 1.04s
+2026.05.12 12:58:38 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.05.12 12:58:46 INFO  time: indexed workspace in 15s
+2026.05.12 12:58:46 INFO  compiling servigo (13 java sources)
+2026.05.12 12:59:06 WARN  javac exited with exit code 1
+2026.05.12 12:59:06 INFO  time: compiled servigo in 19s
+2026.05.12 13:01:02 INFO  compiling servigo (12 java sources)
+2026.05.12 13:01:22 WARN  javac exited with exit code 1
+2026.05.12 13:01:22 INFO  time: compiled servigo in 20s
+2026.05.12 13:03:05 INFO  Deduplicating compilation of servigo from bsp client 'Metals 1.6.7' (since 27h 12m 29.043s)
+2026.05.12 13:03:05 INFO  compiling servigo (13 java sources)
+2026.05.12 13:03:05 INFO  compiling servigo (13 java sources)
+2026.05.12 13:03:12 WARN  javac exited with exit code 1
+2026.05.12 13:03:12 INFO  time: compiled servigo in 6.43s
+2026.05.12 13:03:13 WARN  javac exited with exit code 1
+2026.05.12 13:03:13 INFO  time: compiled servigo in 7.56s
+2026.05.12 13:03:48 INFO  compiling servigo (13 java sources)
+2026.05.12 13:03:54 WARN  javac exited with exit code 1
+2026.05.12 13:03:54 INFO  time: compiled servigo in 5.84s
+2026.05.12 13:06:24 INFO  compiling servigo (13 java sources)
+2026.05.12 13:06:29 WARN  javac exited with exit code 1
+2026.05.12 13:06:29 INFO  time: compiled servigo in 4.75s
+2026.05.12 13:14:30 INFO  Deduplicating compilation of servigo from bsp client 'Metals 1.6.6' (since 16m 1.546s)
+2026.05.12 13:14:30 INFO  compiling servigo (13 java sources)
+2026.05.12 13:14:30 INFO  compiling servigo (13 java sources)
+2026.05.12 13:14:44 WARN  javac exited with exit code 1
+2026.05.12 13:14:44 INFO  time: compiled servigo in 13s
+2026.05.12 13:14:44 INFO  compiling servigo (13 java sources)
+2026.05.12 13:14:44 WARN  javac exited with exit code 1
+2026.05.12 13:14:44 INFO  time: compiled servigo in 14s
+2026.05.12 13:14:44 INFO  Deduplicating compilation of servigo from bsp client 'Metals 1.6.6' (since 16m 16.062s)
+2026.05.12 13:14:44 INFO  compiling servigo (13 java sources)
+2026.05.12 13:14:52 WARN  javac exited with exit code 1
+2026.05.12 13:14:52 INFO  time: compiled servigo in 8.25s
+2026.05.12 13:14:53 WARN  javac exited with exit code 1
+2026.05.12 13:14:53 INFO  time: compiled servigo in 8.53s

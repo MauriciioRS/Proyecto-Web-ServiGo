@@ -12,7 +12,7 @@
 <body>
     <main class="contenedor">
         <section class="panel-derecho">
-            <img src="https://via.placeholder.com/500x400?text=Bienvenido+a+ServiGo" alt="Imagen de servicio">
+            <img th:src="@{/img/Gemini_Generated_Image_evjjltevjjltevjj.png}" alt="Profesional de servicios domiciliarios recibiendo cliente">
         </section>
 
         <section class="panel-izquierdo">
@@ -20,7 +20,9 @@
                 <h2 class="text-center mb-3">Bienvenido</h2>
                 <p class="subtitulo text-center text-muted mb-4">Inicia sesión para continuar</p>
 
-                <form class="formulario-login">
+                <form th:action="@{/iniciar-sesion}" method="post" class="formulario-login">
+                    <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+                    <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
                     <div class="grupo-formulario">
                         <label for="email">Correo electrónico</label>
                         <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
@@ -33,7 +35,7 @@
 
                     <a class="olvidado" th:href="@{/cambiar-contrasena}">¿Olvidaste tu contraseña?</a>
 
-                    <button type="submit" class="btn-login" onclick="window.location.href='/'">Iniciar Sesión</button>
+                    <button type="submit" class="btn-login">Iniciar Sesión</button>
 
                     <div class="separador">
                         <span>O continúa con</span>

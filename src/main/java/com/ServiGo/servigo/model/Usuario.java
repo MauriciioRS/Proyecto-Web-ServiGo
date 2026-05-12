@@ -18,7 +18,12 @@ public class Usuario {
     private String nombre;
     private String email;
     private String telefono;
+    private String dni;
+    private String fechaNacimiento;
+    private String direccion;
+    private String distrito;
     private String rol; // "cliente" o "proveedor"
     private String imagen;
     private Boolean activo;
+    private String password;
 }

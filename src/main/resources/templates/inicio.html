@@ -25,14 +25,14 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <form class="d-flex me-auto" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar servicio..." aria-label="Search" />
+                <form class="d-flex me-3 search-form" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" />
                     <button class="btn btn-outline-primary" type="submit">
                         <i class="bi bi-search"></i>
                     </button>
                 </form>
 
-                <ul class="navbar-nav mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
                     <li class="nav-item">
                         <a class="nav-link active" href="/">
                             <i class="bi bi-house-door-fill"></i> Inicio
@@ -53,18 +53,36 @@
                             <i class="bi bi-envelope-fill"></i> Contáctanos
                         </a>
                     </li>
+                    <li class="nav-item" th:if="${session.usuarioLogueado != null}">
+                        <a class="nav-link" th:href="@{/favoritos}">
+                            <i class="bi bi-heart-fill"></i> Favoritos
+                        </a>
+                    </li>
+                    <li class="nav-item" th:if="${session.usuarioLogueado != null}">
+                        <a class="nav-link" th:href="@{/mensajes}">
+                            <i class="bi bi-chat-dots-fill"></i> Mensajes
+                        </a>
+                    </li>
+                    <li class="nav-item" th:if="${session.usuarioLogueado != null}">
+                        <a class="nav-link" th:href="@{/notificaciones}">
+                            <i class="bi bi-bell-fill"></i> Notificaciones
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <i class="bi bi-person-circle"></i> Yo
+                            <i class="bi bi-person-circle"></i>
+                            <span th:if="${session.usuarioLogueado == null}">Yo</span>
+                            <span th:if="${session.usuarioLogueado != null}" th:text="${session.usuarioLogueado.nombre}">Yo</span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" th:href="@{/iniciar-sesion}">Iniciar Sesión</a></li>
-                            <li><a class="dropdown-item" th:href="@{/registro}">Registrarse</a></li>
+                            <li th:if="${session.usuarioLogueado == null}"><a class="dropdown-item" th:href="@{/iniciar-sesion}">Iniciar Sesión</a></li>
+                            <li th:if="${session.usuarioLogueado == null}"><a class="dropdown-item" th:href="@{/registro}">Registrarse</a></li>
+                            <li th:if="${session.usuarioLogueado != null}"><a class="dropdown-item" th:href="@{/perfil}">Mi Perfil</a></li>
+                            <li th:if="${session.usuarioLogueado != null}"><a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a></li>
                             <li><a class="dropdown-item" th:href="@{/cambiar-contrasena}">Cambiar Contraseña</a></li>
                         </ul>
                     </li>
-                </ul>
                 </ul>
             </div>
         </div>
@@ -98,6 +116,7 @@
             <div class="row">
                 <div class="col-md-6 col-lg-4 mb-4" th:each="servicio : ${servicios}">
                     <div class="card servicio-card h-100">
+                        <img th:src="@{/img/{archivo}(archivo=${servicio.imagen})}" class="card-img-top servicio-card-img" th:alt="|${servicio.nombre} - imagen|" />
                         <div class="card-body">
                             <h5 class="card-title" th:text="${servicio.nombre}">Servicio</h5>
                             <p class="card-text" th:text="${servicio.descripcion}">Descripción</p>

@@ -98,6 +98,107 @@
     border-radius: 5px;
 }
 
+.search-form {
+    max-width: 430px;
+    width: 100%;
+}
+
+.search-form .form-control {
+    min-width: 220px;
+}
+
+.navbar-collapse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-nav.ms-auto {
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+}
+
+.navbar-nav.ms-auto .nav-item {
+    margin-left: 0.2rem;
+}
+
+.navbar {
+    padding: 0.28rem 0;
+}
+
+.navbar-brand {
+    font-size: 0.98rem;
+    letter-spacing: 0.02em;
+}
+
+.navbar-brand i {
+    margin-right: 0.2rem;
+    font-size: 0.95rem;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+}
+
+.navbar-nav .nav-link {
+    padding: 0.3rem 0.55rem;
+    border-radius: 0.35rem;
+    color: #495057;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+    font-size: 0.92rem;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: #f8f9fa;
+    color: #0d6efd;
+}
+
+.navbar-nav .nav-link.active {
+    color: #0d6efd;
+    font-weight: 600;
+}
+
+.navbar-nav .nav-link i {
+    margin-right: 0.2rem;
+    font-size: 0.92rem;
+}
+
+.dropdown-menu {
+    min-width: 12rem;
+}
+
+.search-form {
+    flex: 0 0 auto;
+    max-width: 140px;
+    min-width: 110px;
+    width: auto;
+}
+
+.search-form .form-control {
+    border-radius: 999px;
+    border: 1px solid #ced4da;
+    padding: 0.28rem 0.5rem;
+    font-size: 0.86rem;
+    width: 70px;
+}
+
+.search-form button {
+    border-radius: 999px;
+    padding: 0.28rem 0.55rem;
+    font-size: 0.86rem;
+}
+
+
+@media (max-width: 991px) {
+    .search-form {
+        max-width: 100%;
+        margin-bottom: 0.75rem;
+    }
+}
+
 .servicio-card {
     transition: transform 0.2s;
     cursor: pointer;
@@ -106,6 +207,11 @@
 .servicio-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.servicio-card-img {
+    height: 200px;
+    object-fit: cover;
 }
 
 .notificacion-badge {
