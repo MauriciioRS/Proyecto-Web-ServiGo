@@ -14,10 +14,10 @@ public class UsuarioRepository {
     
     static {
         // Datos sintéticos de prueba
-        usuarios.add(new Usuario(1L, "Juan Pérez", "juan@gmail.com", "555-0001", "cliente", "juan.jpg", true));
-        usuarios.add(new Usuario(2L, "María García", "maria@gmail.com", "555-0002", "proveedor", "maria.jpg", true));
-        usuarios.add(new Usuario(3L, "Carlos López", "carlos@gmail.com", "555-0003", "proveedor", "carlos.jpg", true));
-        usuarios.add(new Usuario(4L, "Ana Martínez", "ana@gmail.com", "555-0004", "cliente", "ana.jpg", true));
+        usuarios.add(new Usuario(1L, "Juan Pérez", "juan@gmail.com", "555-0001", "40123456", "1990-05-10", "Jr. Los Olivos 120", "Lima", "cliente", "juan.jpg", true, "juan123"));
+        usuarios.add(new Usuario(2L, "María García", "maria@gmail.com", "555-0002", "40234567", "1988-03-22", "Av. Arequipa 450", "Miraflores", "proveedor", "maria.jpg", true, "maria123"));
+        usuarios.add(new Usuario(3L, "Carlos López", "carlos@gmail.com", "555-0003", "40345678", "1992-11-01", "Calle Las Flores 88", "Surco", "proveedor", "carlos.jpg", true, "carlos123"));
+        usuarios.add(new Usuario(4L, "Ana Martínez", "ana@gmail.com", "555-0004", "40456789", "1995-07-18", "Psje. Primavera 5", "San Borja", "cliente", "ana.jpg", true, "ana123"));
         idCounter = 5L;
     }
     
