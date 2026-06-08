@@ -40,4 +40,12 @@
     margin-bottom: 1rem;
     opacity: 0.5;
 }
+
+.site-footer {
+    background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+    color: #334155;
+}
+
+.site-footer a.link-secondary:hover {
+    color: #2563eb !important;
 }

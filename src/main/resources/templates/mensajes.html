@@ -89,50 +89,22 @@
                             <h6 class="mb-0">Conversaciones</h6>
                         </div>
                         <div class="chat-list">
-                            <!-- Conversación 1 -->
-                            <div class="chat-item active">
+                            <a th:each="ct : ${contactos}" th:href="@{/mensajes(c=${ct.id})}"
+                                class="chat-item text-decoration-none text-dark d-block"
+                                th:classappend="${ct.id == conversacionId} ? ' active' : ''">
                                 <div class="d-flex align-items-center">
-                                    <img src="https://via.placeholder.com/40x40?text=CR" class="rounded-circle me-3" alt="Avatar">
+                                    <img th:src="${ct.avatarUrl}" class="rounded-circle me-3" width="40" height="40"
+                                        th:alt="|Avatar de ${ct.nombre}|">
                                     <div class="flex-grow-1">
-                                        <div class="fw-bold">Carlos Ruiz</div>
-                                        <small class="text-muted">Electricista</small>
+                                        <div class="fw-bold" th:text="${ct.nombre}">Nombre</div>
+                                        <small class="text-muted" th:text="${ct.profesion}">Profesión</small>
                                     </div>
-                                    <small class="text-muted">2h</small>
+                                    <small class="text-muted" th:text="${ct.ultimoTiempoRelativo}">2h</small>
                                 </div>
                                 <div class="mt-1">
-                                    <small class="text-muted">¿Cuándo podemos agendar la reparación?</small>
+                                    <small class="text-muted" th:text="${ct.ultimaVistaPrevia}">Último mensaje</small>
                                 </div>
-                            </div>
-
-                            <!-- Conversación 2 -->
-                            <div class="chat-item">
-                                <div class="d-flex align-items-center">
-                                    <img src="https://via.placeholder.com/40x40?text=MG" class="rounded-circle me-3" alt="Avatar">
-                                    <div class="flex-grow-1">
-                                        <div class="fw-bold">María García</div>
-                                        <small class="text-muted">Plomera</small>
-                                    </div>
-                                    <small class="text-muted">1d</small>
-                                </div>
-                                <div class="mt-1">
-                                    <small class="text-muted">El trabajo quedó perfecto, gracias!</small>
-                                </div>
-                            </div>
-
-                            <!-- Conversación 3 -->
-                            <div class="chat-item">
-                                <div class="d-flex align-items-center">
-                                    <img src="https://via.placeholder.com/40x40?text=JR" class="rounded-circle me-3" alt="Avatar">
-                                    <div class="flex-grow-1">
-                                        <div class="fw-bold">Juan Rodríguez</div>
-                                        <small class="text-muted">Pintor</small>
-                                    </div>
-                                    <small class="text-muted">3d</small>
-                                </div>
-                                <div class="mt-1">
-                                    <small class="text-muted">¿Tienes disponibilidad esta semana?</small>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -144,61 +116,35 @@
                         <!-- Header del chat -->
                         <div class="p-3 border-bottom bg-white">
                             <div class="d-flex align-items-center">
-                                <img src="https://via.placeholder.com/40x40?text=CR" class="rounded-circle me-3" alt="Avatar">
+                                <img th:src="${contactoActual.avatarUrl}" class="rounded-circle me-3" width="40" height="40"
+                                    th:alt="|Avatar de ${contactoActual.nombre}|">
                                 <div>
-                                    <h6 class="mb-0">Carlos Ruiz</h6>
-                                    <small class="text-muted">Electricista • En línea</small>
+                                    <h6 class="mb-0" th:text="${contactoActual.nombre}">Nombre</h6>
+                                    <small class="text-muted"
+                                        th:text="|${contactoActual.profesion} • En línea|">Profesión</small>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Mensajes -->
                         <div class="messages-list">
-                            <div class="message received">
-                                <div class="message-bubble">
-                                    Hola, vi tu solicitud para reparación eléctrica. ¿Cuándo te vendría bien que vaya?
-                                </div>
-                                <small class="text-muted ms-2">10:30 AM</small>
-                            </div>
-
-                            <div class="message sent">
-                                <div class="message-bubble">
-                                    ¡Hola Carlos! Me vendría bien mañana por la tarde, alrededor de las 3 PM.
-                                </div>
-                                <small class="text-muted me-2">10:35 AM</small>
-                            </div>
-
-                            <div class="message received">
-                                <div class="message-bubble">
-                                    Perfecto, mañana a las 3 PM. ¿Cuál es la dirección exacta?
-                                </div>
-                                <small class="text-muted ms-2">10:36 AM</small>
-                            </div>
-
-                            <div class="message sent">
-                                <div class="message-bubble">
-                                    Av. Larco 123, Miraflores. ¿Necesitas algún material específico?
-                                </div>
-                                <small class="text-muted me-2">10:40 AM</small>
-                            </div>
-
-                            <div class="message received">
-                                <div class="message-bubble">
-                                    No, llevaré todo lo necesario. ¿Cuándo podemos agendar la reparación?
-                                </div>
-                                <small class="text-muted ms-2">Ahora</small>
+                            <div th:each="mensaje : ${mensajes}" class="message"
+                                th:classappend="${mensaje.delProveedor} ? ' received' : ' sent'">
+                                <div class="message-bubble" th:text="${mensaje.texto}">Texto</div>
+                                <small class="text-muted" th:class="${mensaje.delProveedor} ? ' ms-2' : ' me-2'"
+                                    th:text="${mensaje.horaCorta}">10:30</small>
                             </div>
                         </div>
 
-                        <!-- Input de mensaje -->
-                        <div class="message-input">
+                        <form th:action="@{/mensajes/enviar}" method="post" class="message-input">
+                            <input type="hidden" name="conversacionId" th:value="${conversacionId}">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Escribe un mensaje..." aria-label="Mensaje">
-                                <button class="btn btn-primary" type="button">
+                                <input type="text" name="texto" class="form-control" placeholder="Escribe un mensaje..."
+                                    maxlength="2000" autocomplete="off" required aria-label="Mensaje">
+                                <button type="submit" class="btn btn-primary" title="Enviar">
                                     <i class="bi bi-send"></i>
                                 </button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -208,7 +154,7 @@
     <!-- Footer -->
     <footer class="bg-light text-center py-4 mt-5 border-top">
         <div class="container">
-            <p class="text-muted">© 2025 ServiGo. Todos los derechos reservados.</p>
+            <p class="text-muted">© 2026 ServiGo. Todos los derechos reservados.</p>
         </div>
     </footer>
 

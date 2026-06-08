@@ -5526,3 +5526,1166 @@ WARNING: Unmatched cancel notification for request id 68
 2026.05.12 13:14:52 INFO  time: compiled servigo in 8.25s
 2026.05.12 13:14:53 WARN  javac exited with exit code 1
 2026.05.12 13:14:53 INFO  time: compiled servigo in 8.53s
+2026.05.12 14:20:26 INFO  compiling servigo (13 java sources)
+2026.05.12 14:20:40 WARN  javac exited with exit code 1
+2026.05.12 14:20:40 INFO  time: compiled servigo in 13s
+may. 12, 2026 3:19:19 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 78
+may. 12, 2026 3:19:23 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 87
+may. 12, 2026 3:19:26 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 105
+may. 12, 2026 3:19:26 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 106
+may. 12, 2026 3:19:27 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 107
+may. 12, 2026 3:41:27 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 129
+may. 12, 2026 3:41:28 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 132
+may. 12, 2026 3:43:18 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 150
+may. 12, 2026 3:52:08 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 187
+2026.05.12 16:00:10 INFO  Deduplicating compilation of servigo from bsp client 'Metals 1.6.6' (since 3h 1m 40.971s)
+2026.05.12 16:00:10 INFO  compiling servigo (15 java sources)
+2026.05.12 16:00:10 INFO  compiling servigo (15 java sources)
+2026.05.12 16:00:20 WARN  javac exited with exit code 1
+2026.05.12 16:00:20 INFO  time: compiled servigo in 10s
+2026.05.12 16:00:21 INFO  compiling servigo (16 java sources)
+2026.05.12 16:00:22 WARN  javac exited with exit code 1
+2026.05.12 16:00:22 INFO  time: compiled servigo in 12s
+2026.05.12 16:00:22 INFO  Deduplicating compilation of servigo from bsp client 'Metals 1.6.6' (since 3h 1m 54.549s)
+2026.05.12 16:00:22 INFO  compiling servigo (16 java sources)
+2026.05.12 16:00:29 WARN  javac exited with exit code 1
+2026.05.12 16:00:29 INFO  time: compiled servigo in 7.93s
+2026.05.12 16:00:30 WARN  javac exited with exit code 1
+2026.05.12 16:00:30 INFO  time: compiled servigo in 6.8s
+2026.05.12 16:00:31 INFO  compiling servigo (16 java sources)
+2026.05.12 16:00:41 WARN  javac exited with exit code 1
+2026.05.12 16:00:41 INFO  time: compiled servigo in 10s
+2026.05.12 16:00:53 INFO  Deduplicating compilation of servigo from bsp client 'Metals 1.6.6' (since 3h 2m 24.26s)
+2026.05.12 16:00:53 INFO  compiling servigo (17 java sources)
+2026.05.12 16:00:53 INFO  compiling servigo (17 java sources)
+2026.05.12 16:01:02 WARN  javac exited with exit code 1
+2026.05.12 16:01:02 INFO  time: compiled servigo in 9.01s
+2026.05.12 16:01:03 WARN  javac exited with exit code 1
+2026.05.12 16:01:03 INFO  time: compiled servigo in 10s
+2026.05.12 16:01:04 INFO  compiling servigo (17 java sources)
+may. 12, 2026 4:01:05 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 223
+2026.05.12 16:01:11 WARN  javac exited with exit code 1
+2026.05.12 16:01:11 INFO  time: compiled servigo in 6.22s
+2026.05.12 16:01:16 INFO  compiling servigo (17 java sources)
+2026.05.12 16:01:20 INFO  Deduplicating compilation of servigo from bsp client 'Metals 1.6.7' (since 30h 10m 44.04s)
+2026.05.12 16:01:20 INFO  compiling servigo (17 java sources)
+2026.05.12 16:01:25 WARN  Unexpected javac output: C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Usuario.java:8: error: cannot find symbol
+@Entity
+ ^
+  symbol: class Entity
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Usuario.java:9: error: cannot find symbol
+@Table(name = "usuarios")
+ ^
+  symbol: class Table
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Usuario.java:3: error: package jakarta.persistence does not exist
+import jakarta.persistence.*;
+              ^
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Notificacion.java:9: error: cannot find symbol
+@Entity
+ ^
+  symbol: class Entity
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Notificacion.java:10: error: cannot find symbol
+@Table(name = "notificaciones")
+ ^
+  symbol: class Table
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Servicio.java:8: error: cannot find symbol
+@Entity
+ ^
+  symbol: class Entity
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Servicio.java:9: error: cannot find symbol
+@Table(name = "servicios")
+ ^
+  symbol: class Table
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Notificacion.java:3: error: package jakarta.persistence does not exist
+import jakarta.persistence.*;
+              ^
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Servicio.java:3: error: package jakarta.persistence does not exist
+import jakarta.persistence.*;
+              ^
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Usuario.java:14: error: cannot find symbol
+    @Id
+     ^
+  symbol:   class Id
+  location: class Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Usuario.java:15: error: cannot find symbol
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+     ^
+  symbol:   class GeneratedValue
+  location: class Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Usuario.java:15: error: cannot find symbol
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+                               ^
+  symbol:   variable GenerationType
+  location: class Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Notificacion.java:15: error: cannot find symbol
+    @Id
+     ^
+  symbol:   class Id
+  location: class Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Notificacion.java:16: error: cannot find symbol
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+     ^
+  symbol:   class GeneratedValue
+  location: class Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Notificacion.java:16: error: cannot find symbol
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+                               ^
+  symbol:   variable GenerationType
+  location: class Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Servicio.java:14: error: cannot find symbol
+    @Id
+     ^
+  symbol:   class Id
+  location: class Servicio
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Servicio.java:15: error: cannot find symbol
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+     ^
+  symbol:   class GeneratedValue
+  location: class Servicio
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Servicio.java:15: error: cannot find symbol
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+                               ^
+  symbol:   variable GenerationType
+  location: class Servicio
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by com.sourcegraph.shaded.com.google.protobuf.UnsafeUtil$MemoryAccessor (file:/C:/Users/mauri/AppData/Local/bloop/cache/semanticdb/com.sourcegraph.semanticdb-javac.0.11.2/semanticdb-javac-0.11.2.jar)
+WARNING: Please consider reporting this to the maintainers of class com.sourcegraph.shaded.com.google.protobuf.UnsafeUtil$MemoryAccessor
+WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\AuthController.java:46: error: constructor Usuario in class Usuario cannot be applied to given types;
+        Usuario usuario = new Usuario(
+                          ^
+  required: no arguments
+  found:    <null>,String,String,telefono ![...] : "",dni != nul[...] : "",fechaNacim[...] : "",direccion [...] : "",distrito ![...] : "",String,String,boolean,String
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\AuthController.java:78: error: cannot find symbol
+        if (usuarioOpt.isPresent() && usuarioOpt.get().getPassword().equals(password)) {
+                                                      ^
+  symbol:   method getPassword()
+  location: class Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:17: error: constructor Usuario in class Usuario cannot be applied to given types;
+        usuarios.add(new Usuario(1L, "Juan P�rez", "juan@gmail.com", "555-0001", "40123456", "1990-05-10", "Jr. Los Olivos 120", "Lima", "cliente", "juan.jpg", true, "juan123"));
+                     ^
+  required: no arguments
+  found:    long,String,String,String,String,String,String,String,String,String,boolean,String
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:18: error: constructor Usuario in class Usuario cannot be applied to given types;
+        usuarios.add(new Usuario(2L, "Mar�a Garc�a", "maria@gmail.com", "555-0002", "40234567", "1988-03-22", "Av. Arequipa 450", "Miraflores", "proveedor", "maria.jpg", true, "maria123"));
+                     ^
+  required: no arguments
+  found:    long,String,String,String,String,String,String,String,String,String,boolean,String
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:19: error: constructor Usuario in class Usuario cannot be applied to given types;
+        usuarios.add(new Usuario(3L, "Carlos L�pez", "carlos@gmail.com", "555-0003", "40345678", "1992-11-01", "Calle Las Flores 88", "Surco", "proveedor", "carlos.jpg", true, "carlos123"));
+                     ^
+  required: no arguments
+  found:    long,String,String,String,String,String,String,String,String,String,boolean,String
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:20: error: constructor Usuario in class Usuario cannot be applied to given types;
+        usuarios.add(new Usuario(4L, "Ana Mart�nez", "ana@gmail.com", "555-0004", "40456789", "1995-07-18", "Psje. Primavera 5", "San Borja", "cliente", "ana.jpg", true, "ana123"));
+                     ^
+  required: no arguments
+  found:    long,String,String,String,String,String,String,String,String,String,boolean,String
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:29: error: cannot find symbol
+        return usuarios.stream().filter(u -> u.getId().equals(id)).findFirst();
+                                              ^
+  symbol:   method getId()
+  location: variable u of type Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:33: error: cannot find symbol
+        return usuarios.stream().filter(u -> u.getEmail().equals(email)).findFirst();
+                                              ^
+  symbol:   method getEmail()
+  location: variable u of type Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:37: error: cannot find symbol
+        return usuarios.stream().filter(u -> u.getRol().equals(rol)).toList();
+                                              ^
+  symbol:   method getRol()
+  location: variable u of type Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:41: error: cannot find symbol
+        if (usuario.getId() == null) {
+                   ^
+  symbol:   method getId()
+  location: variable usuario of type Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:42: error: cannot find symbol
+            usuario.setId(idCounter++);
+                   ^
+  symbol:   method setId(Long)
+  location: variable usuario of type Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:44: error: cannot find symbol
+        usuarios.removeIf(u -> u.getId().equals(usuario.getId()));
+                                ^
+  symbol:   method getId()
+  location: variable u of type Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:44: error: cannot find symbol
+        usuarios.removeIf(u -> u.getId().equals(usuario.getId()));
+                                                       ^
+  symbol:   method getId()
+  location: variable usuario of type Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:50: error: cannot find symbol
+        usuarios.removeIf(u -> u.getId().equals(id));
+                                ^
+  symbol:   method getId()
+  location: variable u of type Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\GeneralController.java:1: error: semanticdb-javac: com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.CompilationUnitException: file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/GeneralController.java
+
+package com.ServiGo.servigo.controller;
+^
+  Caused by: java.lang.StringIndexOutOfBoundsException: Index 558 out of bounds for length 531
+
+  	at java.base/jdk.internal.util.Preconditions$1.apply(Preconditions.java:55)
+
+  	at java.base/jdk.internal.util.Preconditions$1.apply(Preconditions.java:52)
+
+  	at java.base/jdk.internal.util.Preconditions$4.apply(Preconditions.java:213)
+
+  	at java.base/jdk.internal.util.Preconditions$4.apply(Preconditions.java:210)
+
+  	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:98)
+
+  	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+
+  	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+
+  	at java.base/java.lang.String.checkIndex(String.java:4917)
+
+  	at java.base/java.lang.StringLatin1.charAt(StringLatin1.java:46)
+
+  	at java.base/java.lang.String.charAt(String.java:1616)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.correctForTabs(SemanticdbVisitor.java:450)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.semanticdbRange(SemanticdbVisitor.java:435)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.emitSymbolOccurrence(SemanticdbVisitor.java:112)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.resolveIdentifierTree(SemanticdbVisitor.java:318)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.resolveNodes(SemanticdbVisitor.java:221)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.buildTextDocument(SemanticdbVisitor.java:96)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbTaskListener.onFinishedAnalyze(SemanticdbTaskListener.java:116)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbTaskListener.finished(SemanticdbTaskListener.java:79)
+
+  	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:876)
+
+  	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:133)
+
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1433)
+
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1390)
+
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:978)
+
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:319)
+
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:178)
+
+  	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:66)
+
+  	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:52)
+
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:17: error: constructor Servicio in class Servicio cannot be applied to given types;
+        servicios.add(new Servicio(1L, "Reparaci�n de Plomer�a", "Reparaci�n y mantenimiento de tuber�as", "Plomer�a", 50.0, "plomeria.jpg", true, 4));
+                      ^
+  required: no arguments
+  found:    long,String,String,String,double,String,boolean,int
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:18: error: constructor Servicio in class Servicio cannot be applied to given types;
+        servicios.add(new Servicio(2L, "Limpieza del Hogar", "Servicio de limpieza profunda", "Limpieza", 35.0, "limpiezadelHogar.JPG", true, 5));
+                      ^
+  required: no arguments
+  found:    long,String,String,String,double,String,boolean,int
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:19: error: constructor Servicio in class Servicio cannot be applied to given types;
+        servicios.add(new Servicio(3L, "Electricista", "Reparaci�n de instalaciones el�ctricas", "Electricidad", 60.0, "Electricista.JPG", true, 4));
+                      ^
+  required: no arguments
+  found:    long,String,String,String,double,String,boolean,int
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:20: error: constructor Servicio in class Servicio cannot be applied to given types;
+        servicios.add(new Servicio(4L, "Jardiner�a", "Mantenimiento de jardines y plantas", "Jardiner�a", 40.0, "Jardineria.jpg", true, 3));
+                      ^
+  required: no arguments
+  found:    long,String,String,String,double,String,boolean,int
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:21: error: constructor Servicio in class Servicio cannot be applied to given types;
+        servicios.add(new Servicio(5L, "Reparaci�n de Electrodom�sticos", "Arreglo de neveras, lavadoras, etc", "Electrodom�sticos", 70.0, "ReparaciondeElectrodomesticos.jpg", true, 4));
+                      ^
+  required: no arguments
+  found:    long,String,String,String,double,String,boolean,int
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:22: error: constructor Servicio in class Servicio cannot be applied to given types;
+        servicios.add(new Servicio(6L, "Pintura", "Pintura de interiores y exteriores", "Pintura", 45.0, "Pintor.jpg", true, 5));
+                      ^
+  required: no arguments
+  found:    long,String,String,String,double,String,boolean,int
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:31: error: cannot find symbol
+        return servicios.stream().filter(s -> s.getId().equals(id)).findFirst();
+                                               ^
+  symbol:   method getId()
+  location: variable s of type Servicio
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:35: error: cannot find symbol
+        if (servicio.getId() == null) {
+                    ^
+  symbol:   method getId()
+  location: variable servicio of type Servicio
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:36: error: cannot find symbol
+            servicio.setId(idCounter++);
+                    ^
+  symbol:   method setId(Long)
+  location: variable servicio of type Servicio
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:38: error: cannot find symbol
+        servicios.removeIf(s -> s.getId().equals(servicio.getId()));
+                                 ^
+  symbol:   method getId()
+  location: variable s of type Servicio
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:38: error: cannot find symbol
+        servicios.removeIf(s -> s.getId().equals(servicio.getId()));
+                                                         ^
+  symbol:   method getId()
+  location: variable servicio of type Servicio
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:44: error: cannot find symbol
+        servicios.removeIf(s -> s.getId().equals(id));
+                                 ^
+  symbol:   method getId()
+  location: variable s of type Servicio
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:18: error: constructor Notificacion in class Notificacion cannot be applied to given types;
+        notificaciones.add(new Notificacion(1L, "Nueva Oferta", "Descuento 20% en servicios de limpieza", "oferta", LocalDateTime.now().minusHours(2), false, 1L));
+                           ^
+  required: no arguments
+  found:    long,String,String,String,LocalDateTime,boolean,long
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:19: error: constructor Notificacion in class Notificacion cannot be applied to given types;
+        notificaciones.add(new Notificacion(2L, "Servicio Completado", "Tu servicio de plomer�a ha sido completado", "alerta", LocalDateTime.now().minusHours(5), true, 1L));
+                           ^
+  required: no arguments
+  found:    long,String,String,String,LocalDateTime,boolean,long
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:20: error: constructor Notificacion in class Notificacion cannot be applied to given types;
+        notificaciones.add(new Notificacion(3L, "Nuevo Mensaje", "Mar�a Garc�a te envi� un mensaje", "mensaje", LocalDateTime.now().minusMinutes(30), false, 1L));
+                           ^
+  required: no arguments
+  found:    long,String,String,String,LocalDateTime,boolean,long
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:21: error: constructor Notificacion in class Notificacion cannot be applied to given types;
+        notificaciones.add(new Notificacion(4L, "Recordatorio", "No olvides calificar el servicio", "alerta", LocalDateTime.now().minusHours(1), false, 1L));
+                           ^
+  required: no arguments
+  found:    long,String,String,String,LocalDateTime,boolean,long
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:30: error: cannot find symbol
+        return notificaciones.stream().filter(n -> n.getId().equals(id)).findFirst();
+                                                    ^
+  symbol:   method getId()
+  location: variable n of type Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:34: error: cannot find symbol
+        return notificaciones.stream().filter(n -> n.getUsuarioId().equals(usuarioId)).toList();
+                                                    ^
+  symbol:   method getUsuarioId()
+  location: variable n of type Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:39: error: cannot find symbol
+            .filter(n -> n.getUsuarioId().equals(usuarioId) && !n.getLeida())
+                          ^
+  symbol:   method getUsuarioId()
+  location: variable n of type Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:39: error: cannot find symbol
+            .filter(n -> n.getUsuarioId().equals(usuarioId) && !n.getLeida())
+                                                                 ^
+  symbol:   method getLeida()
+  location: variable n of type Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:44: error: cannot find symbol
+        if (notificacion.getId() == null) {
+                        ^
+  symbol:   method getId()
+  location: variable notificacion of type Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:45: error: cannot find symbol
+            notificacion.setId(idCounter++);
+                        ^
+  symbol:   method setId(Long)
+  location: variable notificacion of type Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:47: error: cannot find symbol
+        notificaciones.removeIf(n -> n.getId().equals(notificacion.getId()));
+                                      ^
+  symbol:   method getId()
+  location: variable n of type Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:47: error: cannot find symbol
+        notificaciones.removeIf(n -> n.getId().equals(notificacion.getId()));
+                                                                  ^
+  symbol:   method getId()
+  location: variable notificacion of type Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:53: error: cannot find symbol
+        notificaciones.removeIf(n -> n.getId().equals(id));
+                                      ^
+  symbol:   method getId()
+  location: variable n of type Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\MensajeController.java:38: error: cannot find symbol
+		long cid = contactos.stream().anyMatch(x -> x.getId().equals(conversacionId))
+		                                             ^
+  symbol:   method getId()
+  location: variable x of type ContactoConversacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\MensajeController.java:43: error: cannot find symbol
+				.filter(x -> x.getId().equals(cid))
+				              ^
+  symbol:   method getId()
+  location: variable x of type ContactoConversacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\MensajeController.java:69: error: constructor MensajeChat in class MensajeChat cannot be applied to given types;
+		MensajeChat m = new MensajeChat(null, conversacionId, false, limpio, LocalDateTime.now());
+		                ^
+  required: no arguments
+  found:    <null>,Long,boolean,String,LocalDateTime
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\MensajeController.java:76: error: constructor ContactoConversacion in class ContactoConversacion cannot be applied to given types;
+		lista.add(new ContactoConversacion(1L, "Carlos Ruiz", "Electricista",
+		          ^
+  required: no arguments
+  found:    long,String,String,String,String,String
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\MensajeController.java:78: error: constructor ContactoConversacion in class ContactoConversacion cannot be applied to given types;
+		lista.add(new ContactoConversacion(2L, "Mar�a Garc�a", "Plomera",
+		          ^
+  required: no arguments
+  found:    long,String,String,String,String,String
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\MensajeController.java:80: error: constructor ContactoConversacion in class ContactoConversacion cannot be applied to given types;
+		lista.add(new ContactoConversacion(3L, "Juan Rodr�guez", "Pintor",
+		          ^
+  required: no arguments
+  found:    long,String,String,String,String,String
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\MensajeController.java:83: error: cannot find symbol
+			mensajeChatRepository.findTopByConversacionIdOrderByCreadoEnDesc(c.getId()).ifPresent(m -> {
+			                                                                  ^
+  symbol:   method getId()
+  location: variable c of type ContactoConversacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\MensajeController.java:128: error: cannot find symbol
+
+  symbol:   variable HORA
+  location: class MensajeController
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\MensajeController.java:1: error: semanticdb-javac: com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.CompilationUnitException: file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/MensajeController.java
+
+package com.ServiGo.servigo.controller;
+^
+  Caused by: java.lang.StringIndexOutOfBoundsException: Index 4285 out of bounds for length 4224
+
+  	at java.base/jdk.internal.util.Preconditions$1.apply(Preconditions.java:55)
+
+  	at java.base/jdk.internal.util.Preconditions$1.apply(Preconditions.java:52)
+
+  	at java.base/jdk.internal.util.Preconditions$4.apply(Preconditions.java:213)
+
+  	at java.base/jdk.internal.util.Preconditions$4.apply(Preconditions.java:210)
+
+  	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:98)
+
+  	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+
+  	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+
+  	at java.base/java.lang.String.checkIndex(String.java:4917)
+
+  	at java.base/java.lang.StringUTF16.checkIndex(StringUTF16.java:1777)
+
+  	at java.base/java.lang.StringUTF16.charAt(StringUTF16.java:1575)
+
+  	at java.base/java.lang.String.charAt(String.java:1618)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.correctForTabs(SemanticdbVisitor.java:450)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.semanticdbRange(SemanticdbVisitor.java:435)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.emitSymbolOccurrence(SemanticdbVisitor.java:112)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.resolveMethodTree(SemanticdbVisitor.java:282)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.resolveNodes(SemanticdbVisitor.java:217)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.buildTextDocument(SemanticdbVisitor.java:96)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbTaskListener.onFinishedAnalyze(SemanticdbTaskListener.java:116)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbTaskListener.finished(SemanticdbTaskListener.java:79)
+
+  	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:876)
+
+  	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:133)
+
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1433)
+
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1390)
+
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:978)
+
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:319)
+
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:178)
+
+  	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:66)
+
+  	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:52)
+
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:27: error: constructor MensajeChat in class MensajeChat cannot be applied to given types;
+		mensajes.add(new MensajeChat(nextId(), 1L, true,
+		             ^
+  required: no arguments
+  found:    Long,long,boolean,String,LocalDateTime
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:29: error: constructor MensajeChat in class MensajeChat cannot be applied to given types;
+		mensajes.add(new MensajeChat(nextId(), 1L, false,
+		             ^
+  required: no arguments
+  found:    Long,long,boolean,String,LocalDateTime
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:31: error: constructor MensajeChat in class MensajeChat cannot be applied to given types;
+		mensajes.add(new MensajeChat(nextId(), 1L, true,
+		             ^
+  required: no arguments
+  found:    Long,long,boolean,String,LocalDateTime
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:33: error: constructor MensajeChat in class MensajeChat cannot be applied to given types;
+		mensajes.add(new MensajeChat(nextId(), 1L, false,
+		             ^
+  required: no arguments
+  found:    Long,long,boolean,String,LocalDateTime
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:35: error: constructor MensajeChat in class MensajeChat cannot be applied to given types;
+		mensajes.add(new MensajeChat(nextId(), 1L, true,
+		             ^
+  required: no arguments
+  found:    Long,long,boolean,String,LocalDateTime
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:39: error: constructor MensajeChat in class MensajeChat cannot be applied to given types;
+		mensajes.add(new MensajeChat(nextId(), 2L, true,
+		             ^
+  required: no arguments
+  found:    Long,long,boolean,String,LocalDateTime
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:43: error: constructor MensajeChat in class MensajeChat cannot be applied to given types;
+		mensajes.add(new MensajeChat(nextId(), 3L, true,
+		             ^
+  required: no arguments
+  found:    Long,long,boolean,String,LocalDateTime
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:53: error: cannot find symbol
+				.filter(m -> m.getConversacionId().equals(conversacionId))
+				              ^
+  symbol:   method getConversacionId()
+  location: variable m of type MensajeChat
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:54: error: invalid method reference
+				.sorted(Comparator.comparing(MensajeChat::getCreadoEn))
+				                             ^
+  cannot find symbol
+    symbol:   method getCreadoEn()
+    location: class MensajeChat
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:60: error: cannot find symbol
+				.filter(m -> m.getConversacionId().equals(conversacionId))
+				              ^
+  symbol:   method getConversacionId()
+  location: variable m of type MensajeChat
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:61: error: invalid method reference
+				.max(Comparator.comparing(MensajeChat::getCreadoEn));
+				                          ^
+  cannot find symbol
+    symbol:   method getCreadoEn()
+    location: class MensajeChat
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:65: error: cannot find symbol
+		if (m.getId() == null) {
+		     ^
+  symbol:   method getId()
+  location: variable m of type MensajeChat
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:66: error: cannot find symbol
+			m.setId(idCounter++);
+			 ^
+  symbol:   method setId(Long)
+  location: variable m of type MensajeChat
+80 errors.
+2026.05.12 16:01:25 WARN  Unexpected javac output: C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Usuario.java:8: error: cannot find symbol
+@Entity
+ ^
+  symbol: class Entity
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Usuario.java:9: error: cannot find symbol
+@Table(name = "usuarios")
+ ^
+  symbol: class Table
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Usuario.java:3: error: package jakarta.persistence does not exist
+import jakarta.persistence.*;
+              ^
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Notificacion.java:9: error: cannot find symbol
+@Entity
+ ^
+  symbol: class Entity
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Notificacion.java:10: error: cannot find symbol
+@Table(name = "notificaciones")
+ ^
+  symbol: class Table
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Servicio.java:8: error: cannot find symbol
+@Entity
+ ^
+  symbol: class Entity
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Servicio.java:9: error: cannot find symbol
+@Table(name = "servicios")
+ ^
+  symbol: class Table
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Notificacion.java:3: error: package jakarta.persistence does not exist
+import jakarta.persistence.*;
+              ^
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Servicio.java:3: error: package jakarta.persistence does not exist
+import jakarta.persistence.*;
+              ^
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Usuario.java:14: error: cannot find symbol
+    @Id
+     ^
+  symbol:   class Id
+  location: class Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Usuario.java:15: error: cannot find symbol
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+     ^
+  symbol:   class GeneratedValue
+  location: class Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Usuario.java:15: error: cannot find symbol
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+                               ^
+  symbol:   variable GenerationType
+  location: class Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Notificacion.java:15: error: cannot find symbol
+    @Id
+     ^
+  symbol:   class Id
+  location: class Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Notificacion.java:16: error: cannot find symbol
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+     ^
+  symbol:   class GeneratedValue
+  location: class Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Notificacion.java:16: error: cannot find symbol
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+                               ^
+  symbol:   variable GenerationType
+  location: class Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Servicio.java:14: error: cannot find symbol
+    @Id
+     ^
+  symbol:   class Id
+  location: class Servicio
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Servicio.java:15: error: cannot find symbol
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+     ^
+  symbol:   class GeneratedValue
+  location: class Servicio
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\model\Servicio.java:15: error: cannot find symbol
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+                               ^
+  symbol:   variable GenerationType
+  location: class Servicio
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by com.sourcegraph.shaded.com.google.protobuf.UnsafeUtil$MemoryAccessor (file:/C:/Users/mauri/AppData/Local/bloop/cache/semanticdb/com.sourcegraph.semanticdb-javac.0.11.2/semanticdb-javac-0.11.2.jar)
+WARNING: Please consider reporting this to the maintainers of class com.sourcegraph.shaded.com.google.protobuf.UnsafeUtil$MemoryAccessor
+WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\AuthController.java:46: error: constructor Usuario in class Usuario cannot be applied to given types;
+        Usuario usuario = new Usuario(
+                          ^
+  required: no arguments
+  found:    <null>,String,String,telefono ![...] : "",dni != nul[...] : "",fechaNacim[...] : "",direccion [...] : "",distrito ![...] : "",String,String,boolean,String
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\AuthController.java:78: error: cannot find symbol
+        if (usuarioOpt.isPresent() && usuarioOpt.get().getPassword().equals(password)) {
+                                                      ^
+  symbol:   method getPassword()
+  location: class Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:17: error: constructor Usuario in class Usuario cannot be applied to given types;
+        usuarios.add(new Usuario(1L, "Juan P�rez", "juan@gmail.com", "555-0001", "40123456", "1990-05-10", "Jr. Los Olivos 120", "Lima", "cliente", "juan.jpg", true, "juan123"));
+                     ^
+  required: no arguments
+  found:    long,String,String,String,String,String,String,String,String,String,boolean,String
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:18: error: constructor Usuario in class Usuario cannot be applied to given types;
+        usuarios.add(new Usuario(2L, "Mar�a Garc�a", "maria@gmail.com", "555-0002", "40234567", "1988-03-22", "Av. Arequipa 450", "Miraflores", "proveedor", "maria.jpg", true, "maria123"));
+                     ^
+  required: no arguments
+  found:    long,String,String,String,String,String,String,String,String,String,boolean,String
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:19: error: constructor Usuario in class Usuario cannot be applied to given types;
+        usuarios.add(new Usuario(3L, "Carlos L�pez", "carlos@gmail.com", "555-0003", "40345678", "1992-11-01", "Calle Las Flores 88", "Surco", "proveedor", "carlos.jpg", true, "carlos123"));
+                     ^
+  required: no arguments
+  found:    long,String,String,String,String,String,String,String,String,String,boolean,String
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:20: error: constructor Usuario in class Usuario cannot be applied to given types;
+        usuarios.add(new Usuario(4L, "Ana Mart�nez", "ana@gmail.com", "555-0004", "40456789", "1995-07-18", "Psje. Primavera 5", "San Borja", "cliente", "ana.jpg", true, "ana123"));
+                     ^
+  required: no arguments
+  found:    long,String,String,String,String,String,String,String,String,String,boolean,String
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:29: error: cannot find symbol
+        return usuarios.stream().filter(u -> u.getId().equals(id)).findFirst();
+                                              ^
+  symbol:   method getId()
+  location: variable u of type Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:33: error: cannot find symbol
+        return usuarios.stream().filter(u -> u.getEmail().equals(email)).findFirst();
+                                              ^
+  symbol:   method getEmail()
+  location: variable u of type Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:37: error: cannot find symbol
+        return usuarios.stream().filter(u -> u.getRol().equals(rol)).toList();
+                                              ^
+  symbol:   method getRol()
+  location: variable u of type Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:41: error: cannot find symbol
+        if (usuario.getId() == null) {
+                   ^
+  symbol:   method getId()
+  location: variable usuario of type Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:42: error: cannot find symbol
+            usuario.setId(idCounter++);
+                   ^
+  symbol:   method setId(Long)
+  location: variable usuario of type Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:44: error: cannot find symbol
+        usuarios.removeIf(u -> u.getId().equals(usuario.getId()));
+                                ^
+  symbol:   method getId()
+  location: variable u of type Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:44: error: cannot find symbol
+        usuarios.removeIf(u -> u.getId().equals(usuario.getId()));
+                                                       ^
+  symbol:   method getId()
+  location: variable usuario of type Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\UsuarioRepository.java:50: error: cannot find symbol
+        usuarios.removeIf(u -> u.getId().equals(id));
+                                ^
+  symbol:   method getId()
+  location: variable u of type Usuario
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\GeneralController.java:1: error: semanticdb-javac: com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.CompilationUnitException: file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/GeneralController.java
+
+package com.ServiGo.servigo.controller;
+^
+  Caused by: java.lang.StringIndexOutOfBoundsException: Index 558 out of bounds for length 531
+
+  	at java.base/jdk.internal.util.Preconditions$1.apply(Preconditions.java:55)
+
+  	at java.base/jdk.internal.util.Preconditions$1.apply(Preconditions.java:52)
+
+  	at java.base/jdk.internal.util.Preconditions$4.apply(Preconditions.java:213)
+
+  	at java.base/jdk.internal.util.Preconditions$4.apply(Preconditions.java:210)
+
+  	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:98)
+
+  	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+
+  	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+
+  	at java.base/java.lang.String.checkIndex(String.java:4917)
+
+  	at java.base/java.lang.StringLatin1.charAt(StringLatin1.java:46)
+
+  	at java.base/java.lang.String.charAt(String.java:1616)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.correctForTabs(SemanticdbVisitor.java:450)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.semanticdbRange(SemanticdbVisitor.java:435)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.emitSymbolOccurrence(SemanticdbVisitor.java:112)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.resolveIdentifierTree(SemanticdbVisitor.java:318)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.resolveNodes(SemanticdbVisitor.java:221)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.buildTextDocument(SemanticdbVisitor.java:96)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbTaskListener.onFinishedAnalyze(SemanticdbTaskListener.java:116)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbTaskListener.finished(SemanticdbTaskListener.java:79)
+
+  	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:876)
+
+  	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:133)
+
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1433)
+
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1390)
+
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:978)
+
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:319)
+
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:178)
+
+  	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:66)
+
+  	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:52)
+
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:17: error: constructor Servicio in class Servicio cannot be applied to given types;
+        servicios.add(new Servicio(1L, "Reparaci�n de Plomer�a", "Reparaci�n y mantenimiento de tuber�as", "Plomer�a", 50.0, "plomeria.jpg", true, 4));
+                      ^
+  required: no arguments
+  found:    long,String,String,String,double,String,boolean,int
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:18: error: constructor Servicio in class Servicio cannot be applied to given types;
+        servicios.add(new Servicio(2L, "Limpieza del Hogar", "Servicio de limpieza profunda", "Limpieza", 35.0, "limpiezadelHogar.JPG", true, 5));
+                      ^
+  required: no arguments
+  found:    long,String,String,String,double,String,boolean,int
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:19: error: constructor Servicio in class Servicio cannot be applied to given types;
+        servicios.add(new Servicio(3L, "Electricista", "Reparaci�n de instalaciones el�ctricas", "Electricidad", 60.0, "Electricista.JPG", true, 4));
+                      ^
+  required: no arguments
+  found:    long,String,String,String,double,String,boolean,int
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:20: error: constructor Servicio in class Servicio cannot be applied to given types;
+        servicios.add(new Servicio(4L, "Jardiner�a", "Mantenimiento de jardines y plantas", "Jardiner�a", 40.0, "Jardineria.jpg", true, 3));
+                      ^
+  required: no arguments
+  found:    long,String,String,String,double,String,boolean,int
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:21: error: constructor Servicio in class Servicio cannot be applied to given types;
+        servicios.add(new Servicio(5L, "Reparaci�n de Electrodom�sticos", "Arreglo de neveras, lavadoras, etc", "Electrodom�sticos", 70.0, "ReparaciondeElectrodomesticos.jpg", true, 4));
+                      ^
+  required: no arguments
+  found:    long,String,String,String,double,String,boolean,int
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:22: error: constructor Servicio in class Servicio cannot be applied to given types;
+        servicios.add(new Servicio(6L, "Pintura", "Pintura de interiores y exteriores", "Pintura", 45.0, "Pintor.jpg", true, 5));
+                      ^
+  required: no arguments
+  found:    long,String,String,String,double,String,boolean,int
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:31: error: cannot find symbol
+        return servicios.stream().filter(s -> s.getId().equals(id)).findFirst();
+                                               ^
+  symbol:   method getId()
+  location: variable s of type Servicio
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:35: error: cannot find symbol
+        if (servicio.getId() == null) {
+                    ^
+  symbol:   method getId()
+  location: variable servicio of type Servicio
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:36: error: cannot find symbol
+            servicio.setId(idCounter++);
+                    ^
+  symbol:   method setId(Long)
+  location: variable servicio of type Servicio
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:38: error: cannot find symbol
+        servicios.removeIf(s -> s.getId().equals(servicio.getId()));
+                                 ^
+  symbol:   method getId()
+  location: variable s of type Servicio
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:38: error: cannot find symbol
+        servicios.removeIf(s -> s.getId().equals(servicio.getId()));
+                                                         ^
+  symbol:   method getId()
+  location: variable servicio of type Servicio
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\ServicioRepository.java:44: error: cannot find symbol
+        servicios.removeIf(s -> s.getId().equals(id));
+                                 ^
+  symbol:   method getId()
+  location: variable s of type Servicio
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:18: error: constructor Notificacion in class Notificacion cannot be applied to given types;
+        notificaciones.add(new Notificacion(1L, "Nueva Oferta", "Descuento 20% en servicios de limpieza", "oferta", LocalDateTime.now().minusHours(2), false, 1L));
+                           ^
+  required: no arguments
+  found:    long,String,String,String,LocalDateTime,boolean,long
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:19: error: constructor Notificacion in class Notificacion cannot be applied to given types;
+        notificaciones.add(new Notificacion(2L, "Servicio Completado", "Tu servicio de plomer�a ha sido completado", "alerta", LocalDateTime.now().minusHours(5), true, 1L));
+                           ^
+  required: no arguments
+  found:    long,String,String,String,LocalDateTime,boolean,long
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:20: error: constructor Notificacion in class Notificacion cannot be applied to given types;
+        notificaciones.add(new Notificacion(3L, "Nuevo Mensaje", "Mar�a Garc�a te envi� un mensaje", "mensaje", LocalDateTime.now().minusMinutes(30), false, 1L));
+                           ^
+  required: no arguments
+  found:    long,String,String,String,LocalDateTime,boolean,long
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:21: error: constructor Notificacion in class Notificacion cannot be applied to given types;
+        notificaciones.add(new Notificacion(4L, "Recordatorio", "No olvides calificar el servicio", "alerta", LocalDateTime.now().minusHours(1), false, 1L));
+                           ^
+  required: no arguments
+  found:    long,String,String,String,LocalDateTime,boolean,long
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:30: error: cannot find symbol
+        return notificaciones.stream().filter(n -> n.getId().equals(id)).findFirst();
+                                                    ^
+  symbol:   method getId()
+  location: variable n of type Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:34: error: cannot find symbol
+        return notificaciones.stream().filter(n -> n.getUsuarioId().equals(usuarioId)).toList();
+                                                    ^
+  symbol:   method getUsuarioId()
+  location: variable n of type Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:39: error: cannot find symbol
+            .filter(n -> n.getUsuarioId().equals(usuarioId) && !n.getLeida())
+                          ^
+  symbol:   method getUsuarioId()
+  location: variable n of type Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:39: error: cannot find symbol
+            .filter(n -> n.getUsuarioId().equals(usuarioId) && !n.getLeida())
+                                                                 ^
+  symbol:   method getLeida()
+  location: variable n of type Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:44: error: cannot find symbol
+        if (notificacion.getId() == null) {
+                        ^
+  symbol:   method getId()
+  location: variable notificacion of type Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:45: error: cannot find symbol
+            notificacion.setId(idCounter++);
+                        ^
+  symbol:   method setId(Long)
+  location: variable notificacion of type Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:47: error: cannot find symbol
+        notificaciones.removeIf(n -> n.getId().equals(notificacion.getId()));
+                                      ^
+  symbol:   method getId()
+  location: variable n of type Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:47: error: cannot find symbol
+        notificaciones.removeIf(n -> n.getId().equals(notificacion.getId()));
+                                                                  ^
+  symbol:   method getId()
+  location: variable notificacion of type Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\NotificacionRepository.java:53: error: cannot find symbol
+        notificaciones.removeIf(n -> n.getId().equals(id));
+                                      ^
+  symbol:   method getId()
+  location: variable n of type Notificacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\MensajeController.java:38: error: cannot find symbol
+		long cid = contactos.stream().anyMatch(x -> x.getId().equals(conversacionId))
+		                                             ^
+  symbol:   method getId()
+  location: variable x of type ContactoConversacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\MensajeController.java:43: error: cannot find symbol
+				.filter(x -> x.getId().equals(cid))
+				              ^
+  symbol:   method getId()
+  location: variable x of type ContactoConversacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\MensajeController.java:69: error: constructor MensajeChat in class MensajeChat cannot be applied to given types;
+		MensajeChat m = new MensajeChat(null, conversacionId, false, limpio, LocalDateTime.now());
+		                ^
+  required: no arguments
+  found:    <null>,Long,boolean,String,LocalDateTime
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\MensajeController.java:76: error: constructor ContactoConversacion in class ContactoConversacion cannot be applied to given types;
+		lista.add(new ContactoConversacion(1L, "Carlos Ruiz", "Electricista",
+		          ^
+  required: no arguments
+  found:    long,String,String,String,String,String
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\MensajeController.java:78: error: constructor ContactoConversacion in class ContactoConversacion cannot be applied to given types;
+		lista.add(new ContactoConversacion(2L, "Mar�a Garc�a", "Plomera",
+		          ^
+  required: no arguments
+  found:    long,String,String,String,String,String
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\MensajeController.java:80: error: constructor ContactoConversacion in class ContactoConversacion cannot be applied to given types;
+		lista.add(new ContactoConversacion(3L, "Juan Rodr�guez", "Pintor",
+		          ^
+  required: no arguments
+  found:    long,String,String,String,String,String
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\MensajeController.java:83: error: cannot find symbol
+			mensajeChatRepository.findTopByConversacionIdOrderByCreadoEnDesc(c.getId()).ifPresent(m -> {
+			                                                                  ^
+  symbol:   method getId()
+  location: variable c of type ContactoConversacion
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\MensajeController.java:128: error: cannot find symbol
+
+  symbol:   variable HORA
+  location: class MensajeController
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\controller\MensajeController.java:1: error: semanticdb-javac: com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.CompilationUnitException: file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/MensajeController.java
+
+package com.ServiGo.servigo.controller;
+^
+  Caused by: java.lang.StringIndexOutOfBoundsException: Index 4285 out of bounds for length 4224
+
+  	at java.base/jdk.internal.util.Preconditions$1.apply(Preconditions.java:55)
+
+  	at java.base/jdk.internal.util.Preconditions$1.apply(Preconditions.java:52)
+
+  	at java.base/jdk.internal.util.Preconditions$4.apply(Preconditions.java:213)
+
+  	at java.base/jdk.internal.util.Preconditions$4.apply(Preconditions.java:210)
+
+  	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:98)
+
+  	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+
+  	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+
+  	at java.base/java.lang.String.checkIndex(String.java:4917)
+
+  	at java.base/java.lang.StringUTF16.checkIndex(StringUTF16.java:1777)
+
+  	at java.base/java.lang.StringUTF16.charAt(StringUTF16.java:1575)
+
+  	at java.base/java.lang.String.charAt(String.java:1618)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.correctForTabs(SemanticdbVisitor.java:450)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.semanticdbRange(SemanticdbVisitor.java:435)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.emitSymbolOccurrence(SemanticdbVisitor.java:112)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.resolveMethodTree(SemanticdbVisitor.java:282)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.resolveNodes(SemanticdbVisitor.java:217)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbVisitor.buildTextDocument(SemanticdbVisitor.java:96)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbTaskListener.onFinishedAnalyze(SemanticdbTaskListener.java:116)
+
+  	at com.sourcegraph.shaded.com.sourcegraph.semanticdb_javac.SemanticdbTaskListener.finished(SemanticdbTaskListener.java:79)
+
+  	at jdk.compiler/com.sun.tools.javac.api.ClientCodeWrapper$WrappedTaskListener.finished(ClientCodeWrapper.java:876)
+
+  	at jdk.compiler/com.sun.tools.javac.api.MultiTaskListener.finished(MultiTaskListener.java:133)
+
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1433)
+
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.flow(JavaCompiler.java:1390)
+
+  	at jdk.compiler/com.sun.tools.javac.main.JavaCompiler.compile(JavaCompiler.java:978)
+
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:319)
+
+  	at jdk.compiler/com.sun.tools.javac.main.Main.compile(Main.java:178)
+
+  	at jdk.compiler/com.sun.tools.javac.Main.compile(Main.java:66)
+
+  	at jdk.compiler/com.sun.tools.javac.Main.main(Main.java:52)
+
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:27: error: constructor MensajeChat in class MensajeChat cannot be applied to given types;
+		mensajes.add(new MensajeChat(nextId(), 1L, true,
+		             ^
+  required: no arguments
+  found:    Long,long,boolean,String,LocalDateTime
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:29: error: constructor MensajeChat in class MensajeChat cannot be applied to given types;
+		mensajes.add(new MensajeChat(nextId(), 1L, false,
+		             ^
+  required: no arguments
+  found:    Long,long,boolean,String,LocalDateTime
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:31: error: constructor MensajeChat in class MensajeChat cannot be applied to given types;
+		mensajes.add(new MensajeChat(nextId(), 1L, true,
+		             ^
+  required: no arguments
+  found:    Long,long,boolean,String,LocalDateTime
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:33: error: constructor MensajeChat in class MensajeChat cannot be applied to given types;
+		mensajes.add(new MensajeChat(nextId(), 1L, false,
+		             ^
+  required: no arguments
+  found:    Long,long,boolean,String,LocalDateTime
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:35: error: constructor MensajeChat in class MensajeChat cannot be applied to given types;
+		mensajes.add(new MensajeChat(nextId(), 1L, true,
+		             ^
+  required: no arguments
+  found:    Long,long,boolean,String,LocalDateTime
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:39: error: constructor MensajeChat in class MensajeChat cannot be applied to given types;
+		mensajes.add(new MensajeChat(nextId(), 2L, true,
+		             ^
+  required: no arguments
+  found:    Long,long,boolean,String,LocalDateTime
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:43: error: constructor MensajeChat in class MensajeChat cannot be applied to given types;
+		mensajes.add(new MensajeChat(nextId(), 3L, true,
+		             ^
+  required: no arguments
+  found:    Long,long,boolean,String,LocalDateTime
+  reason: actual and formal argument lists differ in length
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:53: error: cannot find symbol
+				.filter(m -> m.getConversacionId().equals(conversacionId))
+				              ^
+  symbol:   method getConversacionId()
+  location: variable m of type MensajeChat
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:54: error: invalid method reference
+				.sorted(Comparator.comparing(MensajeChat::getCreadoEn))
+				                             ^
+  cannot find symbol
+    symbol:   method getCreadoEn()
+    location: class MensajeChat
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:60: error: cannot find symbol
+				.filter(m -> m.getConversacionId().equals(conversacionId))
+				              ^
+  symbol:   method getConversacionId()
+  location: variable m of type MensajeChat
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:61: error: invalid method reference
+				.max(Comparator.comparing(MensajeChat::getCreadoEn));
+				                          ^
+  cannot find symbol
+    symbol:   method getCreadoEn()
+    location: class MensajeChat
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:65: error: cannot find symbol
+		if (m.getId() == null) {
+		     ^
+  symbol:   method getId()
+  location: variable m of type MensajeChat
+C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\repository\MensajeChatRepository.java:66: error: cannot find symbol
+			m.setId(idCounter++);
+			 ^
+  symbol:   method setId(Long)
+  location: variable m of type MensajeChat
+80 errors.
+2026.05.12 16:01:25 WARN  javac exited with exit code 1
+2026.05.12 16:01:25 INFO  time: compiled servigo in 4.59s
+2026.05.12 16:01:26 WARN  javac exited with exit code 1
+2026.05.12 16:01:26 INFO  time: compiled servigo in 9.97s
+2026.05.12 16:01:26 INFO  compiling servigo (17 java sources)
+2026.05.12 16:01:32 WARN  javac exited with exit code 1
+2026.05.12 16:01:32 INFO  time: compiled servigo in 5.78s
+may. 12, 2026 11:34:17 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+may. 12, 2026 11:37:29 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.05.12 23:43:17 INFO  Shutting down server
+2026.05.12 23:43:17 INFO  Memory monitor stopped
+2026.05.12 23:43:17 INFO  shutting down Metals
+2026.05.12 23:43:21 INFO  Shut down connection with build server.
+2026.05.12 23:43:24 ERROR Bloop 'bsp' command exited with code 1. Something may be wrong with the current configuration.
+Running the [1mclean[0m sub-command to clear the working directory and remove caches might help.
+If the error persists, please report the issue as a bug and attach a log with increased verbosity by passing [1m-v -v -v[0m.
+2026.05.12 23:43:29 INFO  Shutting down server
+2026.05.12 23:43:29 INFO  Memory monitor stopped
+2026.05.12 23:43:29 INFO  shutting down Metals
+2026.05.12 23:43:30 INFO  Shut down connection with build server.
+2026.06.08 10:07:30 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main' for client Visual Studio Code 1.122.1.
+2026.06.08 10:07:30 INFO  time: initialize in 0.12s
+2026.06.08 10:07:30 INFO  Memory monitor started
+2026.06.08 10:07:40 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.08 10:07:53 INFO  Attempting to connect to the build server...
+2026.06.08 10:07:53 INFO  No running Bloop server found, starting one.
+2026.06.08 10:08:07 INFO  Starting compilation server
+2026.06.08 10:08:15 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\bsp.trace.json or C:\Users\mauri\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.06.08 10:08:17 INFO  time: Connected to build server in 24s
+2026.06.08 10:08:17 INFO  Connected to Build server: Bloop v2.0.19
+2026.06.08 10:08:19 INFO  time: Imported build in 1.4s
+2026.06.08 10:08:37 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.08 10:08:50 INFO  compiling servigo (17 java sources)
+2026.06.08 10:09:16 WARN  javac exited with exit code 1
+2026.06.08 10:09:16 INFO  time: compiled servigo in 26s
+2026.06.08 10:09:16 INFO  compiling servigo (17 java sources)
+2026.06.08 10:09:17 INFO  time: indexed workspace in 57s
+2026.06.08 10:09:16 INFO  Deduplicating compilation of servigo from bsp client 'Metals 1.6.7' (since 1m 1.066s)
+2026.06.08 10:09:16 INFO  compiling servigo (17 java sources)
+2026.06.08 10:09:23 WARN  javac exited with exit code 1
+2026.06.08 10:09:23 WARN  javac exited with exit code 1
+2026.06.08 10:09:23 INFO  time: compiled servigo in 5.64s
+jun. 08, 2026 10:10:03 A. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace

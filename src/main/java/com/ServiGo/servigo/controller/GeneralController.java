@@ -21,8 +21,4 @@ public class GeneralController {
         return "favoritos";
     }
 
-    @GetMapping("/mensajes")
-    public String mensajes() {
-        return "mensajes";
-    }
 }
