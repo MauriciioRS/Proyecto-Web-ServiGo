@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suscripción Premium</title>
+    <link rel="stylesheet" href="../CSS/Suscripcion.css">
+</head>
+<body>
+
+<div class="contenedor">
+
+    <div class="tarjeta">
+
+        <h1>Plan Premium Mensual</h1>
+
+        <h2>Método de Pago</h2>
+
+        <div class="metodos">
+
+            <button onclick="mostrarMetodo('tarjeta')">
+                Tarjeta
+            </button>
+
+            <button onclick="mostrarMetodo('paypal')">
+                PayPal
+            </button>
+
+            <button onclick="mostrarMetodo('yape')">
+                Yape
+            </button>
+
+        </div>
+
+
+        <div id="tarjeta" class="pago">
+
+            <h3>Pago con Tarjeta</h3>
+
+            <input type="text" id="nombre" placeholder="Nombre del titular">
+            <input type="text" id="numero" placeholder="Número de tarjeta">
+            <input type="month" id="fecha">
+            <input type="password" id="cvv" placeholder="CVV">
+
+            <img src="../../Images/visa.png" width="50">
+
+            <button onclick="validarTarjeta()">
+                Pagar con tarjeta
+            </button>
+        </div>
+
+
+        <div id="paypal" class="pago" style="display:none;">
+
+            <h3>Pago con PayPal</h3>
+
+            <input type="email" id="correoPaypal" placeholder="Correo PayPal">
+            <input type="password" id="contraPaypal" placeholder="Contraseña">
+
+            <img src="../../Images/paypal.png" width="50">
+
+            <button onclick="validarPaypal()">
+                Pagar con PayPal
+            </button>
+
+        </div>
+
+
+        <div id="yape" class="pago" style="display:none;">
+
+            <h3>Pago con Yape</h3>
+
+            <p>Escanea el QR</p>
+
+            <img src="../../Images/QR.png" width="200">
+
+            <br>
+
+            <img src="../../Images/yape.png" width="50">
+
+            <br><br>
+
+            <button onclick="validarYape()">
+                Ya realicé el pago
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function mostrarMetodo(metodo){
+
+    document.getElementById("tarjeta").style.display = "none";
+    document.getElementById("paypal").style.display = "none";
+    document.getElementById("yape").style.display = "none";
+
+    document.getElementById(metodo).style.display = "block";
+}
+
+
+function validarTarjeta(){
+
+    let nombre = document.getElementById("nombre").value.trim();
+    let numero = document.getElementById("numero").value.trim();
+    let fecha = document.getElementById("fecha").value;
+    let cvv = document.getElementById("cvv").value.trim();
+
+
+    if(nombre === "" || numero === "" || fecha === "" || cvv === ""){
+
+        alert("⚠ Complete todos los campos");
+        return;
+    }
+
+
+    if(nombre.length < 3){
+
+        alert("⚠ Ingrese un nombre válido");
+        return;
+    }
+
+
+    if(numero.length !== 16 || isNaN(numero)){
+
+        alert("⚠ La tarjeta debe tener 16 números");
+        return;
+    }
+
+    if(cvv.length !== 3 || isNaN(cvv)){
+
+        alert("⚠ El CVV debe tener 3 números");
+        return;
+    }
+
+    alert("✅ Pago realizado con éxito");
+
+}
+
+
+function validarPaypal(){
+
+    let correo = document.getElementById("correoPaypal").value;
+    let contra = document.getElementById("contraPaypal").value;
+
+    if(correo === "" || contra === ""){
+
+        alert("⚠ Complete todos los campos de PayPal");
+
+    }else{
+
+        alert("✅ Pago PayPal realizado con éxito");
+
+    }
+}
+
+function validarYape(){
+
+    alert("✅ Pago Yape confirmado");
+
+}
+
+</script>
+
+</body>
+</html>

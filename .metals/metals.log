@@ -6689,3 +6689,6 @@ If the error persists, please report the issue as a bug and attach a log with in
 2026.06.08 10:09:23 INFO  time: compiled servigo in 5.64s
 jun. 08, 2026 10:10:03 A. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 INFO: Unsupported notification method: $/setTrace
+2026.06.08 10:15:50 INFO  compiling servigo (17 java sources)
+2026.06.08 10:15:53 WARN  javac exited with exit code 1
+2026.06.08 10:15:53 INFO  time: compiled servigo in 2.82s

@@ -1,11 +1,12 @@
 package com.ServiGo.servigo.controller;
 
-import com.ServiGo.servigo.repository.ServicioRepository;
-import com.ServiGo.servigo.repository.NotificacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.ServiGo.servigo.repository.NotificacionRepository;
+import com.ServiGo.servigo.repository.ServicioRepository;
 
 @Controller
 public class HomeController {
@@ -27,4 +28,9 @@ public class HomeController {
     public String home(Model model) {
         return "redirect:/";
     }
+
+    @GetMapping("/premium")
+    public String premium() {
+        return "suscripcion";
+    }   
 }

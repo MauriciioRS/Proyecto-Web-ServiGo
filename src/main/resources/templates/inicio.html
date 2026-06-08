@@ -68,6 +68,15 @@
                             <i class="bi bi-bell-fill"></i> Notificaciones
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="btn btn-warning btn-sm ms-2 fw-semibold"
+                        th:href="@{/premium}">
+                            <i class="bi bi-stars"></i>
+                            Hazte Premium
+                        </a>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -124,7 +133,7 @@
                                 <strong>Categoría:</strong> <span th:text="${servicio.categoria}">Cat</span>
                             </p>
                             <div class="d-flex justify-content-between align-items-center">
-                                <strong class="text-success" th:text="'$' + ${servicio.precio}">Precio</strong>
+                                <strong class="text-success" th:text="'S/.' + ${servicio.precio}">Precio</strong>
                                 <span class="badge bg-warning" th:text="${servicio.calificacion} + '★'">Rating</span>
                             </div>
                         </div>
