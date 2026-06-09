@@ -1,8 +1,14 @@
-INSERT INTO usuarios (id, nombre, email, telefono, dni, fechaNacimiento, direccion, distrito, rol, imagen, activo, password) VALUES
-  (1, 'Juan Pérez', 'juan@gmail.com', '555-0001', '40123456', '1990-05-10', 'Jr. Los Olivos 120', 'Lima', 'cliente', 'juan.jpg', TRUE, 'juan123'),
-  (2, 'María García', 'maria@gmail.com', '555-0002', '40234567', '1988-03-22', 'Av. Arequipa 450', 'Miraflores', 'proveedor', 'maria.jpg', TRUE, 'maria123'),
-  (3, 'Carlos López', 'carlos@gmail.com', '555-0003', '40345678', '1992-11-01', 'Calle Las Flores 88', 'Surco', 'proveedor', 'carlos.jpg', TRUE, 'carlos123'),
-  (4, 'Ana Martínez', 'ana@gmail.com', '555-0004', '40456789', '1995-07-18', 'Psje. Primavera 5', 'San Borja', 'cliente', 'ana.jpg', TRUE, 'ana123');
+INSERT INTO usuarios (id, nombre, email, telefono, dni, fechaNacimiento, direccion, distrito, rol, especialidad, imagen, activo, password) VALUES
+  (1, 'Juan Pérez', 'juan@gmail.com', '555-0001', '40123456', '1990-05-10', 'Jr. Los Olivos 120', 'Lima', 'cliente', NULL, 'juan.jpg', TRUE, 'juan123'),
+  (2, 'María García', 'maria@gmail.com', '555-0002', '40234567', '1988-03-22', 'Av. Arequipa 450', 'Miraflores', 'proveedor', 'Plomería', 'maria.jpg', TRUE, 'maria123'),
+  (3, 'Carlos López', 'carlos@gmail.com', '555-0003', '40345678', '1992-11-01', 'Calle Las Flores 88', 'Surco', 'proveedor', 'Electricidad', 'carlos.jpg', TRUE, 'carlos123'),
+  (4, 'Ana Martínez', 'ana@gmail.com', '555-0004', '40456789', '1995-07-18', 'Psje. Primavera 5', 'San Borja', 'cliente', NULL, 'ana.jpg', TRUE, 'ana123'),
+  (5, 'Sofía Ramos', 'sofia.ramos@gmail.com', '555-0005', '40567890', '1991-09-12', 'Av. Aviación 202', 'Surquillo', 'proveedor', 'Limpieza', 'sofia.jpg', TRUE, 'sofia123'),
+  (6, 'Luis Torres', 'luis.torres@gmail.com', '555-0006', '40678901', '1985-04-03', 'Jr. Comandante 15', 'San Isidro', 'proveedor', 'Jardinería', 'luis.jpg', TRUE, 'luis123'),
+  (7, 'Elena Díaz', 'elena.diaz@gmail.com', '555-0007', '40789012', '1993-12-21', 'Calle Los Jazmines 47', 'Chorrillos', 'proveedor', 'Electrodomésticos', 'elena.jpg', TRUE, 'elena123'),
+  (8, 'Raúl Fernández', 'raul.fernandez@gmail.com', '555-0008', '40890123', '1979-11-10', 'Av. Alemania 88', 'La Molina', 'proveedor', 'Pintura', 'raul.jpg', TRUE, 'raul123'),
+  (9, 'Marta Suárez', 'marta.suarez@gmail.com', '555-0009', '40901234', '1987-02-28', 'Jr. San Martín 321', 'Lince', 'proveedor', 'Plomería', 'marta.jpg', TRUE, 'marta123'),
+  (10, 'Diego Navarro', 'diego.navarro@gmail.com', '555-0010', '41012345', '1989-06-06', 'Av. Paseo de la República 505', 'Miraflores', 'proveedor', 'Electricidad', 'diego.jpg', TRUE, 'diego123');
 
 INSERT INTO servicios (id, nombre, descripcion, categoria, precio, imagen, disponible, calificacion) VALUES
   (1, 'Reparación de Plomería', 'Reparación y mantenimiento de tuberías', 'Plomería', 50.0, 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&h=300&fit=crop', TRUE, 4),
@@ -49,7 +55,7 @@ INSERT INTO notificaciones (id, titulo, mensaje, tipo, fecha, leida, usuarioId) 
   (4, 'Recordatorio', 'No olvides calificar el servicio', 'alerta', '2026-06-08 07:00:00', FALSE, 1);
 
 -- Reset identity sequences so auto-generated IDs don't clash with seed data
-ALTER TABLE usuarios ALTER COLUMN id RESTART WITH 5;
+ALTER TABLE usuarios ALTER COLUMN id RESTART WITH 11;
 ALTER TABLE servicios ALTER COLUMN id RESTART WITH 37;
 ALTER TABLE notificaciones ALTER COLUMN id RESTART WITH 5;
 
