@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="/CSS/navbar.css" rel="stylesheet">
     <link href="/CSS/Servicios.css" rel="stylesheet">
 </head>
 
@@ -25,7 +26,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
                     <li class="nav-item">
                         <a class="nav-link" href="/">
                             <i class="bi bi-house-door-fill"></i> Inicio
@@ -86,33 +87,38 @@
 
         <!-- Filtros -->
         <div class="filtro-section">
-            <h5>Filtrar por Categoría</h5>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <select class="form-select">
-                        <option>Todas las categorías</option>
-                        <option>Plomería</option>
-                        <option>Electricidad</option>
-                        <option>Pintura</option>
-                        <option>Limpieza</option>
-                    </select>
+            <h5>Filtrar servicios</h5>
+            <form action="/servicios" method="get">
+                <div class="row gy-3">
+                    <div class="col-md-4">
+                        <input type="search" class="form-control" name="q" th:value="${query}" placeholder="Buscar servicio..." />
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" name="categoria">
+                            <option value="" th:selected="${categoriaSeleccionada == null or categoriaSeleccionada == ''}">Todas las categorías</option>
+                            <option th:each="cat : ${categorias}" th:value="${cat}" th:text="${cat}" th:selected="${cat == categoriaSeleccionada}"></option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" name="orden">
+                            <option value="" th:selected="${ordenSeleccionado == null or ordenSeleccionado == ''}">Ordenar por...</option>
+                            <option value="precio-menor" th:selected="${ordenSeleccionado == 'precio-menor'}">Precio menor</option>
+                            <option value="precio-mayor" th:selected="${ordenSeleccionado == 'precio-mayor'}">Precio mayor</option>
+                            <option value="mejor-calificacion" th:selected="${ordenSeleccionado == 'mejor-calificacion'}">Mejor calificación</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 d-grid">
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </div>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <select class="form-select">
-                        <option>Ordenar por...</option>
-                        <option>Precio menor</option>
-                        <option>Precio mayor</option>
-                        <option>Mejor calificación</option>
-                    </select>
-                </div>
-            </div>
+            </form>
         </div>
 
         <!-- Lista de Servicios -->
         <div class="row">
             <div class="col-md-6 col-lg-4 mb-4" th:each="servicio : ${servicios}">
                 <div class="card servicio-card h-100 shadow-sm">
-                    <img th:src="@{/img/{archivo}(archivo=${servicio.imagen})}" class="card-img-top" th:alt="|${servicio.nombre} - imagen|" />
+                    <img th:src="${servicio.imagen.startsWith('http') ? servicio.imagen : '/img/' + servicio.imagen}" class="card-img-top" th:alt="|${servicio.nombre} - imagen|" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Sin+imagen';" />
                     <div class="card-body">
                         <span class="badge bg-info mb-2" th:text="${servicio.categoria}">Categoría</span>
                         <h5 class="card-title" th:text="${servicio.nombre}">Nombre Servicio</h5>

@@ -1,3 +1,7 @@
+html {
+    overflow-y: scroll;
+}
+
 .fav-card {
     transition: transform 0.2s, box-shadow 0.2s;
     border-radius: 12px;

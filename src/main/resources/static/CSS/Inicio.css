@@ -1,3 +1,7 @@
+html {
+    overflow-y: scroll;
+}
+
 
 .hero {
     background-color: #1a73e8;

@@ -2,126 +2,155 @@ package com.ServiGo.servigo.controller;
 
 import com.ServiGo.servigo.model.ContactoConversacion;
 import com.ServiGo.servigo.model.MensajeChat;
+import com.ServiGo.servigo.model.Usuario;
 import com.ServiGo.servigo.repository.MensajeChatRepository;
+import com.ServiGo.servigo.repository.UsuarioRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/mensajes")
 public class MensajeController {
 
-	@Autowired
-	private MensajeChatRepository mensajeChatRepository;
+    @Autowired
+    private MensajeChatRepository mensajeChatRepository;
 
-	@GetMapping
-	public String ver(
-			HttpSession session,
-			@RequestParam(name = "c", defaultValue = "1") Long conversacionId,
-			Model model) {
-		if (session.getAttribute("usuarioLogueado") == null) {
-			return "redirect:/iniciar-sesion";
-		}
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
-		List<ContactoConversacion> contactos = buildContactos();
-		long cid = contactos.stream().anyMatch(x -> x.getId().equals(conversacionId))
-				? conversacionId
-				: 1L;
+    // conversacionId única entre dos usuarios: min(id1,id2)*10000 + max(id1,id2)
+    private static long convId(long a, long b) {
+        return Math.min(a, b) * 10000L + Math.max(a, b);
+    }
 
-		ContactoConversacion actual = contactos.stream()
-				.filter(x -> x.getId().equals(cid))
-				.findFirst()
-				.orElse(contactos.get(0));
+    @GetMapping
+    public String ver(
+            HttpSession session,
+            @RequestParam(name = "c", required = false) Long otroUsuarioId,
+            Model model) {
+        Usuario yo = (Usuario) session.getAttribute("usuarioLogueado");
+        if (yo == null) return "redirect:/iniciar-sesion";
 
-		model.addAttribute("contactos", contactos);
-		model.addAttribute("conversacionId", cid);
-		model.addAttribute("contactoActual", actual);
-		model.addAttribute("mensajes", mensajeChatRepository.findByConversacionIdOrderByCreadoEnAsc(cid));
-		return "mensajes";
-	}
+        List<ContactoConversacion> contactos = buildContactos(yo);
+        if (contactos.isEmpty()) {
+            model.addAttribute("contactos", contactos);
+            model.addAttribute("mensajes", List.of());
+            model.addAttribute("sinContactos", true);
+            return "mensajes";
+        }
 
-	@PostMapping("/enviar")
-	public String enviar(
-			HttpSession session,
-			@RequestParam("conversacionId") Long conversacionId,
-			@RequestParam("texto") String texto) {
-		if (session.getAttribute("usuarioLogueado") == null) {
-			return "redirect:/iniciar-sesion";
-		}
-		if (texto == null || texto.isBlank()) {
-			return "redirect:/mensajes?c=" + conversacionId;
-		}
-		String limpio = texto.trim();
-		if (limpio.length() > 2000) {
-			limpio = limpio.substring(0, 2000);
-		}
-		MensajeChat m = new MensajeChat(null, conversacionId, false, limpio, LocalDateTime.now());
-		mensajeChatRepository.save(m);
-		return "redirect:/mensajes?c=" + conversacionId;
-	}
+        final Long requestedId = otroUsuarioId;
+        boolean validContact = requestedId != null
+                && contactos.stream().anyMatch(c -> c.getId().equals(requestedId));
+        final long otroId = validContact ? requestedId : contactos.get(0).getId();
+        ContactoConversacion actual = contactos.stream()
+                .filter(c -> c.getId().equals(otroId)).findFirst()
+                .orElse(contactos.get(0));
 
-	private List<ContactoConversacion> buildContactos() {
-		List<ContactoConversacion> lista = new ArrayList<>();
-		lista.add(new ContactoConversacion(1L, "Carlos Ruiz", "Electricista",
-				"https://ui-avatars.com/api/?name=Carlos+Ruiz&background=0d6efd&color=fff&size=128", "", ""));
-		lista.add(new ContactoConversacion(2L, "María García", "Plomera",
-				"https://ui-avatars.com/api/?name=Maria+Garcia&background=198754&color=fff&size=128", "", ""));
-		lista.add(new ContactoConversacion(3L, "Juan Rodríguez", "Pintor",
-				"https://ui-avatars.com/api/?name=Juan+Rodriguez&background=fd7e14&color=fff&size=128", "", ""));
-		for (ContactoConversacion c : lista) {
-			mensajeChatRepository.findTopByConversacionIdOrderByCreadoEnDesc(c.getId()).ifPresent(m -> {
-				c.setUltimaVistaPrevia(vistaPrevia(m.getTexto()));
-				c.setUltimoTiempoRelativo(tiempoRelativo(m.getCreadoEn()));
-			});
-		}
-		return lista;
-	}
+        long cid = convId(yo.getId(), otroId);
+        List<MensajeChat> mensajes = mensajeChatRepository.findByConversacionIdOrderByCreadoEnAsc(cid);
 
-	private static String vistaPrevia(String texto) {
-		if (texto == null) {
-			return "";
-		}
-		String t = texto.replaceAll("\\s+", " ").trim();
-		if (t.length() <= 56) {
-			return t;
-		}
-		return t.substring(0, 53) + "…";
-	}
+        model.addAttribute("contactos", contactos);
+        model.addAttribute("otroUsuarioId", otroId);
+        model.addAttribute("conversacionId", cid);
+        model.addAttribute("contactoActual", actual);
+        model.addAttribute("mensajes", mensajes);
+        model.addAttribute("miId", yo.getId());
+        model.addAttribute("lastId", mensajes.isEmpty() ? 0 : mensajes.get(mensajes.size() - 1).getId());
+        return "mensajes";
+    }
 
-	private static String tiempoRelativo(LocalDateTime cuando) {
-		if (cuando == null) {
-			return "";
-		}
-		Duration d = Duration.between(cuando, LocalDateTime.now());
-		if (d.isNegative()) {
-			return "Ahora";
-		}
-		long mins = d.toMinutes();
-		if (mins < 1) {
-			return "Ahora";
-		}
-		if (mins < 60) {
-			return mins + "m";
-		}
-		long hours = d.toHours();
-		if (hours < 24) {
-			return hours + "h";
-		}
-		long days = d.toDays();
-		if (days < 7) {
-			return days + "d";
-		}
-		return cuando.toLocalDate().format(DateTimeFormatter.ofPattern("dd/MM"));
-	}
+    @PostMapping("/enviar")
+    public String enviar(
+            HttpSession session,
+            @RequestParam("otroUsuarioId") Long otroUsuarioId,
+            @RequestParam("texto") String texto) {
+        Usuario yo = (Usuario) session.getAttribute("usuarioLogueado");
+        if (yo == null) return "redirect:/iniciar-sesion";
+        if (texto == null || texto.isBlank()) return "redirect:/mensajes?c=" + otroUsuarioId;
+
+        String limpio = texto.trim();
+        if (limpio.length() > 2000) limpio = limpio.substring(0, 2000);
+
+        long cid = convId(yo.getId(), otroUsuarioId);
+        MensajeChat m = new MensajeChat(null, cid, yo.getId(), false, limpio, LocalDateTime.now());
+        mensajeChatRepository.save(m);
+        return "redirect:/mensajes?c=" + otroUsuarioId;
+    }
+
+    // Polling AJAX: devuelve JSON de mensajes nuevos después de lastId
+    @GetMapping("/nuevos")
+    @ResponseBody
+    public ResponseEntity<List<Map<String, Object>>> nuevos(
+            HttpSession session,
+            @RequestParam("c") Long otroUsuarioId,
+            @RequestParam(name = "desde", defaultValue = "0") Long lastId) {
+        Usuario yo = (Usuario) session.getAttribute("usuarioLogueado");
+        if (yo == null) return ResponseEntity.status(401).build();
+
+        long cid = convId(yo.getId(), otroUsuarioId);
+        List<MensajeChat> nuevos = mensajeChatRepository
+                .findByConversacionIdAndIdGreaterThanOrderByCreadoEnAsc(cid, lastId);
+
+        List<Map<String, Object>> result = nuevos.stream().map(msg -> {
+            Map<String, Object> r = new LinkedHashMap<>();
+            r.put("id", msg.getId());
+            r.put("texto", msg.getTexto());
+            r.put("hora", msg.getHoraCorta());
+            r.put("mio", Objects.equals(msg.getSenderUserId(), yo.getId()));
+            return r;
+        }).collect(Collectors.toList());
+
+        return ResponseEntity.ok(result);
+    }
+
+    private List<ContactoConversacion> buildContactos(Usuario yo) {
+        return usuarioRepository.findAll().stream()
+                .filter(u -> !u.getId().equals(yo.getId()))
+                .map(u -> {
+                    String avatar = "https://ui-avatars.com/api/?name="
+                            + u.getNombre().replace(" ", "+")
+                            + "&background=0d6efd&color=fff&size=128";
+                    ContactoConversacion c = new ContactoConversacion(
+                            u.getId(), u.getNombre(), u.getRol(), avatar, "", "");
+                    long cid = convId(yo.getId(), u.getId());
+                    mensajeChatRepository.findTopByConversacionIdOrderByCreadoEnDesc(cid)
+                            .ifPresent(m -> {
+                                c.setUltimaVistaPrevia(vistaPrevia(m.getTexto()));
+                                c.setUltimoTiempoRelativo(tiempoRelativo(m.getCreadoEn()));
+                            });
+                    return c;
+                })
+                .collect(Collectors.toList());
+    }
+
+    private static String vistaPrevia(String texto) {
+        if (texto == null) return "";
+        String t = texto.replaceAll("\\s+", " ").trim();
+        return t.length() <= 56 ? t : t.substring(0, 53) + "…";
+    }
+
+    private static String tiempoRelativo(LocalDateTime cuando) {
+        if (cuando == null) return "";
+        Duration d = Duration.between(cuando, LocalDateTime.now());
+        if (d.isNegative()) return "Ahora";
+        long mins = d.toMinutes();
+        if (mins < 1) return "Ahora";
+        if (mins < 60) return mins + "m";
+        long hours = d.toHours();
+        if (hours < 24) return hours + "h";
+        long days = d.toDays();
+        if (days < 7) return days + "d";
+        return cuando.toLocalDate().format(DateTimeFormatter.ofPattern("dd/MM"));
+    }
 }

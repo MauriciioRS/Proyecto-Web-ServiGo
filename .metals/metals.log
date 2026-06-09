@@ -6692,3 +6692,284 @@ INFO: Unsupported notification method: $/setTrace
 2026.06.08 10:15:50 INFO  compiling servigo (17 java sources)
 2026.06.08 10:15:53 WARN  javac exited with exit code 1
 2026.06.08 10:15:53 INFO  time: compiled servigo in 2.82s
+2026.06.08 10:34:45 INFO  compiling servigo (17 java sources)
+2026.06.08 10:34:54 WARN  javac exited with exit code 1
+2026.06.08 10:34:54 INFO  time: compiled servigo in 8.81s
+2026.06.08 10:35:08 INFO  empty definition using pc, found symbol in pc: org/springframework/data/jpa/repository/JpaRepository# (full report at: "C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\.reports\metals-full\2026-06-08\r_empty-definition_(servigo)_10-35-08-053.md")
+2026.06.08 10:35:08 INFO  Created report: Optional[file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/model/MensajeChat.java]
+2026.06.08 10:35:08 INFO  Created report: Optional[file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/model/MensajeChat.java]
+2026.06.08 10:35:08 INFO  empty definition using pc, found symbol in pc: org/springframework/data/jpa/repository/JpaRepository# (full report at: "C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\.reports\metals-full\2026-06-08\r_empty-definition_(servigo)_10-35-08-053.md")
+2026.06.08 10:35:08 INFO  Created report: Optional[file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/repository/MensajeChatRepository.java]
+2026.06.08 10:35:08 INFO  empty definition using pc, found symbol in pc: _empty_/Entity# (full report at: "C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\.reports\metals-full\2026-06-08\r_empty-definition_(servigo)_10-35-08-216.md")
+2026.06.08 10:35:08 INFO  empty definition using pc, found symbol in pc: _empty_/Table# (full report at: "C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\.reports\metals-full\2026-06-08\r_empty-definition_(servigo)_10-35-08-204.md")
+2026.06.08 10:35:08 INFO  empty definition using pc, found symbol in pc: org/springframework/data/jpa/repository/JpaRepository# (full report at: "C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\.reports\metals-full\2026-06-08\r_empty-definition_(servigo)_10-35-08-053.md")
+2026.06.08 10:35:08 INFO  empty definition using pc, found symbol in pc: org/springframework/data/jpa/repository/JpaRepository# (full report at: "C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\.reports\metals-full\2026-06-08\r_empty-definition_(servigo)_10-35-08-053.md")
+2026.06.08 10:48:53 INFO  compiling servigo (17 java sources)
+2026.06.08 10:49:05 WARN  javac exited with exit code 1
+2026.06.08 10:49:05 INFO  time: compiled servigo in 12s
+2026.06.08 10:57:25 INFO  compiling servigo (17 java sources)
+2026.06.08 10:57:44 WARN  javac exited with exit code 1
+2026.06.08 10:57:44 INFO  time: compiled servigo in 19s
+2026.06.08 11:06:23 INFO  compiling servigo (17 java sources)
+2026.06.08 11:06:36 WARN  javac exited with exit code 1
+2026.06.08 11:06:36 INFO  time: compiled servigo in 12s
+2026.06.08 11:08:53 INFO  compiling servigo (17 java sources)
+2026.06.08 11:08:59 WARN  javac exited with exit code 1
+2026.06.08 11:08:59 INFO  time: compiled servigo in 5.52s
+2026.06.08 11:11:24 INFO  compiling servigo (17 java sources)
+2026.06.08 11:11:31 WARN  javac exited with exit code 1
+2026.06.08 11:11:31 INFO  time: compiled servigo in 6.63s
+jun. 08, 2026 11:28:42 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 28
+jun. 08, 2026 11:28:46 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 36
+2026.06.08 12:16:25 INFO  compiling servigo (17 java sources)
+2026.06.08 12:16:39 WARN  javac exited with exit code 1
+2026.06.08 12:16:39 INFO  time: compiled servigo in 13s
+2026.06.08 13:00:00 INFO  file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/repository/ServicioRepository.java:4:47: stale bloop error:  error: package org.springframework.data.jpa.repository does not exist
+import org.springframework.data.jpa.repository.JpaRepository;
+                                              ^
+2026.06.08 13:00:00 INFO  file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/repository/ServicioRepository.java:8:45: stale bloop error:  error: cannot find symbol
+public interface ServicioRepository extends JpaRepository<Servicio, Long> {
+                                            ^
+2026.06.08 13:00:01 INFO  compiling servigo (17 java sources)
+2026.06.08 13:00:07 WARN  javac exited with exit code 1
+2026.06.08 13:00:07 INFO  time: compiled servigo in 6.19s
+2026.06.08 13:00:07 INFO  compiling servigo (17 java sources)
+2026.06.08 13:00:11 WARN  javac exited with exit code 1
+2026.06.08 13:00:11 INFO  time: compiled servigo in 3.42s
+2026.06.08 13:04:46 INFO  compiling servigo (17 java sources)
+2026.06.08 13:04:57 WARN  javac exited with exit code 1
+2026.06.08 13:04:57 INFO  time: compiled servigo in 11s
+2026.06.08 13:04:57 INFO  compiling servigo (17 java sources)
+2026.06.08 13:05:03 WARN  javac exited with exit code 1
+2026.06.08 13:05:03 INFO  time: compiled servigo in 6.38s
+2026.06.08 13:10:42 INFO  file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/repository/ServicioRepository.java:5:47: stale bloop error:  error: package org.springframework.data.jpa.repository does not exist
+import org.springframework.data.jpa.repository.JpaRepository;
+                                              ^
+2026.06.08 13:10:42 INFO  file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/repository/ServicioRepository.java:6:47: stale bloop error:  error: package org.springframework.data.jpa.repository does not exist
+import org.springframework.data.jpa.repository.Query;
+                                              ^
+2026.06.08 13:10:42 INFO  file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/repository/ServicioRepository.java:7:49: stale bloop error:  error: package org.springframework.data.repository.query does not exist
+import org.springframework.data.repository.query.Param;
+                                                ^
+2026.06.08 13:10:42 INFO  file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/repository/ServicioRepository.java:11:45: stale bloop error:  error: cannot find symbol
+public interface ServicioRepository extends JpaRepository<Servicio, Long> {
+                                            ^
+2026.06.08 13:10:42 INFO  file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/repository/ServicioRepository.java:18:28: stale bloop error:  error: cannot find symbol
+    List<Servicio> search(@Param("q") String q, @Param("categoria") String categoria);
+                           ^
+2026.06.08 13:10:42 INFO  file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/repository/ServicioRepository.java:18:50: stale bloop error:  error: cannot find symbol
+    List<Servicio> search(@Param("q") String q, @Param("categoria") String categoria);
+                                                 ^
+2026.06.08 13:10:42 INFO  file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/repository/ServicioRepository.java:13:6: stale bloop error:  error: cannot find symbol
+    @Query("""
+     ^
+2026.06.08 13:10:42 INFO  file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/repository/ServicioRepository.java:20:6: stale bloop error:  error: cannot find symbol
+    @Query("SELECT DISTINCT s.categoria FROM Servicio s ORDER BY s.categoria")
+     ^
+2026.06.08 13:10:43 INFO  compiling servigo (17 java sources)
+2026.06.08 13:10:52 WARN  javac exited with exit code 1
+2026.06.08 13:10:52 INFO  time: compiled servigo in 9.58s
+jun. 08, 2026 5:09:07 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 162
+jun. 08, 2026 5:09:07 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 165
+jun. 08, 2026 6:59:05 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+jun. 08, 2026 6:59:30 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+jun. 08, 2026 7:12:59 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 215
+2026.06.08 19:13:55 INFO  compiling servigo (17 java sources)
+2026.06.08 19:14:10 WARN  javac exited with exit code 1
+2026.06.08 19:14:10 INFO  time: compiled servigo in 15s
+jun. 08, 2026 7:14:13 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 231
+jun. 08, 2026 7:14:14 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 232
+jun. 08, 2026 7:14:14 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 238
+2026.06.08 19:15:23 INFO  compiling servigo (17 java sources)
+2026.06.08 19:15:33 WARN  javac exited with exit code 1
+2026.06.08 19:15:33 INFO  time: compiled servigo in 9.65s
+2026.06.08 19:15:33 INFO  compiling servigo (17 java sources)
+2026.06.08 19:15:39 WARN  javac exited with exit code 1
+2026.06.08 19:15:39 INFO  time: compiled servigo in 6.14s
+2026.06.08 19:40:38 INFO  Shutting down server
+2026.06.08 19:40:38 INFO  Memory monitor stopped
+2026.06.08 19:40:38 INFO  shutting down Metals
+2026.06.08 19:40:39 INFO  Shut down connection with build server.
+2026.06.08 19:40:38 INFO  Exiting server
+2026.06.08 19:43:29 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main' for client Visual Studio Code 1.123.0.
+2026.06.08 19:43:29 INFO  Memory monitor started
+2026.06.08 19:43:30 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.08 19:43:31 INFO  Attempting to connect to the build server...
+2026.06.08 19:43:31 INFO  Found a Bloop server running
+2026.06.08 19:43:31 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\bsp.trace.json or C:\Users\mauri\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.06.08 19:43:31 INFO  time: Connected to build server in 0.56s
+2026.06.08 19:43:31 INFO  Connected to Build server: Bloop v2.0.19
+2026.06.08 19:43:31 INFO  time: Imported build in 0.35s
+2026.06.08 19:43:35 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.08 19:43:37 INFO  time: indexed workspace in 5.44s
+2026.06.08 19:43:37 INFO  compiling servigo (17 java sources)
+2026.06.08 19:43:41 WARN  javac exited with exit code 1
+2026.06.08 19:43:41 INFO  time: compiled servigo in 3.7s
+jun. 08, 2026 7:45:38 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/MensajeController.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/MensajeController.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/MensajeController.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+
+jun. 08, 2026 7:50:19 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/MensajeController.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/MensajeController.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/MensajeController.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+
+jun. 08, 2026 7:50:19 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3
+jun. 08, 2026 7:50:19 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4
+jun. 08, 2026 7:50:19 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 6
+jun. 08, 2026 7:50:29 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/MensajeController.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/MensajeController.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/MensajeController.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+
+jun. 08, 2026 7:50:51 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/MensajeController.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/MensajeController.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/MensajeController.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+

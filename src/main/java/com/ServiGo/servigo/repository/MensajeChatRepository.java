@@ -11,4 +11,5 @@ import java.util.Optional;
 public interface MensajeChatRepository extends JpaRepository<MensajeChat, Long> {
     List<MensajeChat> findByConversacionIdOrderByCreadoEnAsc(Long conversacionId);
     Optional<MensajeChat> findTopByConversacionIdOrderByCreadoEnDesc(Long conversacionId);
+    List<MensajeChat> findByConversacionIdAndIdGreaterThanOrderByCreadoEnAsc(Long conversacionId, Long lastId);
 }

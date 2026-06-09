@@ -1,3 +1,14 @@
+error id: file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/model/MensajeChat.java:_empty_/Table#
+file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/model/MensajeChat.java
+empty definition using pc, found symbol in pc: _empty_/Table#
+semanticdb not found
+empty definition using fallback
+non-local guesses:
+
+offset: 387
+uri: file:///C:/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/model/MensajeChat.java
+text:
+```scala
 package com.ServiGo.servigo.model;
 
 import jakarta.persistence.*;
@@ -13,7 +24,7 @@ import java.time.format.DateTimeFormatter;
  * Mensaje en una conversación demo. {@code delProveedor=true} = burbuja izquierda (profesional).
  */
 @Entity
-@Table(name = "mensajes")
+@@@Table(name = "mensajes")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,7 +35,6 @@ public class MensajeChat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long conversacionId;
-    private Long senderUserId;
     private boolean delProveedor;
     private String texto;
     private LocalDateTime creadoEn;
@@ -39,3 +49,10 @@ public class MensajeChat {
         return creadoEn.format(HORA);
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/Table#
