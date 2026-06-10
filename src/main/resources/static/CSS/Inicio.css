@@ -4,7 +4,7 @@ html {
 
 
 .hero {
-    background-color: #1a73e8;
+    background-color: #2563eb;
     padding: 64px 24px;
     text-align: center;
 }
@@ -65,12 +65,12 @@ html {
 }
 
 .hero-search button:hover {
-    background: #8eb6ea;
+    background: #bfdbfe;
 }
 
 /* Estilos adicionales para la página de inicio */
 .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
     color: white;
     padding: 60px 20px;
     text-align: center;
@@ -157,11 +157,11 @@ html {
 
 .navbar-nav .nav-link:hover {
     background-color: #f8f9fa;
-    color: #0d6efd;
+    color: #2563eb;
 }
 
 .navbar-nav .nav-link.active {
-    color: #0d6efd;
+    color: #2563eb;
     font-weight: 600;
 }
 
@@ -216,6 +216,16 @@ html {
 .servicio-card-img {
     height: 200px;
     object-fit: cover;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #0f172a, #1e3a8a) !important;
+    border: none !important;
+    transition: opacity 0.2s !important;
+}
+
+.btn-primary:hover {
+    opacity: 0.85 !important;
 }
 
 .notificacion-badge {

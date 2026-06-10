@@ -120,7 +120,7 @@
                 <div class="card servicio-card h-100 shadow-sm">
                     <img th:src="${servicio.imagen.startsWith('http') ? servicio.imagen : '/img/' + servicio.imagen}" class="card-img-top" th:alt="|${servicio.nombre} - imagen|" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Sin+imagen';" />
                     <div class="card-body">
-                        <span class="badge bg-info mb-2" th:text="${servicio.categoria}">Categoría</span>
+                        <span class="badge badge-categoria mb-2" th:text="${servicio.categoria}">Categoría</span>
                         <h5 class="card-title" th:text="${servicio.nombre}">Nombre Servicio</h5>
                         <p class="card-text text-muted" th:text="${servicio.descripcion}">Descripción</p>
                         

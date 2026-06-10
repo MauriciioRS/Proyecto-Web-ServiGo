@@ -36,7 +36,7 @@
                             <i class="bi bi-suitcase-lg-fill"></i> Servicios
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" th:if="${session.usuarioLogueado == null}">
                         <a class="nav-link" th:href="@{/quienes-somos}">
                             <i class="bi bi-info-circle-fill"></i> Quiénes Somos
                         </a>

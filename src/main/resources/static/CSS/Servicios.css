@@ -24,22 +24,24 @@ html {
 }
 
 .navbar {
-    border-bottom: 2px solid #1a73e8;
+    border-bottom: 2px solid #2563eb;
 }
 
 .nav-link.active {
-    color: #1a73e8 !important;
+    color: #2563eb !important;
     font-weight: 700;
 }
 
 .btn-primary {
-    background-color: #1a73e8;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
     border: none;
     padding: 10px;
+    transition: opacity 0.2s;
 }
 
 .btn-primary:hover {
-    background-color: #1557b0;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    opacity: 0.85;
 }
 
 /* Estilos adicionales para servicios */
@@ -57,4 +59,13 @@ html {
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 30px;
+}
+
+.badge-categoria {
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: .03em;
+    padding: .35em .75em;
+    border-radius: 20px;
 }

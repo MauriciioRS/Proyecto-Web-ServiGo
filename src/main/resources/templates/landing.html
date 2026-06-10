@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ServiGo - Encuentra el servicio que necesitas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --accent:  #0891b2;
+            --dark:    #0f172a;
+            --dark-mid:#1e3a8a;
+            --gold:    #f59e0b;
+        }
+
+        * { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ── Navbar ── */
+        .navbar-landing {
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 12px rgba(0,0,0,.08);
+            padding: .75rem 0;
+        }
+        .navbar-brand span { color: var(--accent); }
+        .btn-nav-login {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 25px;
+            padding: .35rem 1.2rem;
+            font-weight: 600;
+            transition: all .25s;
+        }
+        .btn-nav-login:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+        .btn-nav-register {
+            background: linear-gradient(135deg, var(--primary), var(--dark-mid));
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: .35rem 1.2rem;
+            font-weight: 600;
+            transition: opacity .25s;
+        }
+        .btn-nav-register:hover { opacity: .88; color: #fff; }
+
+        /* ── Hero ── */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-mid) 100%);
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -120px; right: -120px;
+            width: 480px; height: 480px;
+            background: rgba(255,255,255,.07);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px; left: -80px;
+            width: 320px; height: 320px;
+            background: rgba(255,255,255,.05);
+            border-radius: 50%;
+        }
+        .hero-badge {
+            background: rgba(255,255,255,.2);
+            color: #fff;
+            border-radius: 25px;
+            padding: .3rem 1rem;
+            font-size: .85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.2rem;
+        }
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.15;
+        }
+        .hero h1 span {
+            color: var(--gold);
+            text-decoration: underline;
+            text-decoration-color: rgba(245,158,11,.4);
+        }
+        .hero p { color: rgba(255,255,255,.88); font-size: 1.15rem; }
+
+        .hero-search {
+            background: #fff;
+            border-radius: 50px;
+            padding: .5rem .5rem .5rem 1.5rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,.18);
+            max-width: 560px;
+        }
+        .hero-search input {
+            border: none;
+            outline: none;
+            flex: 1;
+            font-size: 1rem;
+            background: transparent;
+        }
+        .hero-search button {
+            background: linear-gradient(135deg, var(--primary), var(--dark-mid));
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: .65rem 1.6rem;
+            font-weight: 700;
+            white-space: nowrap;
+            transition: opacity .2s;
+        }
+        .hero-search button:hover { opacity: .9; }
+
+        .hero-stat { text-align: center; }
+        .hero-stat .num {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: #fff;
+        }
+        .hero-stat .lbl { color: rgba(255,255,255,.75); font-size: .85rem; }
+
+        .hero-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,.2);
+            max-width: 340px;
+        }
+        .service-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            background: rgba(255,255,255,.12);
+            border: 1px solid rgba(255,255,255,.25);
+            border-radius: 20px;
+            padding: .4rem .9rem;
+            font-size: .82rem;
+            font-weight: 600;
+            color: #fff;
+            margin: .2rem;
+        }
+
+        /* ── How it works ── */
+        .step-num {
+            width: 56px; height: 56px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin: 0 auto 1rem;
+            box-shadow: 0 6px 20px rgba(37,99,235,.35);
+        }
+
+        /* ── Categories ── */
+        .category-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,.07);
+            transition: transform .25s, box-shadow .25s;
+            cursor: pointer;
+            border: 2px solid transparent;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .category-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(37,99,235,.18);
+            border-color: var(--primary);
+            color: inherit;
+        }
+        .category-icon {
+            width: 64px; height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 1rem;
+        }
+
+        /* ── Benefits ── */
+        .benefit-icon {
+            width: 52px; height: 52px;
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* ── Testimonials ── */
+        .testimonial-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,.07);
+            height: 100%;
+        }
+        .stars { color: #ffc107; }
+        .avatar {
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* ── CTA Banner ── */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-mid) 100%);
+            border-radius: 24px;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 280px; height: 280px;
+            background: rgba(8,145,178,.15);
+            border-radius: 50%;
+        }
+        .btn-cta-white {
+            background: #fff;
+            color: var(--primary);
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            padding: .8rem 2.2rem;
+            font-size: 1rem;
+            transition: all .25s;
+        }
+        .btn-cta-white:hover {
+            background: var(--gold);
+            color: var(--dark);
+        }
+        .btn-cta-outline {
+            background: transparent;
+            color: #fff;
+            font-weight: 700;
+            border: 2px solid rgba(255,255,255,.5);
+            border-radius: 50px;
+            padding: .8rem 2.2rem;
+            font-size: 1rem;
+            transition: all .25s;
+        }
+        .btn-cta-outline:hover {
+            background: rgba(255,255,255,.12);
+            color: #fff;
+            border-color: #fff;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: #020617;
+            color: rgba(255,255,255,.65);
+        }
+        footer h6 { color: #fff; font-weight: 700; margin-bottom: 1rem; }
+        footer a { color: rgba(255,255,255,.6); text-decoration: none; display: block; margin-bottom: .4rem; }
+        footer a:hover { color: #fff; }
+        .footer-brand { color: #fff; font-size: 1.4rem; font-weight: 800; }
+        .footer-brand span { color: var(--accent); }
+        .social-btn {
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.12);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,.7);
+            font-size: 1rem;
+            margin-right: .4rem;
+            transition: background .2s, color .2s;
+        }
+        .social-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+        /* ── Section helpers ── */
+        .section-label {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: .85rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+        .section-title {
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 800;
+            color: #1a1a2e;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<nav class="navbar navbar-expand-lg navbar-landing sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-4" href="/landing">
+            <i class="bi bi-tools" style="color:var(--accent)"></i>
+            Servi<span>Go</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navLanding">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navLanding">
+            <ul class="navbar-nav mx-auto gap-1">
+                <li class="nav-item"><a class="nav-link fw-500" href="#como-funciona">Cómo funciona</a></li>
+                <li class="nav-item"><a class="nav-link fw-500" href="#categorias">Servicios</a></li>
+                <li class="nav-item"><a class="nav-link fw-500" href="#beneficios">Beneficios</a></li>
+                <li class="nav-item"><a class="nav-link fw-500" href="#testimonios">Testimonios</a></li>
+            </ul>
+            <div class="d-flex gap-2 mt-2 mt-lg-0">
+                <a th:href="@{/iniciar-sesion}" href="/iniciar-sesion" class="btn btn-nav-login">Iniciar sesión</a>
+                <a th:href="@{/registro}" href="/registro" class="btn btn-nav-register">Registrarse gratis</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+    <div class="container py-5 position-relative" style="z-index:1">
+        <div class="row align-items-center g-5">
+            <!-- Left -->
+            <div class="col-lg-6">
+                <div class="hero-badge">
+                    <i class="bi bi-lightning-fill me-1"></i> Más de 500 profesionales disponibles
+                </div>
+                <h1>Encuentra el <span>servicio</span><br>que necesitas,<br>cuando lo necesitas</h1>
+                <p class="my-4">Conectamos a personas con los mejores profesionales en plomería, electricidad, pintura,
+                    carpintería y mucho más. Rápido, seguro y confiable.</p>
+
+                <div class="hero-search mb-4">
+                    <i class="bi bi-search text-muted me-2"></i>
+                    <input type="text" placeholder="¿Qué servicio buscas? ej: plomero, electricista..." />
+                    <a th:href="@{/servicios}" href="/servicios">
+                        <button type="button">Buscar</button>
+                    </a>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2 mb-5">
+                    <span class="service-chip"><i class="bi bi-wrench"></i> Plomería</span>
+                    <span class="service-chip"><i class="bi bi-lightning"></i> Electricidad</span>
+                    <span class="service-chip"><i class="bi bi-brush"></i> Pintura</span>
+                    <span class="service-chip"><i class="bi bi-house-gear"></i> Carpintería</span>
+                    <span class="service-chip"><i class="bi bi-plus"></i> Más</span>
+                </div>
+
+                <div class="row g-3 text-center text-lg-start">
+                    <div class="col-4 hero-stat">
+                        <div class="num">500+</div>
+                        <div class="lbl">Profesionales</div>
+                    </div>
+                    <div class="col-4 hero-stat">
+                        <div class="num">2K+</div>
+                        <div class="lbl">Clientes felices</div>
+                    </div>
+                    <div class="col-4 hero-stat">
+                        <div class="num">4.8★</div>
+                        <div class="lbl">Valoración media</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Floating card -->
+            <div class="col-lg-6 d-flex justify-content-center">
+                <div class="hero-card">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <div class="avatar">JR</div>
+                        <div>
+                            <div class="fw-bold">Juan Rodríguez</div>
+                            <div class="text-muted small">Electricista certificado</div>
+                        </div>
+                        <span class="badge ms-auto" style="background:#e8f5e9;color:#2e7d32">Disponible</span>
+                    </div>
+                    <div class="stars mb-2">★★★★★ <span class="text-muted small ms-1">4.9 (128 reseñas)</span></div>
+                    <p class="text-muted small mb-3">
+                        Instalaciones eléctricas, tableros, mantenimiento preventivo y correctivo. +8 años de experiencia.
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="fw-bold fs-5" style="color:var(--accent)">S/. 80 <span class="text-muted fw-normal fs-6">/ hora</span></span>
+                        <span class="badge bg-light text-dark"><i class="bi bi-geo-alt-fill me-1"></i>Arequipa</span>
+                    </div>
+                    <a th:href="@{/servicios}" href="/servicios"
+                        class="btn w-100 text-white fw-bold"
+                        style="background:linear-gradient(135deg,var(--dark),var(--dark-mid));border-radius:12px">
+                        Ver perfil completo
+                    </a>
+                    <!-- Mini cards below -->
+                    <div class="row g-2 mt-3">
+                        <div class="col-6">
+                            <div class="p-2 rounded-3 text-center" style="background:#f8f9fa">
+                                <div class="fw-bold" style="color:var(--primary)">48</div>
+                                <div class="text-muted" style="font-size:.75rem">Trabajos</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-2 rounded-3 text-center" style="background:#f8f9fa">
+                                <div class="fw-bold text-success">100%</div>
+                                <div class="text-muted" style="font-size:.75rem">Satisfacción</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ HOW IT WORKS ═══════════════ -->
+<section id="como-funciona" class="py-6" style="padding:5rem 0;background:#f8fafc">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="section-label mb-2">Proceso simple</div>
+            <h2 class="section-title">¿Cómo funciona ServiGo?</h2>
+            <p class="text-muted mx-auto" style="max-width:520px">En solo tres pasos conectas con el profesional
+                ideal para tu necesidad.</p>
+        </div>
+        <div class="row g-4 text-center">
+            <div class="col-md-4">
+                <div class="step-num">1</div>
+                <h5 class="fw-bold">Busca el servicio</h5>
+                <p class="text-muted">Escribe lo que necesitas o navega por nuestras categorías. Filtra por precio,
+                    calificación o ubicación.</p>
+            </div>
+            <div class="col-md-4">
+                <div class="step-num">2</div>
+                <h5 class="fw-bold">Elige tu profesional</h5>
+                <p class="text-muted">Revisa perfiles, valoraciones y precios. Contacta directamente al proveedor
+                    que más te convenza.</p>
+            </div>
+            <div class="col-md-4">
+                <div class="step-num">3</div>
+                <h5 class="fw-bold">Recibe el servicio</h5>
+                <p class="text-muted">Coordina la cita, recibe el servicio y califica al profesional para ayudar
+                    a toda la comunidad.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ CATEGORIES ═══════════════ -->
+<section id="categorias" class="py-6" style="padding:5rem 0">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="section-label mb-2">Explora</div>
+            <h2 class="section-title">Categorías de servicios</h2>
+            <p class="text-muted">Encuentra profesionales en todas las áreas que necesitas</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-6 col-md-4 col-lg-2">
+                <a th:href="@{/servicios}" href="/servicios" class="category-card">
+                    <div class="category-icon mx-auto" style="background:#e3f2fd">
+                        <i class="bi bi-droplet-fill" style="color:#1565c0"></i>
+                    </div>
+                    <div class="fw-semibold">Plomería</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a th:href="@{/servicios}" href="/servicios" class="category-card">
+                    <div class="category-icon mx-auto" style="background:#fff8e1">
+                        <i class="bi bi-lightning-charge-fill" style="color:#f57f17"></i>
+                    </div>
+                    <div class="fw-semibold">Electricidad</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a th:href="@{/servicios}" href="/servicios" class="category-card">
+                    <div class="category-icon mx-auto" style="background:#fce4ec">
+                        <i class="bi bi-brush-fill" style="color:#c62828"></i>
+                    </div>
+                    <div class="fw-semibold">Pintura</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a th:href="@{/servicios}" href="/servicios" class="category-card">
+                    <div class="category-icon mx-auto" style="background:#e8f5e9">
+                        <i class="bi bi-tree-fill" style="color:#2e7d32"></i>
+                    </div>
+                    <div class="fw-semibold">Jardinería</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a th:href="@{/servicios}" href="/servicios" class="category-card">
+                    <div class="category-icon mx-auto" style="background:#ede7f6">
+                        <i class="bi bi-house-gear-fill" style="color:#4527a0"></i>
+                    </div>
+                    <div class="fw-semibold">Carpintería</div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <a th:href="@{/servicios}" href="/servicios" class="category-card">
+                    <div class="category-icon mx-auto" style="background:#e0f7fa">
+                        <i class="bi bi-snow" style="color:#00838f"></i>
+                    </div>
+                    <div class="fw-semibold">Climatización</div>
+                </a>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <a th:href="@{/servicios}" href="/servicios"
+                class="btn btn-lg text-white px-5"
+                style="background:linear-gradient(135deg,var(--dark),var(--dark-mid));border-radius:50px;font-weight:700">
+                Ver todos los servicios <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ BENEFITS ═══════════════ -->
+<section id="beneficios" style="padding:5rem 0;background:#f8fafc">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-5">
+                <div class="section-label mb-2">¿Por qué elegirnos?</div>
+                <h2 class="section-title mb-4">Todo lo que necesitas en una sola plataforma</h2>
+                <p class="text-muted">ServiGo es la forma más rápida y confiable de contratar servicios del hogar
+                    y profesionales en tu ciudad.</p>
+            </div>
+            <div class="col-lg-7">
+                <div class="row g-4">
+                    <div class="col-sm-6">
+                        <div class="d-flex gap-3">
+                            <div class="benefit-icon"><i class="bi bi-shield-check-fill"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Profesionales verificados</h6>
+                                <p class="text-muted small mb-0">Cada proveedor pasa por un proceso de validación
+                                    de identidad y experiencia.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex gap-3">
+                            <div class="benefit-icon"><i class="bi bi-star-fill"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Calificaciones reales</h6>
+                                <p class="text-muted small mb-0">Reseñas auténticas de clientes que ya usaron el
+                                    servicio.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex gap-3">
+                            <div class="benefit-icon"><i class="bi bi-chat-dots-fill"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Chat integrado</h6>
+                                <p class="text-muted small mb-0">Comunícate directamente con el profesional desde
+                                    la plataforma.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex gap-3">
+                            <div class="benefit-icon"><i class="bi bi-bell-fill"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Notificaciones en tiempo real</h6>
+                                <p class="text-muted small mb-0">Recibe alertas de estado de tu servicio al instante.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex gap-3">
+                            <div class="benefit-icon"><i class="bi bi-heart-fill"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Lista de favoritos</h6>
+                                <p class="text-muted small mb-0">Guarda tus proveedores preferidos para contratarlos
+                                    rápidamente.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex gap-3">
+                            <div class="benefit-icon"><i class="bi bi-gem"></i></div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Plan Premium</h6>
+                                <p class="text-muted small mb-0">Accede a servicios exclusivos y proveedores top
+                                    con nuestra membresía.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ TESTIMONIALS ═══════════════ -->
+<section id="testimonios" style="padding:5rem 0">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="section-label mb-2">Testimonios</div>
+            <h2 class="section-title">Lo que dicen nuestros usuarios</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="stars mb-3">★★★★★</div>
+                    <p class="text-muted mb-4">"Encontré un electricista en menos de 10 minutos. Llegó puntual,
+                        hizo un trabajo excelente y el precio fue muy justo. Totalmente recomendado."</p>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar">MC</div>
+                        <div>
+                            <div class="fw-bold">María C.</div>
+                            <div class="text-muted small">Cliente verificada · Arequipa</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="stars mb-3">★★★★★</div>
+                    <p class="text-muted mb-4">"Soy plomero y desde que me uní a ServiGo mis ingresos aumentaron
+                        significativamente. La plataforma es muy fácil de usar y los clientes son serios."</p>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar">PV</div>
+                        <div>
+                            <div class="fw-bold">Pedro V.</div>
+                            <div class="text-muted small">Proveedor verificado · Lima</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-card">
+                    <div class="stars mb-3">★★★★☆</div>
+                    <p class="text-muted mb-4">"El sistema de calificaciones me ayudó a elegir al mejor pintor.
+                        Mi departamento quedó impecable. Muy buena experiencia, volveré a usar ServiGo."</p>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar">LT</div>
+                        <div>
+                            <div class="fw-bold">Lucía T.</div>
+                            <div class="text-muted small">Cliente verificada · Cusco</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ CTA BANNER ═══════════════ -->
+<section style="padding:5rem 0;background:#f8fafc">
+    <div class="container">
+        <div class="cta-banner text-center">
+            <h2 class="text-white fw-800 mb-3" style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800">
+                ¿Listo para empezar?
+            </h2>
+            <p class="mb-4" style="color:rgba(255,255,255,.85);font-size:1.1rem;max-width:500px;margin:0 auto 1.5rem">
+                Únete a miles de usuarios que ya confían en ServiGo para sus servicios del hogar.
+            </p>
+            <div class="d-flex flex-wrap gap-3 justify-content-center">
+                <a th:href="@{/registro}" href="/registro" class="btn btn-cta-white">
+                    <i class="bi bi-person-plus-fill me-2"></i>Crear cuenta gratis
+                </a>
+                <a th:href="@{/servicios}" href="/servicios" class="btn btn-cta-outline">
+                    <i class="bi bi-search me-2"></i>Explorar servicios
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="py-5">
+    <div class="container">
+        <div class="row g-4 pb-4">
+            <div class="col-lg-4">
+                <div class="footer-brand mb-3">
+                    <i class="bi bi-tools"></i> Servi<span>Go</span>
+                </div>
+                <p style="font-size:.9rem">La plataforma que conecta a personas con los mejores profesionales de
+                    servicios del hogar en tu ciudad.</p>
+                <div class="mt-3">
+                    <a href="#" class="social-btn"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="social-btn"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="social-btn"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h6>Plataforma</h6>
+                <a th:href="@{/servicios}" href="/servicios">Servicios</a>
+                <a th:href="@{/registro}" href="/registro">Registrarse</a>
+                <a th:href="@{/iniciar-sesion}" href="/iniciar-sesion">Iniciar sesión</a>
+                <a th:href="@{/Suscripcion}" href="/Suscripcion">Premium</a>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h6>Empresa</h6>
+                <a th:href="@{/quienes-somos}" href="/quienes-somos">Quiénes somos</a>
+                <a th:href="@{/contactanos}" href="/contactanos">Contáctanos</a>
+                <a href="#">Blog</a>
+                <a href="#">Prensa</a>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h6>Soporte</h6>
+                <a href="#">Centro de ayuda</a>
+                <a href="#">Términos de uso</a>
+                <a href="#">Privacidad</a>
+                <a href="#">Cookies</a>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h6>Contacto</h6>
+                <a href="#"><i class="bi bi-envelope me-1"></i>hola@servigo.pe</a>
+                <a href="#"><i class="bi bi-telephone me-1"></i>+51 900 000 000</a>
+                <a href="#"><i class="bi bi-geo-alt me-1"></i>Arequipa, Perú</a>
+            </div>
+        </div>
+        <hr style="border-color:rgba(255,255,255,.1)">
+        <div class="d-flex flex-wrap justify-content-between align-items-center pt-3" style="font-size:.85rem">
+            <span>© 2026 ServiGo. Todos los derechos reservados.</span>
+            <span>Hecho con <i class="bi bi-heart-fill text-danger"></i> en Perú</span>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmB4HKAbZkIvGBNHwFHq4R/enm1C"
+    crossorigin="anonymous"></script>
+</body>
+</html>

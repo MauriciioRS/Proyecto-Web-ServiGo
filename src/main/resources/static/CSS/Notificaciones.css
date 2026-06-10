@@ -20,7 +20,7 @@ html {
 .unread-dot {
     width: 10px;
     height: 10px;
-    background-color: #1a73e8;
+    background-color: #2563eb;
     border-radius: 50%;
     margin-left: 10px;
     align-self: center;
@@ -32,11 +32,11 @@ html {
 }
 
 .list-group-item:hover {
-    border-left: 4px solid #1a73e8;
+    border-left: 4px solid #2563eb;
     background-color: #f8f9fa;
 }
 
-.bg-primary-subtle { background-color: #e7f0ff; }
+.bg-primary-subtle { background-color: #dbeafe; }
 .bg-success-subtle { background-color: #e6f9ed; }
 .bg-warning-subtle { background-color: #fff8e6; }
 
@@ -46,7 +46,7 @@ h3 {
 
 /* Estilos adicionales para notificaciones */
 .notificacion-item {
-    border-left: 4px solid #007bff;
+    border-left: 4px solid #2563eb;
     padding: 15px;
     margin-bottom: 10px;
     background-color: #f8f9fa;

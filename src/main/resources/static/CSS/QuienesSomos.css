@@ -3,7 +3,7 @@ html {
 }
 
 .hero-about {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
     color: white;
     padding: 80px 20px;
     text-align: center;
@@ -42,5 +42,5 @@ html {
 .stat-number {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #667eea;
+    color: #2563eb;
 }

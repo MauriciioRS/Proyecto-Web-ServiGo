@@ -44,11 +44,11 @@
 
 .navbar-nav .nav-link:hover {
     background-color: #f8f9fa;
-    color: #0d6efd;
+    color: #2563eb;
 }
 
 .navbar-nav .nav-link.active {
-    color: #0d6efd;
+    color: #2563eb;
     font-weight: 600;
 }
 
