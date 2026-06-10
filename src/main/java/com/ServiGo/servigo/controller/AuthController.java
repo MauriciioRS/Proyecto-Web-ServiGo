@@ -31,6 +31,7 @@ public class AuthController {
             @RequestParam String direccion,
             @RequestParam String distrito,
             @RequestParam("tipo-cuenta") String tipoCuenta,
+            @RequestParam(required = false) String especialidad,
             @RequestParam String email,
             @RequestParam String telefono,
             @RequestParam String password,
@@ -42,6 +43,14 @@ public class AuthController {
 
         String nombreCompleto = nombres.trim() + " " + apellidos.trim();
         String rol = "contratista".equalsIgnoreCase(tipoCuenta) ? "proveedor" : "cliente";
+        String especialidadFinal = "proveedor".equalsIgnoreCase(rol)
+                ? (especialidad != null && !especialidad.isBlank() ? especialidad.trim() : null)
+                : null;
+
+        if ("proveedor".equalsIgnoreCase(rol) && especialidadFinal == null) {
+            redirectAttributes.addFlashAttribute("error", "Selecciona una especialidad para registrarte como contratista.");
+            return "redirect:/registro";
+        }
 
         Usuario usuario = new Usuario(
                 null,
@@ -53,6 +62,7 @@ public class AuthController {
                 direccion != null ? direccion.trim() : "",
                 distrito != null ? distrito.trim() : "",
                 rol,
+                especialidadFinal,
                 "default.png",
                 true,
                 password

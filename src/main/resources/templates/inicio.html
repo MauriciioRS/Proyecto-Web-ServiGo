@@ -96,14 +96,11 @@
             <h1 class="hero-title">Encuentra el profesional que necesitas</h1>
             <p class="hero-subtitle">Plomeros, electricistas, pintores y más — cerca de ti</p>
 
-            <form class="hero-search" action="/" method="get">
-                <input type="search" name="q" placeholder="¿Qué servicio necesitas?" />
-                <select name="categoria">
-                    <option value="">Todas las categorías</option>
-                    <option th:each="cat : ${categorias}" th:value="${cat}" th:text="${cat}" th:selected="${cat == categoriaSeleccionada}"></option>
-                </select>
-                <button type="submit" class="btn btn-primary">Buscar</button>
-            </form>
+            <div class="btnServicios d-flex flex-column flex-sm-row align-items-center justify-content-center gap-3">
+                <a class="btn btn-primary btn-lg px-5 py-3 fw-semibold" th:href="@{/servicios}">
+                    Ir a Servicios
+                </a>
+            </div>
         </div>
     </section>
 
