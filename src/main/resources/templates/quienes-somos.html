@@ -37,7 +37,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
+                        <a class="nav-link active" th:href="@{/quienes-somos}">
                             <i class="bi bi-info-circle-fill"></i> Quiénes Somos
                         </a>
                     </li>
@@ -58,9 +58,16 @@
                     </li>
                     <li class="nav-item" th:if="${session.usuarioLogueado != null}">
                         <a class="nav-link" th:href="@{/notificaciones}">
-                            <i class="bi bi-bell-fill"></i> Notificaciones
+                            <i class="bi bi-grid-1x2-fill"></i> Mis Solicitudes
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="btn btn-warning btn-sm ms-2 fw-semibold" th:href="@{/premium}">
+                            <i class="bi bi-stars"></i> Hazte Premium
+                        </a>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -105,7 +112,7 @@
                 </p>
             </div>
             <div class="col-lg-6 d-flex align-items-center">
-                <img th:src="@{/img/quienesSomos.png}" class="img-fluid rounded shadow w-100" alt="Equipo de ServiGo atendiendo a una familia en el hogar">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&auto=format&fit=crop" class="img-fluid rounded shadow w-100" alt="Equipo de ServiGo atendiendo a una familia en el hogar">
             </div>
         </div>
 
@@ -175,7 +182,7 @@
             </div>
             <div class="col-md-4">
                 <div class="team-member">
-                    <img th:src="@{/img/gerente1.png}" class="rounded-circle" alt="Retrato de María González, CEO y fundadora de ServiGo">
+                    <img src="https://ui-avatars.com/api/?name=Mario+Gonzalez&background=2563eb&color=fff&size=128" class="rounded-circle" alt="Mario González, CEO y fundador de ServiGo">
                     <h5>Mario González</h5>
                     <p class="text-muted">CEO & Fundador</p>
                     <p class="small">Apasionada por conectar personas y crear soluciones innovadoras para el mercado de servicios.</p>
@@ -183,7 +190,7 @@
             </div>
             <div class="col-md-4">
                 <div class="team-member">
-                    <img th:src="@{/img/gerente2.png}" class="rounded-circle" alt="Retrato de Carlos Rodríguez, CTO de ServiGo">
+                    <img src="https://ui-avatars.com/api/?name=Ana+Rodriguez&background=0891b2&color=fff&size=128" class="rounded-circle" alt="Ana Rodríguez, CTO de ServiGo">
                     <h5>Ana Rodríguez</h5>
                     <p class="text-muted">CTO</p>
                     <p class="small">Experto en tecnología con más de 10 años desarrollando plataformas digitales escalables.</p>
@@ -191,7 +198,7 @@
             </div>
             <div class="col-md-4">
                 <div class="team-member">
-                    <img th:src="@{/img/gerente3.png}" class="rounded-circle" alt="Retrato de Ana López, COO de ServiGo">
+                    <img src="https://ui-avatars.com/api/?name=Marcos+Lopez&background=1e3a8a&color=fff&size=128" class="rounded-circle" alt="Marcos López, COO de ServiGo">
                     <h5>Marcos López</h5>
                     <p class="text-muted">COO</p>
                     <p class="small">Especialista en operaciones y experiencia de usuario, enfocada en la satisfacción del cliente.</p>

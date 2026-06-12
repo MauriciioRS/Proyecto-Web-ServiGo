@@ -3,6 +3,9 @@ package com.ServiGo.servigo.controller;
 import java.util.Comparator;
 import java.util.List;
 
+import com.ServiGo.servigo.model.Usuario;
+import com.ServiGo.servigo.repository.FavoritoRepository;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,10 +20,13 @@ import com.ServiGo.servigo.repository.ServicioRepository;
 @Controller
 @RequestMapping("/servicios")
 public class ServicioController {
-    
+
     @Autowired
     private ServicioRepository servicioRepository;
-    
+
+    @Autowired
+    private FavoritoRepository favoritoRepository;
+
     @GetMapping
     public String listaServicios(
             @RequestParam(required = false) String q,
@@ -37,7 +43,7 @@ public class ServicioController {
         model.addAttribute("ordenSeleccionado", ordenar);
         return "servicios";
     }
-    
+
     private void sortServicios(List<Servicio> servicios, String ordenar) {
         if (ordenar == null) {
             return;
@@ -49,15 +55,18 @@ public class ServicioController {
             default -> {}
         }
     }
-    
+
     @GetMapping("/{id}")
-    public String detalleServicio(@PathVariable Long id, Model model) {
+    public String detalleServicio(@PathVariable Long id, HttpSession session, Model model) {
         var servicio = servicioRepository.findById(id);
-        if (servicio.isPresent()) {
-            model.addAttribute("servicio", servicio.get());
-            return "servicio-detalle";
+        if (servicio.isEmpty()) return "redirect:/servicios";
+
+        model.addAttribute("servicio", servicio.get());
+        Usuario usuario = (Usuario) session.getAttribute("usuarioLogueado");
+        if (usuario != null) {
+            model.addAttribute("esFavorito",
+                    favoritoRepository.existsByUsuarioIdAndServicioId(usuario.getId(), id));
         }
-        return "redirect:/servicios";
+        return "servicio-detalle";
     }
 }
- 

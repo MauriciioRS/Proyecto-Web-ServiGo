@@ -1,32 +1,22 @@
 package com.ServiGo.servigo.controller;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.ServiGo.servigo.model.ContactoConversacion;
 import com.ServiGo.servigo.model.MensajeChat;
 import com.ServiGo.servigo.model.Usuario;
 import com.ServiGo.servigo.repository.MensajeChatRepository;
 import com.ServiGo.servigo.repository.UsuarioRepository;
-
 import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/mensajes")
@@ -122,23 +112,6 @@ public class MensajeController {
         }).collect(Collectors.toList());
 
         return ResponseEntity.ok(result);
-    }
-
-    @PostMapping("/start-with-provider")
-    @ResponseBody
-    public ResponseEntity<Map<String, Long>> startWithProvider(HttpSession session) {
-        Usuario yo = (Usuario) session.getAttribute("usuarioLogueado");
-        if (yo == null) return ResponseEntity.status(401).build();
-
-        Optional<Usuario> proveedor = usuarioRepository.findAll().stream()
-                .filter(u -> "proveedor".equalsIgnoreCase(u.getRol()))
-                .findFirst();
-
-        if (proveedor.isEmpty()) return ResponseEntity.status(404).build();
-
-        Map<String, Long> res = new LinkedHashMap<>();
-        res.put("otroUsuarioId", proveedor.get().getId());
-        return ResponseEntity.ok(res);
     }
 
     private List<ContactoConversacion> buildContactos(Usuario yo) {

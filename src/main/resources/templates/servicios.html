@@ -37,7 +37,7 @@
                             <i class="bi bi-suitcase-lg-fill"></i> Servicios
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" th:if="${session.usuarioLogueado == null}">
                         <a class="nav-link" th:href="@{/quienes-somos}">
                             <i class="bi bi-info-circle-fill"></i> Quiénes Somos
                         </a>
@@ -59,9 +59,16 @@
                     </li>
                     <li class="nav-item" th:if="${session.usuarioLogueado != null}">
                         <a class="nav-link" th:href="@{/notificaciones}">
-                            <i class="bi bi-bell-fill"></i> Notificaciones
+                            <i class="bi bi-grid-1x2-fill"></i> Mis Solicitudes
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="btn btn-warning btn-sm ms-2 fw-semibold" th:href="@{/premium}">
+                            <i class="bi bi-stars"></i> Hazte Premium
+                        </a>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">

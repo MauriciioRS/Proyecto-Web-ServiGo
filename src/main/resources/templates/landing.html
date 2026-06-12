@@ -158,6 +158,14 @@
             font-weight: 600;
             color: #fff;
             margin: .2rem;
+            text-decoration: none;
+            transition: background .2s, border-color .2s;
+            cursor: pointer;
+        }
+        .service-chip:hover {
+            background: rgba(255,255,255,.25);
+            border-color: rgba(255,255,255,.6);
+            color: #fff;
         }
 
         /* ── How it works ── */
@@ -359,7 +367,7 @@
     <div class="container py-5 position-relative" style="z-index:1">
         <div class="row align-items-center g-5">
             <!-- Left -->
-            <div class="col-lg-6">
+            <div class="col-lg-8 mx-auto text-center">
                 <div class="hero-badge">
                     <i class="bi bi-lightning-fill me-1"></i> Más de 500 profesionales disponibles
                 </div>
@@ -367,23 +375,21 @@
                 <p class="my-4">Conectamos a personas con los mejores profesionales en plomería, electricidad, pintura,
                     carpintería y mucho más. Rápido, seguro y confiable.</p>
 
-                <div class="hero-search mb-4">
+                <form class="hero-search mb-4 mx-auto" action="/servicios" method="get" th:action="@{/servicios}">
                     <i class="bi bi-search text-muted me-2"></i>
-                    <input type="text" placeholder="¿Qué servicio buscas? ej: plomero, electricista..." />
-                    <a th:href="@{/servicios}" href="/servicios">
-                        <button type="button">Buscar</button>
-                    </a>
+                    <input type="text" name="q" placeholder="¿Qué servicio buscas? ej: plomero, electricista..." />
+                    <button type="submit">Buscar</button>
+                </form>
+
+                <div class="d-flex flex-wrap gap-2 mb-5 justify-content-center">
+                    <a href="/servicios?categoria=Plomería" th:href="@{/servicios(categoria='Plomería')}" class="service-chip"><i class="bi bi-wrench"></i> Plomería</a>
+                    <a href="/servicios?categoria=Electricidad" th:href="@{/servicios(categoria='Electricidad')}" class="service-chip"><i class="bi bi-lightning"></i> Electricidad</a>
+                    <a href="/servicios?categoria=Pintura" th:href="@{/servicios(categoria='Pintura')}" class="service-chip"><i class="bi bi-brush"></i> Pintura</a>
+                    <a href="/servicios?categoria=Carpintería" th:href="@{/servicios(categoria='Carpintería')}" class="service-chip"><i class="bi bi-house-gear"></i> Carpintería</a>
+                    <a href="/servicios" th:href="@{/servicios}" class="service-chip"><i class="bi bi-plus"></i> Más</a>
                 </div>
 
-                <div class="d-flex flex-wrap gap-2 mb-5">
-                    <span class="service-chip"><i class="bi bi-wrench"></i> Plomería</span>
-                    <span class="service-chip"><i class="bi bi-lightning"></i> Electricidad</span>
-                    <span class="service-chip"><i class="bi bi-brush"></i> Pintura</span>
-                    <span class="service-chip"><i class="bi bi-house-gear"></i> Carpintería</span>
-                    <span class="service-chip"><i class="bi bi-plus"></i> Más</span>
-                </div>
-
-                <div class="row g-3 text-center text-lg-start">
+                <div class="row g-3 text-center justify-content-center">
                     <div class="col-4 hero-stat">
                         <div class="num">500+</div>
                         <div class="lbl">Profesionales</div>
@@ -395,48 +401,6 @@
                     <div class="col-4 hero-stat">
                         <div class="num">4.8★</div>
                         <div class="lbl">Valoración media</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right: Floating card -->
-            <div class="col-lg-6 d-flex justify-content-center">
-                <div class="hero-card">
-                    <div class="d-flex align-items-center gap-3 mb-3">
-                        <div class="avatar">JR</div>
-                        <div>
-                            <div class="fw-bold">Juan Rodríguez</div>
-                            <div class="text-muted small">Electricista certificado</div>
-                        </div>
-                        <span class="badge ms-auto" style="background:#e8f5e9;color:#2e7d32">Disponible</span>
-                    </div>
-                    <div class="stars mb-2">★★★★★ <span class="text-muted small ms-1">4.9 (128 reseñas)</span></div>
-                    <p class="text-muted small mb-3">
-                        Instalaciones eléctricas, tableros, mantenimiento preventivo y correctivo. +8 años de experiencia.
-                    </p>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="fw-bold fs-5" style="color:var(--accent)">S/. 80 <span class="text-muted fw-normal fs-6">/ hora</span></span>
-                        <span class="badge bg-light text-dark"><i class="bi bi-geo-alt-fill me-1"></i>Arequipa</span>
-                    </div>
-                    <a th:href="@{/servicios}" href="/servicios"
-                        class="btn w-100 text-white fw-bold"
-                        style="background:linear-gradient(135deg,var(--dark),var(--dark-mid));border-radius:12px">
-                        Ver perfil completo
-                    </a>
-                    <!-- Mini cards below -->
-                    <div class="row g-2 mt-3">
-                        <div class="col-6">
-                            <div class="p-2 rounded-3 text-center" style="background:#f8f9fa">
-                                <div class="fw-bold" style="color:var(--primary)">48</div>
-                                <div class="text-muted" style="font-size:.75rem">Trabajos</div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="p-2 rounded-3 text-center" style="background:#f8f9fa">
-                                <div class="fw-bold text-success">100%</div>
-                                <div class="text-muted" style="font-size:.75rem">Satisfacción</div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -708,10 +672,10 @@
                 <p style="font-size:.9rem">La plataforma que conecta a personas con los mejores profesionales de
                     servicios del hogar en tu ciudad.</p>
                 <div class="mt-3">
-                    <a href="#" class="social-btn"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="social-btn"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="social-btn"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" class="social-btn"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener" class="social-btn"><i class="bi bi-facebook"></i></a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener" class="social-btn"><i class="bi bi-instagram"></i></a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener" class="social-btn"><i class="bi bi-twitter-x"></i></a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-btn"><i class="bi bi-linkedin"></i></a>
                 </div>
             </div>
             <div class="col-6 col-lg-2">
@@ -719,27 +683,27 @@
                 <a th:href="@{/servicios}" href="/servicios">Servicios</a>
                 <a th:href="@{/registro}" href="/registro">Registrarse</a>
                 <a th:href="@{/iniciar-sesion}" href="/iniciar-sesion">Iniciar sesión</a>
-                <a th:href="@{/Suscripcion}" href="/Suscripcion">Premium</a>
+                <a th:href="@{/premium}" href="/premium">Premium</a>
             </div>
             <div class="col-6 col-lg-2">
                 <h6>Empresa</h6>
                 <a th:href="@{/quienes-somos}" href="/quienes-somos">Quiénes somos</a>
                 <a th:href="@{/contactanos}" href="/contactanos">Contáctanos</a>
-                <a href="#">Blog</a>
-                <a href="#">Prensa</a>
+                <a th:href="@{/contactanos}" href="/contactanos">Blog</a>
+                <a th:href="@{/contactanos}" href="/contactanos">Prensa</a>
             </div>
             <div class="col-6 col-lg-2">
                 <h6>Soporte</h6>
-                <a href="#">Centro de ayuda</a>
-                <a href="#">Términos de uso</a>
-                <a href="#">Privacidad</a>
-                <a href="#">Cookies</a>
+                <a th:href="@{/contactanos}" href="/contactanos">Centro de ayuda</a>
+                <a th:href="@{/contactanos}" href="/contactanos">Términos de uso</a>
+                <a th:href="@{/contactanos}" href="/contactanos">Privacidad</a>
+                <a th:href="@{/contactanos}" href="/contactanos">Cookies</a>
             </div>
             <div class="col-6 col-lg-2">
                 <h6>Contacto</h6>
-                <a href="#"><i class="bi bi-envelope me-1"></i>hola@servigo.pe</a>
-                <a href="#"><i class="bi bi-telephone me-1"></i>+51 900 000 000</a>
-                <a href="#"><i class="bi bi-geo-alt me-1"></i>Arequipa, Perú</a>
+                <a href="mailto:hola@servigo.pe"><i class="bi bi-envelope me-1"></i>hola@servigo.pe</a>
+                <a href="tel:+51900000000"><i class="bi bi-telephone me-1"></i>+51 900 000 000</a>
+                <a th:href="@{/contactanos}" href="/contactanos"><i class="bi bi-geo-alt me-1"></i>Arequipa, Perú</a>
             </div>
         </div>
         <hr style="border-color:rgba(255,255,255,.1)">

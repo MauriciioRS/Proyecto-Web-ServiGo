@@ -15,7 +15,10 @@
             <h2 class="text-center mb-3">Cambiar Contraseña</h2>
             <p class="subtitulo text-center text-muted mb-4">Ingresa tu nueva contraseña</p>
 
-            <form class="formulario-password">
+            <div th:if="${error}" class="alert alert-danger mb-3" role="alert" th:text="${error}"></div>
+            <div th:if="${success}" class="alert alert-success mb-3" role="alert" th:text="${success}"></div>
+
+            <form class="formulario-password" th:action="@{/cambiar-contrasena}" method="post">
                 <div class="grupo-formulario">
                     <label for="current-password">Contraseña Actual</label>
                     <input type="password" id="current-password" name="current-password" placeholder="Ingresa tu contraseña actual" required>

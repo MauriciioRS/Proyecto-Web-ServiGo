@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ServiGo.servigo.model.Servicio;
+import com.ServiGo.servigo.model.Usuario;
 import com.ServiGo.servigo.repository.NotificacionRepository;
 import com.ServiGo.servigo.repository.ServicioRepository;
 
@@ -29,6 +31,7 @@ public class HomeController {
             @RequestParam(required = false) String q,
             @RequestParam(required = false) String categoria,
             @RequestParam(name = "orden", required = false) String ordenar,
+            HttpSession session,
             Model model) {
         List<Servicio> servicios = servicioRepository.search(q, categoria);
         sortServicios(servicios, ordenar);
@@ -45,7 +48,11 @@ public class HomeController {
 
         model.addAttribute("servicios", servicios);
         model.addAttribute("tendencias", tendencias);
-        model.addAttribute("notificacionesNoLeidas", notificacionRepository.findByUsuarioIdAndLeidaFalse(1L).size());
+        Usuario usuarioLogueado = (Usuario) session.getAttribute("usuarioLogueado");
+        int noLeidas = (usuarioLogueado != null)
+                ? notificacionRepository.findByUsuarioIdAndLeidaFalse(usuarioLogueado.getId()).size()
+                : 0;
+        model.addAttribute("notificacionesNoLeidas", noLeidas);
         model.addAttribute("categorias", servicioRepository.findDistinctCategoria());
         model.addAttribute("query", q);
         model.addAttribute("categoriaSeleccionada", categoria);

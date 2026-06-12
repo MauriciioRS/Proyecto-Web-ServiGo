@@ -1,14 +1,8 @@
-INSERT INTO usuarios (id, nombre, email, telefono, dni, fechaNacimiento, direccion, distrito, rol, especialidad, imagen, activo, password) VALUES
-  (1, 'Juan Pérez', 'juan@gmail.com', '555-0001', '40123456', '1990-05-10', 'Jr. Los Olivos 120', 'Lima', 'cliente', NULL, 'juan.jpg', TRUE, 'juan123'),
-  (2, 'María García', 'maria@gmail.com', '555-0002', '40234567', '1988-03-22', 'Av. Arequipa 450', 'Miraflores', 'proveedor', 'Plomería', 'maria.jpg', TRUE, 'maria123'),
-  (3, 'Carlos López', 'carlos@gmail.com', '555-0003', '40345678', '1992-11-01', 'Calle Las Flores 88', 'Surco', 'proveedor', 'Electricidad', 'carlos.jpg', TRUE, 'carlos123'),
-  (4, 'Ana Martínez', 'ana@gmail.com', '555-0004', '40456789', '1995-07-18', 'Psje. Primavera 5', 'San Borja', 'cliente', NULL, 'ana.jpg', TRUE, 'ana123'),
-  (5, 'Sofía Ramos', 'sofia.ramos@gmail.com', '555-0005', '40567890', '1991-09-12', 'Av. Aviación 202', 'Surquillo', 'proveedor', 'Limpieza', 'sofia.jpg', TRUE, 'sofia123'),
-  (6, 'Luis Torres', 'luis.torres@gmail.com', '555-0006', '40678901', '1985-04-03', 'Jr. Comandante 15', 'San Isidro', 'proveedor', 'Jardinería', 'luis.jpg', TRUE, 'luis123'),
-  (7, 'Elena Díaz', 'elena.diaz@gmail.com', '555-0007', '40789012', '1993-12-21', 'Calle Los Jazmines 47', 'Chorrillos', 'proveedor', 'Electrodomésticos', 'elena.jpg', TRUE, 'elena123'),
-  (8, 'Raúl Fernández', 'raul.fernandez@gmail.com', '555-0008', '40890123', '1979-11-10', 'Av. Alemania 88', 'La Molina', 'proveedor', 'Pintura', 'raul.jpg', TRUE, 'raul123'),
-  (9, 'Marta Suárez', 'marta.suarez@gmail.com', '555-0009', '40901234', '1987-02-28', 'Jr. San Martín 321', 'Lince', 'proveedor', 'Plomería', 'marta.jpg', TRUE, 'marta123'),
-  (10, 'Diego Navarro', 'diego.navarro@gmail.com', '555-0010', '41012345', '1989-06-06', 'Av. Paseo de la República 505', 'Miraflores', 'proveedor', 'Electricidad', 'diego.jpg', TRUE, 'diego123');
+INSERT INTO usuarios (id, nombre, email, telefono, dni, fechaNacimiento, direccion, distrito, rol, imagen, activo, password) VALUES
+  (1, 'Juan Pérez', 'juan@gmail.com', '555-0001', '40123456', '1990-05-10', 'Jr. Los Olivos 120', 'Lima', 'cliente', 'juan.jpg', TRUE, 'juan123'),
+  (2, 'María García', 'maria@gmail.com', '555-0002', '40234567', '1988-03-22', 'Av. Arequipa 450', 'Miraflores', 'proveedor', 'maria.jpg', TRUE, 'maria123'),
+  (3, 'Carlos López', 'carlos@gmail.com', '555-0003', '40345678', '1992-11-01', 'Calle Las Flores 88', 'Surco', 'proveedor', 'carlos.jpg', TRUE, 'carlos123'),
+  (4, 'Ana Martínez', 'ana@gmail.com', '555-0004', '40456789', '1995-07-18', 'Psje. Primavera 5', 'San Borja', 'cliente', 'ana.jpg', TRUE, 'ana123');
 
 INSERT INTO servicios (id, nombre, descripcion, categoria, precio, imagen, disponible, calificacion) VALUES
   (1, 'Reparación de Plomería', 'Reparación y mantenimiento de tuberías', 'Plomería', 50.0, 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&h=300&fit=crop', TRUE, 4),
@@ -48,16 +42,29 @@ INSERT INTO servicios (id, nombre, descripcion, categoria, precio, imagen, dispo
   (35, 'Pintura de Habitaciones', 'Pintura de cuartos y oficinas', 'Pintura', 50.0, 'https://images.unsplash.com/photo-1482731215275-a1f151646268?w=400&h=300&fit=crop', TRUE, 4),
   (36, 'Pintura Rápida', 'Trabajo de pintura express en pequeñas áreas', 'Pintura', 32.0, 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop', TRUE, 5);
 
-INSERT INTO notificaciones (id, titulo, mensaje, tipo, fecha, leida, usuarioId) VALUES
-  (1, 'Nueva Oferta', 'Descuento 20% en servicios de limpieza', 'oferta', '2026-06-08 08:00:00', FALSE, 1),
-  (2, 'Servicio Completado', 'Tu servicio de plomería ha sido completado', 'alerta', '2026-06-08 05:00:00', TRUE, 1),
-  (3, 'Nuevo Mensaje', 'María García te envió un mensaje', 'mensaje', '2026-06-08 09:30:00', FALSE, 1),
-  (4, 'Recordatorio', 'No olvides calificar el servicio', 'alerta', '2026-06-08 07:00:00', FALSE, 1);
+-- Solicitudes de ejemplo (Juan = cliente id 1)
+INSERT INTO solicitudes (id, clienteId, servicioId, servicioNombre, servicioCategoria, servicioPrecio, estado, creadoEn, aceptadoEn, enProgresoEn, completadoEn, actualizadoEn) VALUES
+  (1, 1, 7,  'Limpieza Residencial', 'Limpieza',     35.0, 'COMPLETADO',  '2026-06-09 10:00:00', '2026-06-09 10:30:00', '2026-06-09 12:00:00', '2026-06-09 14:00:00', '2026-06-09 14:00:00'),
+  (2, 1, 13, 'Electricista',         'Electricidad', 60.0, 'EN_PROGRESO', '2026-06-11 08:00:00', '2026-06-11 09:00:00', '2026-06-11 09:30:00', NULL, '2026-06-11 09:30:00');
+ALTER TABLE solicitudes ALTER COLUMN id RESTART WITH 3;
+
+INSERT INTO notificaciones (id, titulo, mensaje, tipo, fecha, leida, usuarioId, solicitudId) VALUES
+  (1,  'Nueva Oferta',          'Descuento 20% en servicios de limpieza',                                'oferta',  '2026-06-08 08:00:00', FALSE, 1, NULL),
+  (2,  'Servicio Completado',   'Tu servicio de plomería ha sido completado',                            'alerta',  '2026-06-08 05:00:00', TRUE,  1, NULL),
+  (3,  'Nuevo Mensaje',         'María García te envió un mensaje',                                      'mensaje', '2026-06-08 09:30:00', FALSE, 1, NULL),
+  (4,  'Recordatorio',          'No olvides calificar el servicio',                                      'alerta',  '2026-06-08 07:00:00', FALSE, 1, NULL),
+  (5,  'Solicitud enviada',     'Tu solicitud para "Limpieza Residencial" fue enviada.',                 'mensaje', '2026-06-09 10:00:00', TRUE,  1, 1),
+  (6,  'Solicitud aceptada',    'El proveedor aceptó tu solicitud de "Limpieza Residencial".',           'mensaje', '2026-06-09 10:30:00', TRUE,  1, 1),
+  (7,  'Profesional en camino', 'El profesional está en camino para "Limpieza Residencial".',           'alerta',  '2026-06-09 12:00:00', TRUE,  1, 1),
+  (8,  'Servicio completado',   '"Limpieza Residencial" fue completado. No olvides calificarlo.',       'oferta',  '2026-06-09 14:00:00', FALSE, 1, 1),
+  (9,  'Solicitud enviada',     'Tu solicitud para "Electricista" fue enviada.',                         'mensaje', '2026-06-11 08:00:00', TRUE,  1, 2),
+  (10, 'Solicitud aceptada',    'El proveedor aceptó tu solicitud de "Electricista".',                   'mensaje', '2026-06-11 09:00:00', TRUE,  1, 2),
+  (11, 'Profesional en camino', 'El profesional está en camino para realizar "Electricista".',          'alerta',  '2026-06-11 09:30:00', FALSE, 1, 2);
 
 -- Reset identity sequences so auto-generated IDs don't clash with seed data
-ALTER TABLE usuarios ALTER COLUMN id RESTART WITH 11;
+ALTER TABLE usuarios ALTER COLUMN id RESTART WITH 5;
 ALTER TABLE servicios ALTER COLUMN id RESTART WITH 37;
-ALTER TABLE notificaciones ALTER COLUMN id RESTART WITH 5;
+ALTER TABLE notificaciones ALTER COLUMN id RESTART WITH 12;
 
 -- conversacionId = min(userId,userId2)*10000 + max(userId,userId2)
 -- Usuarios: Juan=1, María=2, Carlos=3, Ana=4

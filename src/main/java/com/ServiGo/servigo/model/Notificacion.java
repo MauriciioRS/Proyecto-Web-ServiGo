@@ -22,4 +22,5 @@ public class Notificacion {
     private LocalDateTime fecha;
     private Boolean leida;
     private Long usuarioId;
+    private Long solicitudId; // nullable — referencia al flujo de trabajo
 }

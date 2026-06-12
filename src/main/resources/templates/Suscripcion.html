@@ -1,169 +1,274 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suscripción Premium</title>
-    <link rel="stylesheet" href="../CSS/Suscripcion.css">
+    <title>Plan Premium - ServiGo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="/CSS/navbar.css" rel="stylesheet">
+    <link href="/CSS/Suscripcion.css" rel="stylesheet">
 </head>
+
 <body>
-
-<div class="contenedor">
-
-    <div class="tarjeta">
-
-        <h1>Plan Premium Mensual</h1>
-
-        <h2>Método de Pago</h2>
-
-        <div class="metodos">
-
-            <button onclick="mostrarMetodo('tarjeta')">
-                Tarjeta
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-light shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">
+                <i class="bi bi-tools"></i> ServiGo
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
 
-            <button onclick="mostrarMetodo('paypal')">
-                PayPal
-            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="bi bi-house-door-fill"></i> Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/servicios}">
+                            <i class="bi bi-suitcase-lg-fill"></i> Servicios
+                        </a>
+                    </li>
+                    <li class="nav-item" th:if="${session.usuarioLogueado == null}">
+                        <a class="nav-link" th:href="@{/quienes-somos}">
+                            <i class="bi bi-info-circle-fill"></i> Quiénes Somos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/contactanos}">
+                            <i class="bi bi-envelope-fill"></i> Contáctanos
+                        </a>
+                    </li>
+                    <li class="nav-item" th:if="${session.usuarioLogueado != null}">
+                        <a class="nav-link" th:href="@{/favoritos}">
+                            <i class="bi bi-heart-fill"></i> Favoritos
+                        </a>
+                    </li>
+                    <li class="nav-item" th:if="${session.usuarioLogueado != null}">
+                        <a class="nav-link" th:href="@{/mensajes}">
+                            <i class="bi bi-chat-dots-fill"></i> Mensajes
+                        </a>
+                    </li>
+                    <li class="nav-item" th:if="${session.usuarioLogueado != null}">
+                        <a class="nav-link" th:href="@{/notificaciones}">
+                            <i class="bi bi-grid-1x2-fill"></i> Mis Solicitudes
+                        </a>
+                    </li>
 
-            <button onclick="mostrarMetodo('yape')">
-                Yape
-            </button>
+                    <li class="nav-item">
+                        <a class="btn btn-warning btn-sm ms-2 fw-semibold active" th:href="@{/premium}">
+                            <i class="bi bi-stars"></i> Hazte Premium
+                        </a>
+                    </li>
 
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-person-circle"></i>
+                            <span th:if="${session.usuarioLogueado == null}">Yo</span>
+                            <span th:if="${session.usuarioLogueado != null}" th:text="${session.usuarioLogueado.nombre}">Yo</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li th:if="${session.usuarioLogueado == null}"><a class="dropdown-item" th:href="@{/iniciar-sesion}">Iniciar Sesión</a></li>
+                            <li th:if="${session.usuarioLogueado == null}"><a class="dropdown-item" th:href="@{/registro}">Registrarse</a></li>
+                            <li th:if="${session.usuarioLogueado != null}"><a class="dropdown-item" th:href="@{/perfil}">Mi Perfil</a></li>
+                            <li th:if="${session.usuarioLogueado != null}"><a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a></li>
+                            <li><a class="dropdown-item" th:href="@{/cambiar-contrasena}">Cambiar Contraseña</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </nav>
 
-
-        <div id="tarjeta" class="pago">
-
-            <h3>Pago con Tarjeta</h3>
-
-            <input type="text" id="nombre" placeholder="Nombre del titular">
-            <input type="text" id="numero" placeholder="Número de tarjeta">
-            <input type="month" id="fecha">
-            <input type="password" id="cvv" placeholder="CVV">
-
-            <img src="../../Images/visa.png" width="50">
-
-            <button onclick="validarTarjeta()">
-                Pagar con tarjeta
-            </button>
+    <!-- Hero -->
+    <section class="py-5 text-center text-white" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);">
+        <div class="container">
+            <i class="bi bi-stars display-4 text-warning mb-3 d-block"></i>
+            <h1 class="fw-bold display-5">Plan Premium Mensual</h1>
+            <p class="lead opacity-75">Desbloquea todas las funciones de ServiGo por solo <strong>S/.29.90/mes</strong></p>
         </div>
+    </section>
 
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
 
-        <div id="paypal" class="pago" style="display:none;">
+                <!-- Beneficios Premium -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-3"><i class="bi bi-check2-circle text-success me-2"></i>¿Qué incluye Premium?</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Contacto ilimitado con proveedores</li>
+                            <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Perfil verificado con sello Premium</li>
+                            <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Prioridad en los resultados de búsqueda</li>
+                            <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Soporte prioritario 24/7</li>
+                            <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Sin publicidad</li>
+                        </ul>
+                    </div>
+                </div>
 
-            <h3>Pago con PayPal</h3>
+                <!-- Selector de método de pago -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-4">Método de Pago</h5>
 
-            <input type="email" id="correoPaypal" placeholder="Correo PayPal">
-            <input type="password" id="contraPaypal" placeholder="Contraseña">
+                        <div class="d-flex gap-2 mb-4 flex-wrap" id="metodoBtns">
+                            <button class="btn btn-outline-primary active" onclick="mostrarMetodo('tarjeta', this)">
+                                <i class="bi bi-credit-card-fill me-1"></i> Tarjeta
+                            </button>
+                            <button class="btn btn-outline-primary" onclick="mostrarMetodo('paypal', this)">
+                                <i class="bi bi-paypal me-1"></i> PayPal
+                            </button>
+                            <button class="btn btn-outline-primary" onclick="mostrarMetodo('yape', this)">
+                                <i class="bi bi-phone-fill me-1"></i> Yape / QR
+                            </button>
+                        </div>
 
-            <img src="../../Images/paypal.png" width="50">
+                        <!-- Pago con Tarjeta -->
+                        <div id="tarjeta" class="metodo-pago">
+                            <h6 class="fw-semibold mb-3"><i class="bi bi-credit-card-fill me-2 text-primary"></i>Datos de Tarjeta</h6>
+                            <div class="mb-3">
+                                <label class="form-label">Nombre del titular</label>
+                                <input type="text" id="nombreTitular" class="form-control" placeholder="Ej: Juan Pérez">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Número de tarjeta (16 dígitos)</label>
+                                <input type="text" id="numeroTarjeta" class="form-control" placeholder="1234 5678 9012 3456" maxlength="16">
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Fecha de vencimiento</label>
+                                    <input type="month" id="fechaTarjeta" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">CVV</label>
+                                    <input type="password" id="cvv" class="form-control" placeholder="123" maxlength="3">
+                                </div>
+                            </div>
+                            <button class="btn btn-primary w-100" onclick="validarTarjeta()">
+                                <i class="bi bi-lock-fill me-2"></i>Pagar S/.29.90 con Tarjeta
+                            </button>
+                        </div>
 
-            <button onclick="validarPaypal()">
-                Pagar con PayPal
-            </button>
+                        <!-- Pago con PayPal -->
+                        <div id="paypal" class="metodo-pago" style="display:none;">
+                            <h6 class="fw-semibold mb-3"><i class="bi bi-paypal me-2 text-primary"></i>Cuenta PayPal</h6>
+                            <div class="mb-3">
+                                <label class="form-label">Correo PayPal</label>
+                                <input type="email" id="correoPaypal" class="form-control" placeholder="tu@paypal.com">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Contraseña</label>
+                                <input type="password" id="contraPaypal" class="form-control" placeholder="••••••••">
+                            </div>
+                            <button class="btn btn-primary w-100" onclick="validarPaypal()">
+                                <i class="bi bi-paypal me-2"></i>Pagar S/.29.90 con PayPal
+                            </button>
+                        </div>
 
+                        <!-- Pago con Yape -->
+                        <div id="yape" class="metodo-pago" style="display:none;">
+                            <h6 class="fw-semibold mb-3"><i class="bi bi-phone-fill me-2 text-primary"></i>Pago con Yape</h6>
+                            <p class="text-muted">Escanea el código QR con tu app Yape para realizar el pago de <strong>S/.29.90</strong>.</p>
+                            <div class="text-center my-4">
+                                <!-- QR placeholder usando un servicio gratuito -->
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=ServiGo-Premium-S/.29.90"
+                                     alt="Código QR para pago Yape" class="border rounded p-2" width="200" height="200">
+                                <p class="text-muted small mt-2">Monto: <strong class="text-success">S/.29.90</strong></p>
+                            </div>
+                            <button class="btn btn-success w-100" onclick="validarYape()">
+                                <i class="bi bi-check-circle-fill me-2"></i>Ya realicé el pago
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="text-center mt-3">
+                    <a th:href="@{/}" href="/" class="text-muted small">
+                        <i class="bi bi-arrow-left me-1"></i>Volver al inicio
+                    </a>
+                </div>
+
+            </div>
         </div>
-
-
-        <div id="yape" class="pago" style="display:none;">
-
-            <h3>Pago con Yape</h3>
-
-            <p>Escanea el QR</p>
-
-            <img src="../../Images/QR.png" width="200">
-
-            <br>
-
-            <img src="../../Images/yape.png" width="50">
-
-            <br><br>
-
-            <button onclick="validarYape()">
-                Ya realicé el pago
-            </button>
-
-        </div>
-
     </div>
 
-</div>
+    <!-- Footer -->
+    <footer class="bg-light text-center py-4 mt-5 border-top">
+        <div class="container">
+            <p class="text-muted">© 2026 ServiGo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
-<script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function mostrarMetodo(metodo, btn) {
+            document.querySelectorAll('.metodo-pago').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('#metodoBtns button').forEach(b => b.classList.remove('active'));
+            document.getElementById(metodo).style.display = 'block';
+            btn.classList.add('active');
+        }
 
-function mostrarMetodo(metodo){
+        function validarTarjeta() {
+            const nombre = document.getElementById('nombreTitular').value.trim();
+            const numero = document.getElementById('numeroTarjeta').value.trim();
+            const fecha  = document.getElementById('fechaTarjeta').value;
+            const cvv    = document.getElementById('cvv').value.trim();
 
-    document.getElementById("tarjeta").style.display = "none";
-    document.getElementById("paypal").style.display = "none";
-    document.getElementById("yape").style.display = "none";
+            if (!nombre || !numero || !fecha || !cvv) {
+                mostrarAlerta('danger', 'Por favor, complete todos los campos.');
+                return;
+            }
+            if (nombre.length < 3) {
+                mostrarAlerta('danger', 'Ingrese un nombre válido.');
+                return;
+            }
+            if (numero.length !== 16 || isNaN(numero)) {
+                mostrarAlerta('danger', 'La tarjeta debe tener 16 números.');
+                return;
+            }
+            if (cvv.length !== 3 || isNaN(cvv)) {
+                mostrarAlerta('danger', 'El CVV debe tener 3 números.');
+                return;
+            }
+            mostrarAlerta('success', '¡Pago realizado con éxito! Bienvenido a ServiGo Premium.');
+        }
 
-    document.getElementById(metodo).style.display = "block";
-}
+        function validarPaypal() {
+            const correo = document.getElementById('correoPaypal').value;
+            const contra = document.getElementById('contraPaypal').value;
+            if (!correo || !contra) {
+                mostrarAlerta('danger', 'Complete todos los campos de PayPal.');
+                return;
+            }
+            mostrarAlerta('success', '¡Pago PayPal realizado con éxito! Bienvenido a ServiGo Premium.');
+        }
 
+        function validarYape() {
+            mostrarAlerta('success', '¡Pago Yape confirmado! Bienvenido a ServiGo Premium.');
+        }
 
-function validarTarjeta(){
-
-    let nombre = document.getElementById("nombre").value.trim();
-    let numero = document.getElementById("numero").value.trim();
-    let fecha = document.getElementById("fecha").value;
-    let cvv = document.getElementById("cvv").value.trim();
-
-
-    if(nombre === "" || numero === "" || fecha === "" || cvv === ""){
-
-        alert("⚠ Complete todos los campos");
-        return;
-    }
-
-
-    if(nombre.length < 3){
-
-        alert("⚠ Ingrese un nombre válido");
-        return;
-    }
-
-
-    if(numero.length !== 16 || isNaN(numero)){
-
-        alert("⚠ La tarjeta debe tener 16 números");
-        return;
-    }
-
-    if(cvv.length !== 3 || isNaN(cvv)){
-
-        alert("⚠ El CVV debe tener 3 números");
-        return;
-    }
-
-    alert("✅ Pago realizado con éxito");
-
-}
-
-
-function validarPaypal(){
-
-    let correo = document.getElementById("correoPaypal").value;
-    let contra = document.getElementById("contraPaypal").value;
-
-    if(correo === "" || contra === ""){
-
-        alert("⚠ Complete todos los campos de PayPal");
-
-    }else{
-
-        alert("✅ Pago PayPal realizado con éxito");
-
-    }
-}
-
-function validarYape(){
-
-    alert("✅ Pago Yape confirmado");
-
-}
-
-</script>
-
+        function mostrarAlerta(tipo, msg) {
+            const existing = document.getElementById('alertaPago');
+            if (existing) existing.remove();
+            const div = document.createElement('div');
+            div.id = 'alertaPago';
+            div.className = `alert alert-${tipo} mt-3`;
+            div.textContent = msg;
+            document.querySelector('.metodo-pago[style="display: block;"], .metodo-pago:not([style])').after(div);
+            div.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
 </body>
+
 </html>

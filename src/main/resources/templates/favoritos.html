@@ -15,9 +15,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-light shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="/">
-                <i class="bi bi-tools"></i> ServiGo
-            </a>
+            <a class="navbar-brand fw-bold" href="/"><i class="bi bi-tools"></i> ServiGo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -27,38 +25,33 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">
-                            <i class="bi bi-house-door-fill"></i> Inicio
-                        </a>
+                        <a class="nav-link" href="/"><i class="bi bi-house-door-fill"></i> Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/servicios}">
-                            <i class="bi bi-suitcase-lg-fill"></i> Servicios
-                        </a>
+                        <a class="nav-link" th:href="@{/servicios}"><i class="bi bi-suitcase-lg-fill"></i> Servicios</a>
+                    </li>
+                    <li class="nav-item" th:if="${session.usuarioLogueado == null}">
+                        <a class="nav-link" th:href="@{/quienes-somos}"><i class="bi bi-info-circle-fill"></i> Quiénes Somos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/quienes-somos}">
-                            <i class="bi bi-info-circle-fill"></i> Quiénes Somos
-                        </a>
+                        <a class="nav-link" th:href="@{/contactanos}"><i class="bi bi-envelope-fill"></i> Contáctanos</a>
                     </li>
                     <li class="nav-item active" th:if="${session.usuarioLogueado != null}">
-                        <a class="nav-link" th:href="@{/favoritos}">
-                            <i class="bi bi-heart-fill"></i> Favoritos
-                        </a>
+                        <a class="nav-link" th:href="@{/favoritos}"><i class="bi bi-heart-fill"></i> Favoritos</a>
                     </li>
                     <li class="nav-item" th:if="${session.usuarioLogueado != null}">
-                        <a class="nav-link" th:href="@{/mensajes}">
-                            <i class="bi bi-chat-dots-fill"></i> Mensajes
-                        </a>
+                        <a class="nav-link" th:href="@{/mensajes}"><i class="bi bi-chat-dots-fill"></i> Mensajes</a>
                     </li>
                     <li class="nav-item" th:if="${session.usuarioLogueado != null}">
-                        <a class="nav-link" th:href="@{/notificaciones}">
-                            <i class="bi bi-bell-fill"></i> Notificaciones
+                        <a class="nav-link" th:href="@{/notificaciones}"><i class="bi bi-grid-1x2-fill"></i> Mis Solicitudes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-warning btn-sm ms-2 fw-semibold" th:href="@{/premium}">
+                            <i class="bi bi-stars"></i> Hazte Premium
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-person-circle"></i>
                             <span th:if="${session.usuarioLogueado == null}">Yo</span>
                             <span th:if="${session.usuarioLogueado != null}" th:text="${session.usuarioLogueado.nombre}">Yo</span>
@@ -77,108 +70,94 @@
     </nav>
 
     <main class="flex-grow-1">
-    <div class="container py-5">
-        <div class="d-flex align-items-center mb-4">
-            <h1 class="fw-bold m-0 me-3">
-                <i class="bi bi-suit-heart-fill text-danger me-2"></i>
-                Mis Favoritos
-            </h1>
-            <span class="badge bg-danger rounded-pill">2 Guardados</span>
-        </div>
+        <div class="container py-5">
+            <div class="d-flex align-items-center mb-4 gap-3">
+                <h1 class="fw-bold m-0">
+                    <i class="bi bi-suit-heart-fill text-danger me-2"></i>Mis Favoritos
+                </h1>
+                <span class="badge bg-danger rounded-pill" th:text="${#lists.size(serviciosFavoritos)} + ' guardados'">0 guardados</span>
+            </div>
 
-        <!-- Favoritos -->
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            <!-- Favorito 1 -->
-            <div class="col">
-                <div class="card h-100 border-0 shadow-sm fav-card">
-                    <div class="position-relative">
-                        <img src="https://via.placeholder.com/400x200?text=Carlos+Ruiz" class="card-img-top rounded-top" alt="Profesional">
-                        <button class="btn-fav-active">
-                            <i class="bi bi-suit-heart-fill"></i>
-                        </button>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <div>
-                                <h6 class="fw-bold mb-0">Carlos Ruiz</h6>
-                                <small class="text-primary fw-bold">Electricista Matriculado</small>
-                            </div>
-                            <div class="text-end">
-                                <div class="text-warning mb-1">
-                                    ★★★★☆
-                                </div>
-                                <small class="text-muted">4.2 (28)</small>
-                            </div>
+            <!-- Sin favoritos -->
+            <div th:if="${#lists.isEmpty(serviciosFavoritos)}" class="text-center py-5">
+                <i class="bi bi-heart text-muted" style="font-size:4rem;opacity:.3"></i>
+                <h4 class="mt-4 text-muted fw-normal">No tienes servicios guardados aún</h4>
+                <p class="text-muted mb-4">Explora nuestros servicios y presiona el corazón para guardarlos aquí.</p>
+                <a th:href="@{/servicios}" class="btn btn-primary px-4">
+                    <i class="bi bi-search me-2"></i>Explorar servicios
+                </a>
+            </div>
+
+            <!-- Grid de favoritos -->
+            <div th:unless="${#lists.isEmpty(serviciosFavoritos)}"
+                 class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+                <div class="col" th:each="servicio : ${serviciosFavoritos}">
+                    <div class="card h-100 border-0 shadow-sm fav-card">
+                        <div class="position-relative">
+                            <img th:src="${servicio.imagen}"
+                                 th:onerror="this.src='https://via.placeholder.com/400x200?text=' + ${servicio.nombre}"
+                                 class="card-img-top rounded-top"
+                                 style="height:180px;object-fit:cover;"
+                                 th:alt="${servicio.nombre}">
+                            <!-- Quitar de favoritos -->
+                            <form th:action="@{/favoritos/toggle}" method="post" class="position-absolute top-0 end-0 m-2">
+                                <input type="hidden" name="servicioId" th:value="${servicio.id}">
+                                <input type="hidden" name="returnUrl" value="/favoritos">
+                                <button type="submit" class="btn-fav-active" title="Quitar de favoritos"
+                                        onclick="return confirm('¿Quitar este servicio de favoritos?')">
+                                    <i class="bi bi-suit-heart-fill"></i>
+                                </button>
+                            </form>
                         </div>
-                        <p class="card-text text-muted small mb-3">
-                            Especialista en instalaciones eléctricas residenciales y comerciales.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong class="text-success">$60/hora</strong>
-                                <br>
-                                <small class="text-muted">Lima, Miraflores</small>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h6 class="fw-bold mb-0" th:text="${servicio.nombre}">Nombre</h6>
+                                    <small class="text-primary fw-bold" th:text="${servicio.categoria}">Categoría</small>
+                                </div>
+                                <div class="text-end">
+                                    <div class="text-warning small mb-1">
+                                        <span th:each="i : ${#numbers.sequence(1, servicio.calificacion)}">★</span>
+                                        <span th:each="i : ${#numbers.sequence(servicio.calificacion + 1, 5)}">☆</span>
+                                    </div>
+                                    <small class="text-muted" th:text="${servicio.calificacion} + '.0'">5.0</small>
+                                </div>
                             </div>
-                            <button class="btn btn-primary btn-sm">Contactar</button>
+                            <p class="card-text text-muted small mb-3"
+                               th:text="${servicio.descripcion}">Descripción</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <strong class="text-success" th:text="'S/.' + ${servicio.precio}">S/.0</strong>
+                                <div class="d-flex gap-2">
+                                    <a th:href="@{'/servicios/' + ${servicio.id}}"
+                                       class="btn btn-outline-primary btn-sm">
+                                        <i class="bi bi-eye-fill"></i> Ver
+                                    </a>
+                                    <a th:href="@{/mensajes}" class="btn btn-primary btn-sm">
+                                        <i class="bi bi-chat-dots-fill"></i> Contactar
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Favorito 2 -->
-            <div class="col">
-                <div class="card h-100 border-0 shadow-sm fav-card">
-                    <div class="position-relative">
-                        <img src="https://via.placeholder.com/400x200?text=María+García" class="card-img-top rounded-top" alt="Profesional">
-                        <button class="btn-fav-active">
-                            <i class="bi bi-suit-heart-fill"></i>
-                        </button>
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-start mb-2">
-                            <div>
-                                <h6 class="fw-bold mb-0">María García</h6>
-                                <small class="text-primary fw-bold">Plomera Profesional</small>
+                <!-- Card agregar más -->
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm fav-card">
+                        <div class="card-body d-flex align-items-center justify-content-center empty-state">
+                            <div class="text-center">
+                                <i class="bi bi-plus-circle fs-1 text-muted mb-3 d-block"></i>
+                                <h6>Agregar más favoritos</h6>
+                                <p class="text-muted small mb-3">Explora servicios y guarda tus preferidos</p>
+                                <a th:href="@{/servicios}" class="btn btn-outline-primary btn-sm">Ver Servicios</a>
                             </div>
-                            <div class="text-end">
-                                <div class="text-warning mb-1">
-                                    ★★★★★
-                                </div>
-                                <small class="text-muted">5.0 (45)</small>
-                            </div>
-                        </div>
-                        <p class="card-text text-muted small mb-3">
-                            Reparaciones de plomería, instalación de tuberías y mantenimiento.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong class="text-success">$50/hora</strong>
-                                <br>
-                                <small class="text-muted">Lima, San Isidro</small>
-                            </div>
-                            <button class="btn btn-primary btn-sm">Contactar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Estado vacío para más favoritos -->
-            <div class="col">
-                <div class="card h-100 border-0 shadow-sm fav-card">
-                    <div class="card-body d-flex align-items-center justify-content-center empty-state">
-                        <div>
-                            <i class="bi bi-plus-circle"></i>
-                            <h6>Agregar más favoritos</h6>
-                            <p class="mb-0">Explora servicios y guarda tus preferidos</p>
-                            <a th:href="@{/servicios}" class="btn btn-outline-primary btn-sm mt-2">Ver Servicios</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </main>
-
 
     <footer class="site-footer border-top mt-auto">
         <div class="container py-4">
@@ -188,9 +167,7 @@
                         <i class="bi bi-tools text-primary fs-4"></i>
                         <span class="fw-bold fs-5">ServiGo</span>
                     </div>
-                    <p class="text-muted small mb-0">
-                        Encuentra profesionales de confianza para tu hogar o negocio en un solo lugar.
-                    </p>
+                    <p class="text-muted small mb-0">Encuentra profesionales de confianza para tu hogar o negocio.</p>
                 </div>
                 <div class="col-6 col-md-3 text-center text-md-start">
                     <h6 class="fw-semibold mb-3">Explorar</h6>
@@ -206,21 +183,22 @@
                     <ul class="list-unstyled small mb-0">
                         <li class="mb-2"><a class="link-secondary text-decoration-none" th:href="@{/perfil}">Mi perfil</a></li>
                         <li class="mb-2"><a class="link-secondary text-decoration-none" th:href="@{/mensajes}">Mensajes</a></li>
-                        <li><a class="link-secondary text-decoration-none" th:href="@{/notificaciones}">Notificaciones</a></li>
+                        <li><a class="link-secondary text-decoration-none" th:href="@{/notificaciones}">Mis Solicitudes</a></li>
                     </ul>
                 </div>
             </div>
-            <hr class="border-secondary-subtle my-3 my-md-4 opacity-50">
+            <hr class="border-secondary-subtle my-3 opacity-50">
             <div class="d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2 small text-muted">
                 <p class="mb-0">© 2026 ServiGo. Todos los derechos reservados.</p>
                 <div class="d-flex gap-3">
-                    <a href="#" class="text-muted" title="Facebook" aria-label="Facebook"><i class="bi bi-facebook fs-5"></i></a>
-                    <a href="#" class="text-muted" title="Instagram" aria-label="Instagram"><i class="bi bi-instagram fs-5"></i></a>
-                    <a href="#" class="text-muted" title="WhatsApp" aria-label="WhatsApp"><i class="bi bi-whatsapp fs-5"></i></a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener" class="text-muted"><i class="bi bi-facebook fs-5"></i></a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener" class="text-muted"><i class="bi bi-instagram fs-5"></i></a>
+                    <a href="https://wa.me/51900000000" target="_blank" rel="noopener" class="text-muted"><i class="bi bi-whatsapp fs-5"></i></a>
                 </div>
             </div>
+        </div>
+    </footer>
 
-   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

@@ -31,7 +31,6 @@ public class AuthController {
             @RequestParam String direccion,
             @RequestParam String distrito,
             @RequestParam("tipo-cuenta") String tipoCuenta,
-            @RequestParam(required = false) String especialidad,
             @RequestParam String email,
             @RequestParam String telefono,
             @RequestParam String password,
@@ -43,14 +42,6 @@ public class AuthController {
 
         String nombreCompleto = nombres.trim() + " " + apellidos.trim();
         String rol = "contratista".equalsIgnoreCase(tipoCuenta) ? "proveedor" : "cliente";
-        String especialidadFinal = "proveedor".equalsIgnoreCase(rol)
-                ? (especialidad != null && !especialidad.isBlank() ? especialidad.trim() : null)
-                : null;
-
-        if ("proveedor".equalsIgnoreCase(rol) && especialidadFinal == null) {
-            redirectAttributes.addFlashAttribute("error", "Selecciona una especialidad para registrarte como contratista.");
-            return "redirect:/registro";
-        }
 
         Usuario usuario = new Usuario(
                 null,
@@ -62,7 +53,6 @@ public class AuthController {
                 direccion != null ? direccion.trim() : "",
                 distrito != null ? distrito.trim() : "",
                 rol,
-                especialidadFinal,
                 "default.png",
                 true,
                 password
@@ -113,5 +103,36 @@ public class AuthController {
     @GetMapping("/cambiar-contrasena")
     public String cambiarContrasena() {
         return "cambiar-contrasena";
+    }
+
+    @PostMapping("/cambiar-contrasena")
+    public String procesarCambiarContrasena(
+            @RequestParam("current-password") String currentPassword,
+            @RequestParam("new-password") String newPassword,
+            @RequestParam("confirm-password") String confirmPassword,
+            HttpSession session,
+            RedirectAttributes redirectAttributes) {
+
+        Usuario usuario = (Usuario) session.getAttribute("usuarioLogueado");
+        if (usuario == null) {
+            return "redirect:/iniciar-sesion";
+        }
+        if (!usuario.getPassword().equals(currentPassword)) {
+            redirectAttributes.addFlashAttribute("error", "La contraseña actual es incorrecta.");
+            return "redirect:/cambiar-contrasena";
+        }
+        if (!newPassword.equals(confirmPassword)) {
+            redirectAttributes.addFlashAttribute("error", "Las contraseñas nuevas no coinciden.");
+            return "redirect:/cambiar-contrasena";
+        }
+        if (newPassword.length() < 6) {
+            redirectAttributes.addFlashAttribute("error", "La nueva contraseña debe tener al menos 6 caracteres.");
+            return "redirect:/cambiar-contrasena";
+        }
+        usuario.setPassword(newPassword);
+        usuarioRepository.save(usuario);
+        session.setAttribute("usuarioLogueado", usuario);
+        redirectAttributes.addFlashAttribute("success", "Contraseña actualizada correctamente.");
+        return "redirect:/cambiar-contrasena";
     }
 }

@@ -7061,3 +7061,943 @@ Caused by: java.net.URISyntaxException: Illegal character in scheme name at inde
 2026.06.09 21:08:22 INFO  shutting down Metals
 2026.06.09 21:08:23 INFO  Shut down connection with build server.
 2026.06.09 21:08:22 INFO  Exiting server
+2026.06.10 11:20:30 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main' for client Visual Studio Code 1.123.1.
+2026.06.10 11:20:30 INFO  Memory monitor started
+2026.06.10 11:20:31 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.10 11:20:32 INFO  Attempting to connect to the build server...
+2026.06.10 11:20:32 INFO  No running Bloop server found, starting one.
+2026.06.10 11:20:35 INFO  Starting compilation server
+2026.06.10 11:20:38 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\bsp.trace.json or C:\Users\mauri\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.06.10 11:20:39 INFO  time: Connected to build server in 6.86s
+2026.06.10 11:20:39 INFO  Connected to Build server: Bloop v2.0.19
+2026.06.10 11:20:41 INFO  time: Imported build in 0.82s
+2026.06.10 11:20:50 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.10 11:21:03 INFO  time: indexed workspace in 22s
+2026.06.10 11:21:08 INFO  compiling servigo (18 java sources)
+2026.06.10 11:21:15 WARN  javac exited with exit code 1
+2026.06.10 11:21:15 INFO  time: compiled servigo in 7.36s
+jun. 10, 2026 11:23:12 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/GeneralController.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/GeneralController.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/GeneralController.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+
+jun. 10, 2026 11:23:12 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1
+2026.06.10 14:37:44 INFO  compiling servigo (18 java sources)
+2026.06.10 14:37:51 WARN  javac exited with exit code 1
+2026.06.10 14:37:51 INFO  time: compiled servigo in 6.38s
+2026.06.10 14:37:51 INFO  compiling servigo (18 java sources)
+2026.06.10 14:37:56 WARN  javac exited with exit code 1
+2026.06.10 14:37:56 INFO  time: compiled servigo in 4.95s
+jun. 10, 2026 2:38:24 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.06.10 14:44:03 INFO  compiling servigo (18 java sources)
+2026.06.10 14:44:09 WARN  javac exited with exit code 1
+2026.06.10 14:44:09 INFO  time: compiled servigo in 5.67s
+2026.06.10 14:44:09 INFO  compiling servigo (18 java sources)
+2026.06.10 14:44:12 WARN  javac exited with exit code 1
+2026.06.10 14:44:12 INFO  time: compiled servigo in 3.22s
+2026.06.10 14:51:33 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main' for client Visual Studio Code 1.123.1.
+2026.06.10 14:51:33 INFO  Memory monitor started
+2026.06.10 14:51:38 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.10 14:51:39 INFO  Attempting to connect to the build server...
+2026.06.10 14:51:39 INFO  No running Bloop server found, starting one.
+2026.06.10 14:51:42 INFO  Starting compilation server
+2026.06.10 14:51:47 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\bsp.trace.json or C:\Users\mauri\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.06.10 14:51:48 INFO  time: Connected to build server in 9.23s
+2026.06.10 14:51:48 INFO  Connected to Build server: Bloop v2.0.19
+2026.06.10 14:51:48 INFO  time: Imported build in 0.4s
+2026.06.10 14:51:57 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.10 14:52:00 INFO  time: indexed workspace in 11s
+jun. 10, 2026 3:08:30 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.06.10 15:37:01 INFO  compiling servigo (18 java sources)
+2026.06.10 15:37:06 WARN  javac exited with exit code 1
+2026.06.10 15:37:06 INFO  time: compiled servigo in 4.92s
+2026.06.10 15:59:45 INFO  compiling servigo (18 java sources)
+2026.06.10 15:59:49 WARN  javac exited with exit code 1
+2026.06.10 15:59:49 INFO  time: compiled servigo in 4.76s
+2026.06.10 15:59:55 INFO  compiling servigo (18 java sources)
+2026.06.10 16:00:01 WARN  javac exited with exit code 1
+2026.06.10 16:00:01 INFO  time: compiled servigo in 6.38s
+jun. 10, 2026 4:00:06 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/GeneralController.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/GeneralController.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/GeneralController.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+
+jun. 10, 2026 4:00:06 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2
+2026.06.10 16:20:47 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main' for client Visual Studio Code 1.123.1.
+2026.06.10 16:20:47 INFO  Memory monitor started
+2026.06.10 16:20:54 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.10 16:20:56 INFO  Attempting to connect to the build server...
+2026.06.10 16:20:56 INFO  No running Bloop server found, starting one.
+2026.06.10 16:21:07 INFO  Starting compilation server
+2026.06.10 16:21:13 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\bsp.trace.json or C:\Users\mauri\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.06.10 16:21:15 INFO  time: Connected to build server in 18s
+2026.06.10 16:21:15 INFO  Connected to Build server: Bloop v2.0.19
+2026.06.10 16:21:16 INFO  time: Imported build in 0.76s
+2026.06.10 16:21:23 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.10 16:21:28 INFO  time: indexed workspace in 12s
+2026.06.10 16:21:31 INFO  compiling servigo (18 java sources)
+2026.06.10 16:21:44 WARN  javac exited with exit code 1
+2026.06.10 16:21:44 INFO  time: compiled servigo in 12s
+jun. 10, 2026 4:22:38 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/HomeController.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/HomeController.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/HomeController.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+
+jun. 10, 2026 4:22:38 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1
+jun. 10, 2026 4:22:38 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2
+2026.06.10 16:23:01 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main' for client Visual Studio Code 1.123.1.
+2026.06.10 16:23:01 INFO  Memory monitor started
+2026.06.10 16:23:07 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.10 16:23:08 INFO  Attempting to connect to the build server...
+2026.06.10 16:23:08 INFO  No running Bloop server found, starting one.
+2026.06.10 16:23:11 INFO  Starting compilation server
+2026.06.10 16:23:15 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\bsp.trace.json or C:\Users\mauri\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.06.10 16:23:16 INFO  time: Connected to build server in 7.61s
+2026.06.10 16:23:15 INFO  Connected to Build server: Bloop v2.0.19
+2026.06.10 16:23:17 INFO  time: Imported build in 0.84s
+2026.06.10 16:23:27 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.10 16:23:32 INFO  time: indexed workspace in 14s
+2026.06.10 16:23:33 INFO  compiling servigo (18 java sources)
+2026.06.10 16:23:38 WARN  javac exited with exit code 1
+2026.06.10 16:23:38 INFO  time: compiled servigo in 4.61s
+2026.06.10 16:29:41 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main' for client Visual Studio Code 1.123.1.
+2026.06.10 16:29:41 INFO  Memory monitor started
+2026.06.10 16:29:53 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.10 16:29:54 INFO  Attempting to connect to the build server...
+2026.06.10 16:29:54 INFO  No running Bloop server found, starting one.
+2026.06.10 16:30:01 INFO  Starting compilation server
+2026.06.10 16:30:07 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\bsp.trace.json or C:\Users\mauri\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.06.10 16:30:09 INFO  time: Connected to build server in 14s
+2026.06.10 16:30:09 INFO  Connected to Build server: Bloop v2.0.19
+2026.06.10 16:30:12 INFO  time: Imported build in 1.44s
+2026.06.10 16:30:22 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.10 16:30:31 INFO  time: indexed workspace in 19s
+2026.06.10 16:37:00 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main' for client Visual Studio Code 1.123.1.
+2026.06.10 16:37:00 INFO  Memory monitor started
+2026.06.10 16:37:06 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.10 16:37:06 INFO  Attempting to connect to the build server...
+2026.06.10 16:37:06 INFO  No running Bloop server found, starting one.
+2026.06.10 16:37:09 INFO  Starting compilation server
+2026.06.10 16:37:13 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\bsp.trace.json or C:\Users\mauri\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.06.10 16:37:14 INFO  time: Connected to build server in 8.22s
+2026.06.10 16:37:14 INFO  Connected to Build server: Bloop v2.0.19
+2026.06.10 16:37:15 INFO  time: Imported build in 0.8s
+2026.06.10 16:37:23 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.10 16:37:26 INFO  time: indexed workspace in 10s
+2026.06.10 16:56:10 INFO  compiling servigo (18 java sources)
+2026.06.10 16:56:29 WARN  javac exited with exit code 1
+2026.06.10 16:56:29 INFO  time: compiled servigo in 19s
+jun. 10, 2026 4:57:15 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/model/SolicitudServicio.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/model/SolicitudServicio.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/model/SolicitudServicio.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+
+2026.06.11 09:59:53 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main' for client Visual Studio Code 1.123.1.
+2026.06.11 09:59:53 INFO  Memory monitor started
+2026.06.11 10:00:10 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.11 10:00:10 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.11 10:00:13 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.11 10:00:13 INFO  Attempting to connect to the build server...
+2026.06.11 10:00:13 INFO  No running Bloop server found, starting one.
+2026.06.11 10:00:20 INFO  Starting compilation server
+2026.06.11 10:00:28 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\bsp.trace.json or C:\Users\mauri\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.06.11 10:00:30 INFO  time: Connected to build server in 16s
+2026.06.11 10:00:30 INFO  Connected to Build server: Bloop v2.0.19
+2026.06.11 10:00:31 INFO  time: Imported build in 0.84s
+2026.06.11 10:00:43 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.11 10:00:50 INFO  time: indexed workspace in 18s
+2026.06.11 10:00:53 INFO  compiling servigo (18 java sources)
+2026.06.11 10:01:07 WARN  javac exited with exit code 1
+2026.06.11 10:01:07 INFO  time: compiled servigo in 14s
+jun. 11, 2026 10:01:38 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 15
+jun. 11, 2026 10:01:38 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 16
+jun. 11, 2026 10:01:38 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 17
+jun. 11, 2026 10:06:16 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/model/SolicitudServicio.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/model/SolicitudServicio.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/model/SolicitudServicio.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+
+2026.06.11 10:07:15 INFO  compiling servigo (19 java sources)
+jun. 11, 2026 10:07:21 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/repository/SolicitudServicioRepository.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/repository/SolicitudServicioRepository.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/repository/SolicitudServicioRepository.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+
+2026.06.11 10:07:25 WARN  javac exited with exit code 1
+2026.06.11 10:07:25 INFO  time: compiled servigo in 9.74s
+2026.06.11 10:07:25 INFO  compiling servigo (20 java sources)
+2026.06.11 10:07:34 WARN  javac exited with exit code 1
+2026.06.11 10:07:34 INFO  time: compiled servigo in 8.63s
+jun. 11, 2026 10:07:44 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/SolicitudController.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/SolicitudController.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/SolicitudController.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+
+2026.06.11 10:10:21 INFO  compiling servigo (21 java sources)
+2026.06.11 10:10:49 WARN  javac exited with exit code 1
+2026.06.11 10:10:49 INFO  time: compiled servigo in 27s
+2026.06.11 10:14:20 INFO  compiling servigo (21 java sources)
+2026.06.11 10:14:26 WARN  javac exited with exit code 1
+2026.06.11 10:14:26 INFO  time: compiled servigo in 6.41s
+2026.06.11 10:22:00 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main' for client Visual Studio Code 1.123.1.
+2026.06.11 10:22:00 INFO  time: initialize in 0.15s
+2026.06.11 10:22:00 INFO  Memory monitor started
+2026.06.11 10:22:10 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.11 10:22:11 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.11 10:22:16 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.11 10:22:18 INFO  Attempting to connect to the build server...
+2026.06.11 10:22:18 INFO  No running Bloop server found, starting one.
+2026.06.11 10:22:35 INFO  Starting compilation server
+2026.06.11 10:22:50 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\bsp.trace.json or C:\Users\mauri\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.06.11 10:22:53 INFO  time: Connected to build server in 35s
+2026.06.11 10:22:53 INFO  Connected to Build server: Bloop v2.0.19
+2026.06.11 10:22:58 INFO  time: Imported build in 4.05s
+2026.06.11 10:23:22 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.11 10:23:37 INFO  time: indexed workspace in 38s
+2026.06.11 10:23:42 INFO  compiling servigo (21 java sources)
+jun. 11, 2026 10:24:03 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 10
+2026.06.11 10:24:04 WARN  javac exited with exit code 1
+2026.06.11 10:24:04 INFO  time: compiled servigo in 22s
+jun. 11, 2026 11:07:28 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/model/SolicitudServicio.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/model/SolicitudServicio.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/model/SolicitudServicio.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+
+jun. 11, 2026 11:07:28 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 20
+2026.06.11 11:20:01 INFO  compiling servigo (21 java sources)
+2026.06.11 11:20:08 WARN  javac exited with exit code 1
+2026.06.11 11:20:08 INFO  time: compiled servigo in 6.35s
+2026.06.11 11:20:08 INFO  compiling servigo (21 java sources)
+2026.06.11 11:20:16 WARN  javac exited with exit code 1
+2026.06.11 11:20:16 INFO  time: compiled servigo in 8.78s
+jun. 11, 2026 11:20:22 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/SolicitudController.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/SolicitudController.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/SolicitudController.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+
+jun. 11, 2026 11:56:13 A. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+jun. 11, 2026 12:01:54 P. M. org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.06.11 14:32:43 INFO  compiling servigo (21 java sources)
+2026.06.11 14:33:19 WARN  javac exited with exit code 1
+2026.06.11 14:33:19 INFO  time: compiled servigo in 35s
+2026.06.11 14:55:18 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main' for client Visual Studio Code 1.123.1.
+2026.06.11 14:55:18 INFO  Memory monitor started
+2026.06.11 14:55:24 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.11 14:55:24 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.11 14:55:27 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.11 14:55:27 INFO  Attempting to connect to the build server...
+2026.06.11 14:55:27 INFO  No running Bloop server found, starting one.
+2026.06.11 14:55:59 INFO  Starting compilation server
+2026.06.11 14:56:14 ERROR C:\Users\mauri\AppData\Local\ScalaCli\data\bloop
+C:\Users\mauri\AppData\Local\ScalaCli\data\bloop
+laCli\data\bloop\daemon\output every 5 minutes
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by monix.execution.internal.atomic.NormalJava8BoxedObject (file:/C:/Users/mauri/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/io/monix/monix-execution_2.12/3.2.0/monix-execution_2.12-3.2.0.jar)
+WARNING: Please consider reporting this to the maintainers of class monix.execution.internal.atomic.NormalJava8BoxedObject
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+Unable to load nailgun-version.properties.
+NGServer [UNKNOWN] started on local socket C:\Users\mauri\AppData\Local\ScalaCli\data\bloop\daemon\socket.
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::loadLibrary has been called by dev.dirs.impl.WindowsForeign in an unnamed module (file:/C:/Users/mauri/AppData/Local/Coursier/cache/v1/https/repo1.maven.org/maven2/io/get-coursier/util/directories/0.1.2/directories-0.1.2.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+2026.06.11 14:56:14 ERROR Failed to connect with build server, no functionality will work.
+java.lang.RuntimeException: Timeout (10 seconds) while waiting for BSP socket to be created in C:\Users\mauri\AppData\Local\ScalaCli\data\bloop\bsp\24108-1
+	at scala.sys.package$.error(package.scala:27)
+	at bloop.rifle.internal.Operations$$anon$1.openSocket(Operations.scala:422)
+	at scala.meta.internal.metals.BloopServers.create$1(BloopServers.scala:416)
+	at scala.meta.internal.metals.BloopServers.openConnection$1(BloopServers.scala:432)
+	at scala.meta.internal.metals.BloopServers.$anonfun$connect$5(BloopServers.scala:445)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.lang.Thread.run(Thread.java:1447)
+
+2026.06.11 14:56:14 WARN  no build target for: C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java
+2026.06.11 14:56:14 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.11 14:56:19 INFO  time: code lens generation in 5.15s
+2026.06.11 14:57:22 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.11 14:57:59 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.11 15:06:50 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main' for client Visual Studio Code 1.123.1.
+2026.06.11 15:06:50 INFO  Memory monitor started
+2026.06.11 15:06:58 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.11 15:06:59 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.11 15:07:00 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.11 15:07:00 INFO  Attempting to connect to the build server...
+2026.06.11 15:07:00 INFO  No running Bloop server found, starting one.
+2026.06.11 15:07:07 INFO  Starting compilation server
+2026.06.11 15:07:14 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.11 15:07:21 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\bsp.trace.json or C:\Users\mauri\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.06.11 15:07:23 INFO  time: Connected to build server in 22s
+2026.06.11 15:07:23 INFO  Connected to Build server: Bloop v2.0.19
+2026.06.11 15:07:24 INFO  time: Imported build in 0.62s
+2026.06.11 15:07:34 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.11 15:07:37 INFO  time: indexed workspace in 13s
+2026.06.11 15:07:39 INFO  compiling servigo (21 java sources)
+2026.06.11 15:07:50 WARN  javac exited with exit code 1
+2026.06.11 15:07:50 INFO  time: compiled servigo in 10s
+jun. 11, 2026 3:24:39 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/model/Favorito.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/model/Favorito.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/model/Favorito.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+
+jun. 11, 2026 3:54:07 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 27
+2026.06.11 15:54:08 INFO  compiling servigo (22 java sources)
+jun. 11, 2026 3:54:14 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/repository/FavoritoRepository.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/repository/FavoritoRepository.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/repository/FavoritoRepository.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+
+2026.06.11 15:54:16 WARN  javac exited with exit code 1
+2026.06.11 15:54:16 INFO  time: compiled servigo in 8.38s
+2026.06.11 15:54:30 INFO  compiling servigo (23 java sources)
+2026.06.11 15:54:48 WARN  javac exited with exit code 1
+2026.06.11 15:54:48 INFO  time: compiled servigo in 18s
+jun. 11, 2026 3:55:03 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/GeneralController.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/GeneralController.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/GeneralController.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+
+jun. 11, 2026 3:55:03 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 48
+2026.06.11 16:12:20 INFO  compiling servigo (23 java sources)
+2026.06.11 16:12:26 WARN  javac exited with exit code 1
+2026.06.11 16:12:26 INFO  time: compiled servigo in 5.91s
+jun. 11, 2026 4:12:43 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/ServicioController.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/ServicioController.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/ServicioController.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+
+jun. 11, 2026 4:12:44 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 65
+jun. 11, 2026 4:13:02 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/NotificacionController.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/NotificacionController.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/NotificacionController.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+
+2026.06.11 16:41:01 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main' for client Visual Studio Code 1.123.1.
+2026.06.11 16:41:01 INFO  Memory monitor started
+2026.06.11 16:41:09 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.11 16:41:10 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.11 16:41:12 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.11 16:41:12 INFO  Attempting to connect to the build server...
+2026.06.11 16:41:12 INFO  No running Bloop server found, starting one.
+2026.06.11 16:41:12 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.11 16:41:17 INFO  Starting compilation server
+2026.06.11 16:41:22 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\bsp.trace.json or C:\Users\mauri\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.06.11 16:41:23 INFO  time: Connected to build server in 10s
+2026.06.11 16:41:22 INFO  Connected to Build server: Bloop v2.0.19
+2026.06.11 16:41:24 INFO  time: Imported build in 0.58s
+2026.06.11 16:41:36 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.11 16:41:40 INFO  time: indexed workspace in 15s
+2026.06.11 16:41:41 INFO  compiling servigo (23 java sources)
+2026.06.11 16:41:45 WARN  javac exited with exit code 1
+2026.06.11 16:41:45 INFO  time: compiled servigo in 4.55s
+2026.06.11 17:13:48 ERROR Bloop 'bsp' command exited with code 1. Something may be wrong with the current configuration.
+Running the [1mclean[0m sub-command to clear the working directory and remove caches might help.
+If the error persists, please report the issue as a bug and attach a log with increased verbosity by passing [1m-v -v -v[0m.
+2026.06.11 17:13:48 INFO  No running Bloop server found, starting one.
+2026.06.11 17:13:50 INFO  Starting compilation server
+2026.06.12 10:24:24 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main' for client Visual Studio Code 1.123.1.
+2026.06.12 10:24:24 INFO  time: initialize in 0.18s
+2026.06.12 10:24:24 INFO  Memory monitor started
+2026.06.12 10:24:39 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.12 10:24:42 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.12 10:24:49 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.12 10:24:51 INFO  Attempting to connect to the build server...
+2026.06.12 10:24:51 INFO  No running Bloop server found, starting one.
+2026.06.12 10:24:53 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.12 10:24:54 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.12 10:24:54 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.12 10:24:55 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+jun. 12, 2026 10:24:56 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 8
+jun. 12, 2026 10:24:56 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 9
+jun. 12, 2026 10:24:56 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 10
+2026.06.12 10:24:56 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.12 10:25:15 INFO  Starting compilation server
+2026.06.12 10:25:24 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\bsp.trace.json or C:\Users\mauri\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.06.12 10:25:33 INFO  time: Connected to build server in 42s
+2026.06.12 10:25:33 INFO  Connected to Build server: Bloop v2.0.19
+2026.06.12 10:25:37 INFO  time: Imported build in 3.49s
+2026.06.12 10:25:58 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.12 10:26:31 INFO  time: indexed workspace in 54s
+2026.06.12 10:26:40 INFO  compiling servigo (23 java sources)
+2026.06.12 10:26:59 WARN  javac exited with exit code 1
+2026.06.12 10:26:59 INFO  time: compiled servigo in 19s
+2026.06.12 10:32:30 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main' for client Visual Studio Code 1.123.1.
+2026.06.12 10:32:30 INFO  Memory monitor started
+2026.06.12 10:32:36 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.12 10:32:36 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.12 10:32:37 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.12 10:32:38 INFO  Attempting to connect to the build server...
+2026.06.12 10:32:38 INFO  No running Bloop server found, starting one.
+2026.06.12 10:32:38 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.12 10:32:43 INFO  Starting compilation server
+2026.06.12 10:32:51 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.12 10:32:52 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\bsp.trace.json or C:\Users\mauri\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.06.12 10:32:55 INFO  time: Connected to build server in 17s
+2026.06.12 10:32:55 INFO  Connected to Build server: Bloop v2.0.19
+2026.06.12 10:32:55 INFO  time: Imported build in 0.56s
+2026.06.12 10:33:02 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.12 10:33:05 INFO  time: indexed workspace in 8.88s
+2026.06.12 10:33:06 INFO  compiling servigo (23 java sources)
+2026.06.12 10:33:12 WARN  javac exited with exit code 1
+2026.06.12 10:33:12 INFO  time: compiled servigo in 5.78s
+2026.06.12 10:51:59 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main' for client Visual Studio Code 1.123.1.
+2026.06.12 10:51:59 INFO  Memory monitor started
+2026.06.12 10:52:05 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.12 10:52:06 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.12 10:52:08 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.12 10:52:08 INFO  Attempting to connect to the build server...
+2026.06.12 10:52:08 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.12 10:52:08 INFO  No running Bloop server found, starting one.
+2026.06.12 10:52:14 INFO  Starting compilation server
+2026.06.12 10:52:21 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\bsp.trace.json or C:\Users\mauri\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.06.12 10:52:22 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.12 10:52:25 INFO  time: Connected to build server in 17s
+2026.06.12 10:52:25 INFO  Connected to Build server: Bloop v2.0.19
+2026.06.12 10:52:27 INFO  time: Imported build in 0.95s
+2026.06.12 10:52:35 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.12 10:52:39 INFO  time: indexed workspace in 11s
+2026.06.12 10:52:40 INFO  compiling servigo (23 java sources)
+2026.06.12 10:52:48 WARN  javac exited with exit code 1
+2026.06.12 10:52:48 INFO  time: compiled servigo in 7.58s
+jun. 12, 2026 10:55:51 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleNotification
+WARNING: Notification threw an exception: {
+  "jsonrpc": "2.0",
+  "method": "metals/didFocusTextDocument",
+  "params": [
+    "_claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/NotificacionController.java"
+  ]
+}
+java.lang.IllegalArgumentException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/NotificacionController.java
+	at java.base/java.net.URI.create(URI.java:932)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionStringMtags.toAbsolutePath(MtagsEnrichments.scala:209)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:787)
+	at scala.meta.internal.metals.MetalsEnrichments$XtensionString.toAbsolutePath(MetalsEnrichments.scala:784)
+	at scala.meta.internal.metals.WorkspaceLspService.didFocus(WorkspaceLspService.scala:808)
+	at scala.meta.metals.lsp.DelegatingScalaService.didFocus(DelegatingScalaService.scala:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$recursiveFindRpcMethods$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.notify(GenericEndpoint.java:160)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleNotification(RemoteEndpoint.java:225)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:192)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:545)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+Caused by: java.net.URISyntaxException: Illegal character in scheme name at index 0: _claude_vscode_fs_right:/c%3A/Users/mauri/Downloads/Proyecto-Web-ServiGo-main/src/main/java/com/ServiGo/servigo/controller/NotificacionController.java
+	at java.base/java.net.URI$Parser.fail(URI.java:2995)
+	at java.base/java.net.URI$Parser.checkChars(URI.java:3166)
+	at java.base/java.net.URI$Parser.checkChar(URI.java:3176)
+	at java.base/java.net.URI$Parser.parse(URI.java:3191)
+	at java.base/java.net.URI.<init>(URI.java:645)
+	at java.base/java.net.URI.create(URI.java:930)
+	... 19 more
+
+jun. 12, 2026 10:55:51 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 18
+2026.06.12 11:13:48 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main' for client Visual Studio Code 1.123.1.
+2026.06.12 11:13:48 INFO  Memory monitor started
+2026.06.12 11:13:57 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.12 11:13:58 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.12 11:14:01 INFO  no build target found for C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\src\main\java\com\ServiGo\servigo\H2ConsoleConfig.java. Using fallback presentation compiler.
+2026.06.12 11:14:02 INFO  Attempting to connect to the build server...
+2026.06.12 11:14:02 INFO  No running Bloop server found, starting one.
+2026.06.12 11:14:15 INFO  Starting compilation server
+2026.06.12 11:14:23 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\mauri\Downloads\Proyecto-Web-ServiGo-main\.metals\bsp.trace.json or C:\Users\mauri\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2026.06.12 11:14:26 INFO  time: Connected to build server in 24s
+2026.06.12 11:14:27 INFO  Connected to Build server: Bloop v2.0.19
+2026.06.12 11:14:31 INFO  time: Imported build in 3.33s
+2026.06.12 11:15:00 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.06.12 11:15:31 INFO  time: indexed workspace in 58s
+2026.06.12 11:15:42 INFO  compiling servigo (23 java sources)
+2026.06.12 11:16:09 WARN  javac exited with exit code 1
+2026.06.12 11:16:09 INFO  time: compiled servigo in 26s

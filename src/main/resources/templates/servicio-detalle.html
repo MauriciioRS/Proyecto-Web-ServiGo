@@ -20,11 +20,78 @@
 <body class="bg-light">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg bg-light shadow-sm sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="/">
                 <i class="bi bi-tools"></i> ServiGo
             </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="bi bi-house-door-fill"></i> Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/servicios}">
+                            <i class="bi bi-suitcase-lg-fill"></i> Servicios
+                        </a>
+                    </li>
+                    <li class="nav-item" th:if="${session.usuarioLogueado == null}">
+                        <a class="nav-link" th:href="@{/quienes-somos}">
+                            <i class="bi bi-info-circle-fill"></i> Quiénes Somos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/contactanos}">
+                            <i class="bi bi-envelope-fill"></i> Contáctanos
+                        </a>
+                    </li>
+                    <li class="nav-item" th:if="${session.usuarioLogueado != null}">
+                        <a class="nav-link" th:href="@{/favoritos}">
+                            <i class="bi bi-heart-fill"></i> Favoritos
+                        </a>
+                    </li>
+                    <li class="nav-item" th:if="${session.usuarioLogueado != null}">
+                        <a class="nav-link" th:href="@{/mensajes}">
+                            <i class="bi bi-chat-dots-fill"></i> Mensajes
+                        </a>
+                    </li>
+                    <li class="nav-item" th:if="${session.usuarioLogueado != null}">
+                        <a class="nav-link" th:href="@{/notificaciones}">
+                            <i class="bi bi-grid-1x2-fill"></i> Mis Solicitudes
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="btn btn-warning btn-sm ms-2 fw-semibold" th:href="@{/premium}">
+                            <i class="bi bi-stars"></i> Hazte Premium
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-person-circle"></i>
+                            <span th:if="${session.usuarioLogueado == null}">Yo</span>
+                            <span th:if="${session.usuarioLogueado != null}" th:text="${session.usuarioLogueado.nombre}">Yo</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li th:if="${session.usuarioLogueado == null}"><a class="dropdown-item" th:href="@{/iniciar-sesion}">Iniciar Sesión</a></li>
+                            <li th:if="${session.usuarioLogueado == null}"><a class="dropdown-item" th:href="@{/registro}">Registrarse</a></li>
+                            <li th:if="${session.usuarioLogueado != null}"><a class="dropdown-item" th:href="@{/perfil}">Mi Perfil</a></li>
+                            <li th:if="${session.usuarioLogueado != null}"><a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a></li>
+                            <li><a class="dropdown-item" th:href="@{/cambiar-contrasena}">Cambiar Contraseña</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -58,8 +125,8 @@
                     <i class="bi bi-cash-stack"></i>
                     <strong>Precio:</strong>
                     <span class="text-success fw-bold"
-                          th:text="'$' + ${servicio.precio}">
-                        $0
+                          th:text="'S/.' + ${servicio.precio}">
+                        S/.0
                     </span>
                 </p>
 
@@ -74,18 +141,39 @@
                 </p>
 
 
-                <div class="mt-4 d-flex gap-2">
+                <div class="mt-4 d-flex gap-2 flex-wrap">
 
-                    <a href="/"
-                       class="btn btn-primary">
-                        <i class="bi bi-arrow-left"></i>
-                        Volver al inicio
+                    <a th:href="@{/servicios}" href="/servicios" class="btn btn-primary">
+                        <i class="bi bi-arrow-left"></i> Volver a servicios
                     </a>
 
-                    <button class="btn btn-outline-success" type="button" onclick="contactar()">
-                        <i class="bi bi-chat-dots-fill"></i>
-                        Contactar
-                    </button>
+                    <!-- Usuario logueado: solicitar servicio -->
+                    <form th:if="${session.usuarioLogueado != null}"
+                          th:action="@{/solicitudes/crear}" method="post" class="d-inline">
+                        <input type="hidden" name="servicioId" th:value="${servicio.id}">
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-send-fill"></i> Solicitar Servicio
+                        </button>
+                    </form>
+
+                    <!-- Toggle favorito (solo logueado) -->
+                    <form th:if="${session.usuarioLogueado != null}"
+                          th:action="@{/favoritos/toggle}" method="post" class="d-inline">
+                        <input type="hidden" name="servicioId" th:value="${servicio.id}">
+                        <input type="hidden" name="returnUrl" th:value="'/servicios/' + ${servicio.id}">
+                        <button type="submit"
+                                th:class="${esFavorito} ? 'btn btn-danger' : 'btn btn-outline-danger'">
+                            <i th:class="${esFavorito} ? 'bi bi-suit-heart-fill' : 'bi bi-suit-heart'"></i>
+                            <span th:text="${esFavorito} ? 'En favoritos' : 'Guardar en favoritos'">Favorito</span>
+                        </button>
+                    </form>
+
+                    <!-- No logueado: ir a login -->
+                    <a th:unless="${session.usuarioLogueado != null}"
+                       th:href="@{/iniciar-sesion}" href="/iniciar-sesion"
+                       class="btn btn-outline-success">
+                        <i class="bi bi-box-arrow-in-right"></i> Inicia sesión para solicitar
+                    </a>
 
                 </div>
 
@@ -94,76 +182,6 @@
         </div>
 
     </div>
-
-    <!-- Login prompt modal (for users not logged in) -->
-    <div class="modal fade" id="loginPromptModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Inicia sesión por favor</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Para contactar con un profesional debes iniciar sesión o registrarte.</p>
-                </div>
-                <div class="modal-footer">
-                    <a href="/iniciar-sesion" class="btn btn-primary">Iniciar sesión</a>
-                    <a href="/registro" class="btn btn-outline-secondary">Registrarse</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Loading modal (simulated connection and redirect to chat) -->
-    <div class="modal fade" id="loadingModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-sm modal-dialog-centered">
-            <div class="modal-content text-center p-3">
-                <div class="modal-body">
-                    <div class="spinner-border text-primary mb-3" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
-                    <p id="loadingMessage" class="mb-0">Buscando el especialista más cercano a ti...</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        async function contactar() {
-            try {
-                const resp = await fetch('/mensajes/start-with-provider', { method: 'POST' });
-                if (resp.status === 401) {
-                    const loginModal = new bootstrap.Modal(document.getElementById('loginPromptModal'));
-                    loginModal.show();
-                    return;
-                }
-                if (!resp.ok) {
-                    alert('No se encontró proveedor disponible. Intenta más tarde.');
-                    return;
-                }
-
-                const data = await resp.json();
-                const otroId = data.otroUsuarioId;
-
-                const loadingModalEl = document.getElementById('loadingModal');
-                const loadingModal = new bootstrap.Modal(loadingModalEl, { backdrop: 'static', keyboard: false });
-                loadingModal.show();
-
-                const msg = document.getElementById('loadingMessage');
-                msg.textContent = 'Buscando el especialista más cercano a ti...';
-                await new Promise(r => setTimeout(r, 1200));
-                msg.textContent = 'Preparando la conexión...';
-                await new Promise(r => setTimeout(r, 1200));
-
-                // Redirect to mensajes view opening the conversation with the provider
-                window.location.href = '/mensajes?c=' + otroId;
-
-            } catch (err) {
-                console.error(err);
-                alert('Ocurrió un error al intentar contactar.');
-            }
-        }
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 

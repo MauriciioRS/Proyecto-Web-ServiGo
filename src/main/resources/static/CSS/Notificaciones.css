@@ -71,3 +71,168 @@ h3 {
 .tipo-badge {
     font-size: 0.85rem;
 }
+
+/* ─── Flujo de trabajo (stepper) ─── */
+.solicitud-card {
+    border-left: 4px solid #2563eb !important;
+    transition: box-shadow 0.2s;
+}
+.solicitud-card:hover {
+    box-shadow: 0 4px 16px rgba(37,99,235,.15) !important;
+}
+.solicitud-card.completado  { border-left-color: #16a34a !important; }
+.solicitud-card.cancelado   { border-left-color: #dc2626 !important; }
+.solicitud-card.en_progreso { border-left-color: #f59e0b !important; }
+
+/* stepper row */
+.stepper {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-top: .5rem;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.step-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 3px solid #dee2e6;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: #adb5bd;
+    transition: all .3s;
+}
+
+.step.done .step-circle {
+    border-color: #2563eb;
+    background: #2563eb;
+    color: #fff;
+}
+
+.step.active .step-circle {
+    border-color: #2563eb;
+    background: #fff;
+    color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37,99,235,.18);
+    animation: pulse-step 1.5s infinite;
+}
+
+@keyframes pulse-step {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(37,99,235,.18); }
+    50%       { box-shadow: 0 0 0 8px rgba(37,99,235,.08); }
+}
+
+.step-label {
+    font-size: .72rem;
+    font-weight: 600;
+    color: #adb5bd;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.step.done .step-label,
+.step.active .step-label {
+    color: #1e3a8a;
+}
+
+/* connector line */
+.step-line {
+    flex: 1;
+    height: 3px;
+    background: #dee2e6;
+    margin-bottom: 18px;
+    min-width: 20px;
+    transition: background .3s;
+}
+
+.step-line.done {
+    background: #2563eb;
+}
+
+/* estado completado → verde */
+.solicitud-card.completado .step.done .step-circle,
+.solicitud-card.completado .step-line.done {
+    background: #16a34a;
+    border-color: #16a34a;
+}
+.solicitud-card.completado .step.done .step-label { color: #15803d; }
+
+/* responsive: ocultar labels en mobile */
+@media (max-width: 480px) {
+    .step-label { display: none; }
+    .step-circle { width: 34px; height: 34px; font-size: .9rem; }
+}
+
+/* ─── Timeline vertical dentro de cada notificación ─── */
+.notificacion-item {
+    position: relative;
+}
+
+.timeline-toggle {
+    background: none;
+    border: none;
+    color: #2563eb;
+    font-size: .82rem;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: underline dotted;
+}
+.timeline-toggle:hover { color: #1e3a8a; }
+
+.flujo-timeline {
+    border-left: 2px solid #e2e8f0;
+    margin: .75rem 0 .5rem 8px;
+    padding-left: 1rem;
+    display: none;
+}
+.flujo-timeline.show { display: block; }
+
+.tl-item {
+    display: flex;
+    align-items: flex-start;
+    gap: .75rem;
+    margin-bottom: .6rem;
+    position: relative;
+}
+
+.tl-dot {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .78rem;
+    flex-shrink: 0;
+    margin-left: -21px;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #e2e8f0;
+}
+.tl-dot.done    { background: #2563eb; color: #fff; box-shadow: 0 0 0 2px #2563eb; }
+.tl-dot.active  { background: #f59e0b; color: #fff; box-shadow: 0 0 0 2px #f59e0b;
+                  animation: pulse-step 1.4s infinite; }
+.tl-dot.pending { background: #f8fafc; color: #94a3b8; }
+
+.tl-body { flex: 1; padding-top: 2px; }
+.tl-title { font-size: .83rem; font-weight: 600; color: #1e293b; line-height: 1.2; }
+.tl-time  { font-size: .74rem; color: #64748b; }
+
+.tl-dot.done.green    { background: #16a34a; box-shadow: 0 0 0 2px #16a34a; }
+
+/* botón chat dentro de notificación */
+.btn-chat-notif {
+    font-size: .78rem;
+    padding: .25rem .7rem;
+    border-radius: 20px;
+}

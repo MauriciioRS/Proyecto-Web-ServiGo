@@ -4,62 +4,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notificaciones - ServiGo</title>
+    <title>Mis Solicitudes - ServiGo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="/CSS/navbar.css" rel="stylesheet">
     <link href="/CSS/Notificaciones.css" rel="stylesheet">
+    <style>
+        /* ── Voucher / historial ── */
+        .historial-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: .75rem;
+            transition: box-shadow .2s;
+        }
+        .historial-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); }
+
+        .historial-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            user-select: none;
+            background: #fff;
+        }
+        .historial-header:hover { background: #f8fafc; }
+
+        .historial-body {
+            display: none;
+            padding: 0 1.25rem 1.25rem;
+            background: #fff;
+        }
+        .historial-body.show { display: block; }
+
+        /* Voucher receipt */
+        .voucher {
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem;
+            position: relative;
+        }
+        .voucher::before, .voucher::after {
+            content: '';
+            position: absolute;
+            width: 20px; height: 20px;
+            background: #fff;
+            border-radius: 50%;
+            top: 50%; transform: translateY(-50%);
+            border: 1px dashed #cbd5e1;
+        }
+        .voucher::before { left: -11px; }
+        .voucher::after  { right: -11px; }
+
+        .voucher-title { font-size: 1.15rem; font-weight: 700; color: #0f172a; }
+        .voucher-meta  { font-size: .8rem; color: #64748b; }
+
+        /* Línea vertical del voucher */
+        .vtl { border-left: 2px dashed #cbd5e1; margin-left: 10px; padding-left: 1.1rem; }
+        .vtl-item { position: relative; padding-bottom: .9rem; }
+        .vtl-item:last-child { padding-bottom: 0; }
+        .vtl-dot {
+            position: absolute; left: -1.46rem; top: 2px;
+            width: 18px; height: 18px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: .65rem; color: #fff;
+        }
+        .vtl-dot.done    { background: #2563eb; }
+        .vtl-dot.green   { background: #16a34a; }
+        .vtl-dot.cancel  { background: #dc2626; }
+        .vtl-dot.pending { background: #cbd5e1; }
+        .vtl-label { font-size: .82rem; font-weight: 600; color: #1e293b; }
+        .vtl-time  { font-size: .75rem; color: #64748b; }
+
+        .chevron-icon { transition: transform .25s; }
+        .chevron-icon.open { transform: rotate(180deg); }
+    </style>
 </head>
 
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-light shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="/">
-                <i class="bi bi-tools"></i> ServiGo
-            </a>
+            <a class="navbar-brand fw-bold" href="/"><i class="bi bi-tools"></i> ServiGo</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">
-                            <i class="bi bi-house-door-fill"></i> Inicio
-                        </a>
+                    <li class="nav-item"><a class="nav-link" href="/"><i class="bi bi-house-door-fill"></i> Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/servicios}"><i class="bi bi-suitcase-lg-fill"></i> Servicios</a></li>
+                    <li class="nav-item" th:if="${session.usuarioLogueado == null}">
+                        <a class="nav-link" th:href="@{/quienes-somos}"><i class="bi bi-info-circle-fill"></i> Quiénes Somos</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/servicios}">
-                            <i class="bi bi-suitcase-lg-fill"></i> Servicios
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/quienes-somos}">
-                            <i class="bi bi-info-circle-fill"></i> Quiénes Somos
-                        </a>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/contactanos}"><i class="bi bi-envelope-fill"></i> Contáctanos</a></li>
+                    <li class="nav-item" th:if="${session.usuarioLogueado != null}">
+                        <a class="nav-link" th:href="@{/favoritos}"><i class="bi bi-heart-fill"></i> Favoritos</a>
                     </li>
                     <li class="nav-item" th:if="${session.usuarioLogueado != null}">
-                        <a class="nav-link" th:href="@{/favoritos}">
-                            <i class="bi bi-heart-fill"></i> Favoritos
-                        </a>
-                    </li>
-                    <li class="nav-item" th:if="${session.usuarioLogueado != null}">
-                        <a class="nav-link" th:href="@{/mensajes}">
-                            <i class="bi bi-chat-dots-fill"></i> Mensajes
-                        </a>
+                        <a class="nav-link" th:href="@{/mensajes}"><i class="bi bi-chat-dots-fill"></i> Mensajes</a>
                     </li>
                     <li class="nav-item active" th:if="${session.usuarioLogueado != null}">
-                        <a class="nav-link" th:href="@{/notificaciones}">
-                            <i class="bi bi-bell-fill"></i> Notificaciones
+                        <a class="nav-link" th:href="@{/notificaciones}"><i class="bi bi-grid-1x2-fill"></i> Mis Solicitudes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-warning btn-sm ms-2 fw-semibold" th:href="@{/premium}">
+                            <i class="bi bi-stars"></i> Hazte Premium
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-person-circle"></i>
                             <span th:if="${session.usuarioLogueado == null}">Yo</span>
                             <span th:if="${session.usuarioLogueado != null}" th:text="${session.usuarioLogueado.nombre}">Yo</span>
@@ -78,76 +136,224 @@
     </nav>
 
     <div class="container py-5">
-        <h1 class="mb-4">
-            <i class="bi bi-bell-fill"></i> Notificaciones
-        </h1>
 
-        <div class="row">
-            <div class="col-md-8">
-                <div th:if="${#lists.isEmpty(notificaciones)}" class="alert alert-info">
-                    <i class="bi bi-info-circle"></i> No tienes notificaciones en este momento.
-                </div>
+        <!-- ══════════════════════════════════
+             SECCIÓN 1 — EN PROCESO (activas)
+             ══════════════════════════════════ -->
+        <h4 class="fw-bold mb-4">
+            <i class="bi bi-grid-1x2-fill me-2 text-primary"></i>Mis Solicitudes
+        </h4>
 
-                <div th:each="notificacion : ${notificaciones}" 
-                     th:classappend="${notificacion.leida} ? 'leida' : 'no-leida'"
-                     class="notificacion-item">
-                    
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                        <h5 class="mb-0" th:text="${notificacion.titulo}">Título</h5>
-                        <span class="badge tipo-badge" 
-                              th:classappend="${notificacion.tipo == 'alerta'} ? ' bg-danger' : (${notificacion.tipo == 'oferta'} ? ' bg-success' : ' bg-info')"
-                              th:text="${notificacion.tipo}">
-                            Tipo
+        <!-- Sin ninguna solicitud -->
+        <div th:if="${#lists.isEmpty(solicitudes)}" class="text-center py-5">
+            <i class="bi bi-inbox text-muted d-block mb-3" style="font-size:4rem;opacity:.3"></i>
+            <h4 class="text-muted fw-normal">No tienes solicitudes aún</h4>
+            <p class="text-muted mb-4">Explora nuestros servicios y solicita uno para verlo aquí.</p>
+            <a th:href="@{/servicios}" class="btn btn-primary px-4">
+                <i class="bi bi-search me-2"></i>Explorar servicios
+            </a>
+        </div>
+
+        <!-- Activas (en proceso) -->
+        <div th:if="${not #lists.isEmpty(solicitudesActivas)}" class="mb-5">
+            <p class="text-muted small mb-3 fw-semibold text-uppercase letter-spacing-1">En proceso</p>
+
+            <div th:each="s : ${solicitudesActivas}"
+                 class="solicitud-card card mb-3 border-0 shadow-sm"
+                 th:classappend="${s.estado == 'EN_PROGRESO'} ? ' en_progreso' : ''">
+                <div class="card-body p-4">
+
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div>
+                            <h6 class="fw-bold mb-1 fs-5" th:text="${s.servicioNombre}">Servicio</h6>
+                            <small class="text-muted">
+                                <i class="bi bi-tag-fill me-1"></i><span th:text="${s.servicioCategoria}"></span>
+                                &nbsp;·&nbsp;
+                                <i class="bi bi-cash-stack me-1"></i><span th:text="'S/.' + ${s.servicioPrecio}"></span>
+                                &nbsp;·&nbsp;
+                                <i class="bi bi-clock me-1"></i><span th:text="${#temporals.format(s.creadoEn, 'dd/MM/yyyy HH:mm')}"></span>
+                            </small>
+                        </div>
+                        <span class="badge fs-6 px-3 py-2"
+                              th:classappend="${s.estado == 'EN_PROGRESO'} ? 'bg-warning text-dark' :
+                                              (${s.estado == 'ACEPTADO'} ? 'bg-primary' : 'bg-secondary')"
+                              th:text="${s.estado == 'PENDIENTE'} ? 'Esperando respuesta' :
+                                        (${s.estado == 'ACEPTADO'} ? 'Aceptado' : 'En progreso')">
                         </span>
                     </div>
-                    
-                    <p class="mb-2" th:text="${notificacion.mensaje}">Mensaje de la notificación</p>
-                    
-                    <div class="d-flex justify-content-between align-items-center">
-                        <small class="text-muted" th:text="${#temporals.format(notificacion.fecha, 'dd/MM/yyyy HH:mm')}">
-                            Fecha
-                        </small>
-                        <span class="badge bg-secondary" th:if="${!notificacion.leida}">No leída</span>
+
+                    <!-- Stepper -->
+                    <div class="stepper my-3">
+                        <div class="step done">
+                            <div class="step-circle"><i class="bi bi-send-fill"></i></div>
+                            <div class="step-label">Enviado</div>
+                        </div>
+                        <div class="step-line" th:classappend="${s.estado != 'PENDIENTE'} ? 'done' : ''"></div>
+                        <div class="step"
+                             th:classappend="${s.estado == 'ACEPTADO' or s.estado == 'EN_PROGRESO'} ? 'done' :
+                                             (${s.estado == 'PENDIENTE'} ? 'active' : '')">
+                            <div class="step-circle"><i class="bi bi-check-circle-fill"></i></div>
+                            <div class="step-label">Aceptado</div>
+                        </div>
+                        <div class="step-line" th:classappend="${s.estado == 'EN_PROGRESO'} ? 'done' : ''"></div>
+                        <div class="step" th:classappend="${s.estado == 'EN_PROGRESO'} ? 'done' :
+                                                           (${s.estado == 'ACEPTADO'} ? 'active' : '')">
+                            <div class="step-circle"><i class="bi bi-wrench-adjustable-circle-fill"></i></div>
+                            <div class="step-label">En camino</div>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step" th:classappend="${s.estado == 'EN_PROGRESO'} ? 'active' : ''">
+                            <div class="step-circle"><i class="bi bi-star-fill"></i></div>
+                            <div class="step-label">Completado</div>
+                        </div>
+                    </div>
+
+                    <!-- Acciones -->
+                    <div class="d-flex gap-2 flex-wrap mt-3">
+                        <form th:action="@{'/solicitudes/' + ${s.id} + '/avanzar'}" method="post">
+                            <button type="submit" class="btn btn-sm btn-primary">
+                                <i class="bi bi-arrow-right-circle-fill me-1"></i>
+                                <span th:text="${s.estado == 'PENDIENTE'}  ? 'Proveedor aceptó ✓' :
+                                               (${s.estado == 'ACEPTADO'} ? 'Profesional en camino ✓' :
+                                               'Marcar como completado ✓')"></span>
+                            </button>
+                        </form>
+                        <form th:action="@{'/solicitudes/' + ${s.id} + '/cancelar'}" method="post"
+                              onsubmit="return confirm('¿Seguro que deseas cancelar esta solicitud?')">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                <i class="bi bi-x-circle me-1"></i>Cancelar
+                            </button>
+                        </form>
+                        <a th:href="@{/mensajes}" class="btn btn-sm btn-outline-secondary">
+                            <i class="bi bi-chat-dots-fill me-1"></i>Ir al chat
+                        </a>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="col-md-4">
-                <div class="card bg-light">
-                    <div class="card-body">
-                        <h5 class="card-title">Preferencias</h5>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="notif1" checked>
-                            <label class="form-check-label" for="notif1">
-                                Recibir alertas
-                            </label>
+        <!-- ══════════════════════════════════
+             SECCIÓN 2 — HISTORIAL (completadas/canceladas)
+             ══════════════════════════════════ -->
+        <div th:if="${not #lists.isEmpty(solicitudesHistorial)}">
+            <p class="text-muted small mb-3 fw-semibold text-uppercase">Historial</p>
+
+            <div th:each="s, iterStat : ${solicitudesHistorial}" class="historial-card">
+
+                <!-- Cabecera colapsable -->
+                <div class="historial-header" th:onclick="'toggleVoucher(' + ${iterStat.index} + ')'">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="rounded-circle d-flex align-items-center justify-content-center"
+                             th:style="${s.estado == 'COMPLETADO'} ? 'width:40px;height:40px;background:#dcfce7' : 'width:40px;height:40px;background:#fee2e2'">
+                            <i th:class="${s.estado == 'COMPLETADO'} ? 'bi bi-check-circle-fill text-success fs-5' : 'bi bi-x-circle-fill text-danger fs-5'"></i>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="notif2" checked>
-                            <label class="form-check-label" for="notif2">
-                                Recibir ofertas
-                            </label>
+                        <div>
+                            <div class="fw-bold" th:text="${s.servicioNombre}">Servicio</div>
+                            <small class="text-muted">
+                                <span th:text="${s.servicioCategoria}"></span>
+                                &nbsp;·&nbsp;
+                                <span th:text="'S/.' + ${s.servicioPrecio}"></span>
+                                &nbsp;·&nbsp;
+                                <span th:text="${#temporals.format(s.creadoEn, 'dd/MM/yyyy')}"></span>
+                            </small>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="notif3" checked>
-                            <label class="form-check-label" for="notif3">
-                                Recibir mensajes
-                            </label>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="badge"
+                              th:classappend="${s.estado == 'COMPLETADO'} ? 'bg-success' : 'bg-danger'"
+                              th:text="${s.estado == 'COMPLETADO'} ? 'Completado' : 'Cancelado'"></span>
+                        <i th:id="'chev-' + ${iterStat.index}" class="bi bi-chevron-down chevron-icon text-muted"></i>
+                    </div>
+                </div>
+
+                <!-- Cuerpo — voucher/recibo del trabajo -->
+                <div th:id="'voucher-' + ${iterStat.index}" class="historial-body">
+                    <div class="voucher mt-1">
+
+                        <!-- Encabezado del voucher -->
+                        <div class="text-center mb-4">
+                            <div class="fw-bold text-primary mb-1" style="font-size:.8rem;letter-spacing:2px">COMPROBANTE DE SERVICIO</div>
+                            <div class="voucher-title" th:text="${s.servicioNombre}">Servicio</div>
+                            <div class="voucher-meta mt-1">
+                                <span th:text="${s.servicioCategoria}"></span>
+                                &nbsp;·&nbsp;
+                                <strong class="text-success" th:text="'S/.' + ${s.servicioPrecio}"></strong>
+                            </div>
+                        </div>
+
+                        <hr class="border-dashed my-3" style="border-style:dashed">
+
+                        <!-- Timeline vertical del proceso -->
+                        <div class="vtl">
+
+                            <!-- Paso 1: Enviado -->
+                            <div class="vtl-item">
+                                <div class="vtl-dot done"><i class="bi bi-send-fill"></i></div>
+                                <div class="vtl-label">Solicitud enviada</div>
+                                <div class="vtl-time" th:text="${#temporals.format(s.creadoEn, 'dd/MM/yyyy HH:mm')}"></div>
+                            </div>
+
+                            <!-- Paso 2: Aceptado -->
+                            <div class="vtl-item" th:if="${s.aceptadoEn != null}">
+                                <div class="vtl-dot done"><i class="bi bi-check-circle-fill"></i></div>
+                                <div class="vtl-label">Proveedor aceptó la solicitud</div>
+                                <div class="vtl-time" th:text="${#temporals.format(s.aceptadoEn, 'dd/MM/yyyy HH:mm')}"></div>
+                            </div>
+
+                            <!-- Paso 3: En camino -->
+                            <div class="vtl-item" th:if="${s.enProgresoEn != null}">
+                                <div class="vtl-dot done"><i class="bi bi-wrench-adjustable-circle-fill"></i></div>
+                                <div class="vtl-label">Profesional en camino</div>
+                                <div class="vtl-time" th:text="${#temporals.format(s.enProgresoEn, 'dd/MM/yyyy HH:mm')}"></div>
+                            </div>
+
+                            <!-- Paso 4: Completado -->
+                            <div class="vtl-item" th:if="${s.completadoEn != null}">
+                                <div class="vtl-dot green"><i class="bi bi-star-fill"></i></div>
+                                <div class="vtl-label" style="color:#16a34a;font-weight:700">¡Servicio completado!</div>
+                                <div class="vtl-time" th:text="${#temporals.format(s.completadoEn, 'dd/MM/yyyy HH:mm')}"></div>
+                            </div>
+
+                            <!-- Cancelado -->
+                            <div class="vtl-item" th:if="${s.estado == 'CANCELADO'}">
+                                <div class="vtl-dot cancel"><i class="bi bi-x-circle-fill"></i></div>
+                                <div class="vtl-label" style="color:#dc2626;font-weight:700">Solicitud cancelada</div>
+                                <div class="vtl-time" th:text="${#temporals.format(s.actualizadoEn, 'dd/MM/yyyy HH:mm')}"></div>
+                            </div>
+                        </div>
+
+                        <hr class="border-dashed my-3" style="border-style:dashed">
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a th:href="@{/mensajes}" class="btn btn-sm btn-outline-secondary">
+                                <i class="bi bi-chat-dots-fill me-1"></i>Ir al chat
+                            </a>
+                            <small class="text-muted" th:text="'ID #' + ${s.id}"></small>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- Footer -->
     <footer class="bg-light text-center py-4 mt-5 border-top">
         <div class="container">
-            <p class="text-muted">© 2026 ServiGo. Todos los derechos reservados.</p>
+            <p class="text-muted mb-0">© 2026 ServiGo. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    function toggleVoucher(idx) {
+        const body  = document.getElementById('voucher-' + idx);
+        const chev  = document.getElementById('chev-' + idx);
+        const isOpen = body.classList.contains('show');
+        body.classList.toggle('show', !isOpen);
+        chev.classList.toggle('open', !isOpen);
+    }
+    </script>
 </body>
 
 </html>
