@@ -1,8 +1,8 @@
 INSERT INTO usuarios (id, nombre, email, telefono, dni, fechaNacimiento, direccion, distrito, rol, imagen, activo, password) VALUES
-  (1, 'Juan Pérez', 'juan@gmail.com', '555-0001', '40123456', '1990-05-10', 'Jr. Los Olivos 120', 'Lima', 'cliente', 'juan.jpg', TRUE, '$2a$10$Q9XvV0xKz9mL8H4vY5M5qe9CIq9L6u0M2jJO9zz6Lx0nZk3D4Yk3G'),
-  (2, 'María García', 'maria@gmail.com', '555-0002', '40234567', '1988-03-22', 'Av. Arequipa 450', 'Miraflores', 'proveedor', 'maria.jpg', TRUE, '$2a$10$gI4Hk1j3C0Lq0t8o0N6/1e6Wc8R5rjB4WLx1aY4Cj6qL3j6V0eJq'),
-  (3, 'Carlos López', 'carlos@gmail.com', '555-0003', '40345678', '1992-11-01', 'Calle Las Flores 88', 'Surco', 'proveedor', 'carlos.jpg', TRUE, '$2a$10$4QnG1CwVY7o6M7sO6M0PqO9XQ0tGz9rTzuB8J4B3C6w0eQocC7aK'),
-  (4, 'Ana Martínez', 'ana@gmail.com', '555-0004', '40456789', '1995-07-18', 'Psje. Primavera 5', 'San Borja', 'cliente', 'ana.jpg', TRUE, '$2a$10$8mY6T2R3mK4wJ0iP4e4e2uL7dT3vYw4r0T1E9fIwvM2m2BsdS3P2');
+  (1, 'Juan Pérez', 'juan@gmail.com', '555-0001', '40123456', '1990-05-10', 'Jr. Los Olivos 120', 'Lima', 'cliente', 'juan.jpg', TRUE, '$2a$10$DF/uxgFf2Dx6vFh5zZkbcujzW9L1tGGvtKGnE/FPPRL0FYSUe/MyC'),
+  (2, 'María García', 'maria@gmail.com', '555-0002', '40234567', '1988-03-22', 'Av. Arequipa 450', 'Miraflores', 'proveedor', 'maria.jpg', TRUE, '$2a$10$a0HTlJpgIoTanVTi3q.3GuXh4JXF.Cvody9FapId0zOcg21yLC/K.'),
+  (3, 'Carlos López', 'carlos@gmail.com', '555-0003', '40345678', '1992-11-01', 'Calle Las Flores 88', 'Surco', 'proveedor', 'carlos.jpg', TRUE, '$2a$10$AqlMjhxQru10AY5JWY2yJOSdMxS1F0MAHhNvhp1hXkPeZ2YcYJfOe'),
+  (4, 'Ana Martínez', 'ana@gmail.com', '555-0004', '40456789', '1995-07-18', 'Psje. Primavera 5', 'San Borja', 'cliente', 'ana.jpg', TRUE, '$2a$10$87xWT7j0DIHpiS2f6CsDnuWlKrqNE6cScEE7W./JD5wiYL.k7SAhC');
 
 INSERT INTO servicios (id, nombre, descripcion, categoria, precio, imagen, disponible, calificacion) VALUES
   (1, 'Reparación de Plomería', 'Reparación y mantenimiento de tuberías', 'Plomería', 50.0, 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&h=300&fit=crop', TRUE, 4),

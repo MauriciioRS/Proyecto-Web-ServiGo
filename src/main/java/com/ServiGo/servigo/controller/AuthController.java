@@ -77,7 +77,10 @@ public class AuthController {
     }
 
     @GetMapping("/iniciar-sesion")
-    public String iniciarSesion() {
+    public String iniciarSesion(@RequestParam(value = "error", required = false) String error, Model model) {
+        if ("true".equals(error)) {
+            model.addAttribute("error", "Correo o contraseña incorrectos.");
+        }
         return "iniciar-sesion";
     }
 

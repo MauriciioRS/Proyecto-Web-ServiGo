@@ -47,6 +47,7 @@
 
                 <form th:action="@{/iniciar-sesion}" method="post" class="formulario-login">
                     <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+                    <div th:if="${param.error}" class="alert alert-danger">Correo o contraseña incorrectos.</div>
                     <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
 
                     <div class="grupo-formulario">
