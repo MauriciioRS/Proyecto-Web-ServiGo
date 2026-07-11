@@ -1,10 +1,5 @@
 package com.ServiGo.servigo.controller;
 
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,21 +8,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ServiGo.servigo.model.Usuario;
-import com.ServiGo.servigo.repository.UsuarioRepository;
+import com.ServiGo.servigo.service.UsuarioService;
 
 import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class AuthController {
 
-    private final UsuarioRepository usuarioRepository;
-    private final PasswordEncoder passwordEncoder;
-    private final AuthenticationManager authenticationManager;
+    private final UsuarioService usuarioService;
 
-    public AuthController(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager) {
-        this.usuarioRepository = usuarioRepository;
-        this.passwordEncoder = passwordEncoder;
-        this.authenticationManager = authenticationManager;
+    public AuthController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
     }
 
     @GetMapping("/registro")
@@ -48,30 +39,17 @@ public class AuthController {
             @RequestParam String telefono,
             @RequestParam String password,
             RedirectAttributes redirectAttributes) {
-        if (usuarioRepository.findByEmail(email).isPresent()) {
+        if (usuarioService.emailExiste(email)) {
             redirectAttributes.addFlashAttribute("error", "El correo ya está registrado.");
             return "redirect:/registro";
         }
 
         String nombreCompleto = nombres.trim() + " " + apellidos.trim();
-        String rol = "contratista".equalsIgnoreCase(tipoCuenta) ? "empleador" : "cliente";
+        String rol = "contratista".equalsIgnoreCase(tipoCuenta) ? "proveedor" : "cliente";
 
-        Usuario usuario = new Usuario(
-                null,
-                nombreCompleto,
-                email,
-                telefono != null ? telefono.trim() : "",
-                dni != null ? dni.trim() : "",
-                fechaNacimiento != null ? fechaNacimiento.trim() : "",
-                direccion != null ? direccion.trim() : "",
-                distrito != null ? distrito.trim() : "",
-                rol,
-                "default.png",
-                true,
-                passwordEncoder.encode(password)
-        );
+        usuarioService.registrar(nombreCompleto, email, telefono, dni,
+                fechaNacimiento, direccion, distrito, rol, password);
 
-        usuarioRepository.save(usuario);
         redirectAttributes.addFlashAttribute("success", "Cuenta creada correctamente. Inicia sesión.");
         return "redirect:/iniciar-sesion";
     }
@@ -82,26 +60,6 @@ public class AuthController {
             model.addAttribute("error", "Correo o contraseña incorrectos.");
         }
         return "iniciar-sesion";
-    }
-
-    @PostMapping("/iniciar-sesion")
-    public String autenticarUsuario(
-            @RequestParam String email,
-            @RequestParam String password,
-            HttpSession session,
-            Model model) {
-        try {
-            Authentication authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(email, password)
-            );
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-            Usuario usuario = usuarioRepository.findByEmail(email).orElseThrow();
-            session.setAttribute("usuarioLogueado", usuario);
-            return "redirect:/";
-        } catch (Exception ex) {
-            model.addAttribute("error", "Correo o contraseña incorrectos.");
-            return "iniciar-sesion";
-        }
     }
 
     @GetMapping("/perfil")
@@ -137,10 +95,6 @@ public class AuthController {
         if (usuario == null) {
             return "redirect:/iniciar-sesion";
         }
-        if (!passwordEncoder.matches(currentPassword, usuario.getPassword())) {
-            redirectAttributes.addFlashAttribute("error", "La contraseña actual es incorrecta.");
-            return "redirect:/cambiar-contrasena";
-        }
         if (!newPassword.equals(confirmPassword)) {
             redirectAttributes.addFlashAttribute("error", "Las contraseñas nuevas no coinciden.");
             return "redirect:/cambiar-contrasena";
@@ -149,8 +103,10 @@ public class AuthController {
             redirectAttributes.addFlashAttribute("error", "La nueva contraseña debe tener al menos 6 caracteres.");
             return "redirect:/cambiar-contrasena";
         }
-        usuario.setPassword(passwordEncoder.encode(newPassword));
-        usuarioRepository.save(usuario);
+        if (!usuarioService.cambiarPassword(usuario, currentPassword, newPassword)) {
+            redirectAttributes.addFlashAttribute("error", "La contraseña actual es incorrecta.");
+            return "redirect:/cambiar-contrasena";
+        }
         session.setAttribute("usuarioLogueado", usuario);
         redirectAttributes.addFlashAttribute("success", "Contraseña actualizada correctamente.");
         return "redirect:/cambiar-contrasena";

@@ -1,73 +1,11 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis Favoritos - ServiGo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="/CSS/navbar.css" rel="stylesheet">
-    <link href="/CSS/Favoritos.css" rel="stylesheet">
-</head>
+<head th:replace="~{fragments/head :: head('Favoritos - ServiGo', '/CSS/Favoritos.css')}"></head>
 
 <body class="d-flex flex-column min-vh-100">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-light shadow-sm sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="/"><i class="bi bi-tools"></i> ServiGo</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/"><i class="bi bi-house-door-fill"></i> Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/servicios}"><i class="bi bi-suitcase-lg-fill"></i> Servicios</a>
-                    </li>
-                    <li class="nav-item" th:if="${session.usuarioLogueado == null}">
-                        <a class="nav-link" th:href="@{/quienes-somos}"><i class="bi bi-info-circle-fill"></i> Quiénes Somos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/contactanos}"><i class="bi bi-envelope-fill"></i> Contáctanos</a>
-                    </li>
-                    <li class="nav-item active" th:if="${session.usuarioLogueado != null}">
-                        <a class="nav-link" th:href="@{/favoritos}"><i class="bi bi-heart-fill"></i> Favoritos</a>
-                    </li>
-                    <li class="nav-item" th:if="${session.usuarioLogueado != null}">
-                        <a class="nav-link" th:href="@{/mensajes}"><i class="bi bi-chat-dots-fill"></i> Mensajes</a>
-                    </li>
-                    <li class="nav-item" th:if="${session.usuarioLogueado != null}">
-                        <a class="nav-link" th:href="@{/notificaciones}"><i class="bi bi-grid-1x2-fill"></i> Mis Solicitudes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="btn btn-warning btn-sm ms-2 fw-semibold" th:href="@{/premium}">
-                            <i class="bi bi-stars"></i> Hazte Premium
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-person-circle"></i>
-                            <span th:if="${session.usuarioLogueado == null}">Yo</span>
-                            <span th:if="${session.usuarioLogueado != null}" th:text="${session.usuarioLogueado.nombre}">Yo</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li th:if="${session.usuarioLogueado == null}"><a class="dropdown-item" th:href="@{/iniciar-sesion}">Iniciar Sesión</a></li>
-                            <li th:if="${session.usuarioLogueado == null}"><a class="dropdown-item" th:href="@{/registro}">Registrarse</a></li>
-                            <li th:if="${session.usuarioLogueado != null}"><a class="dropdown-item" th:href="@{/perfil}">Mi Perfil</a></li>
-                            <li th:if="${session.usuarioLogueado != null}"><a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a></li>
-                            <li><a class="dropdown-item" th:href="@{/cambiar-contrasena}">Cambiar Contraseña</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <nav th:replace="~{fragments/navbar :: navbar('favoritos')}"></nav>
 
     <main class="flex-grow-1">
         <div class="container py-5">
@@ -199,7 +137,7 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 
 </html>

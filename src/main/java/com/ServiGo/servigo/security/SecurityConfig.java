@@ -7,7 +7,6 @@ import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -16,9 +15,12 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     private final CustomUserDetailsService customUserDetailsService;
+    private final CustomAuthenticationSuccessHandler customAuthSuccessHandler;
 
-    public SecurityConfig(CustomUserDetailsService customUserDetailsService) {
+    public SecurityConfig(CustomUserDetailsService customUserDetailsService,
+                          CustomAuthenticationSuccessHandler customAuthSuccessHandler) {
         this.customUserDetailsService = customUserDetailsService;
+        this.customAuthSuccessHandler = customAuthSuccessHandler;
     }
 
     @Bean
@@ -69,7 +71,7 @@ public class SecurityConfig {
                         .loginProcessingUrl("/iniciar-sesion")
                         .usernameParameter("email")
                         .passwordParameter("password")
-                        .defaultSuccessUrl("/", true)
+                        .successHandler(customAuthSuccessHandler)
                         .failureUrl("/iniciar-sesion?error=true")
                         .permitAll()
                 )

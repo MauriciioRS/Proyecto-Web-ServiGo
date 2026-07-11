@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cambiar Contraseña - ServiGo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/CSS/CambiarContraseña.css" rel="stylesheet">
-</head>
+<head th:replace="~{fragments/head :: head('Cambiar Contraseña - ServiGo', '/CSS/CambiarContraseña.css')}"></head>
 
 <body>
     <main class="contenedor">
@@ -44,7 +38,7 @@
         </div>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <div th:replace="~{fragments/footer :: footer}"></div>
     <script>
         // Validación de fortaleza de contraseña
         document.getElementById('new-password').addEventListener('input', function() {

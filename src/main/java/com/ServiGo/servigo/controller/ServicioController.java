@@ -1,12 +1,9 @@
 package com.ServiGo.servigo.controller;
 
-import java.util.Comparator;
 import java.util.List;
 
 import com.ServiGo.servigo.model.Usuario;
-import com.ServiGo.servigo.repository.FavoritoRepository;
 import jakarta.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,17 +12,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ServiGo.servigo.model.Servicio;
-import com.ServiGo.servigo.repository.ServicioRepository;
+import com.ServiGo.servigo.service.FavoritoService;
+import com.ServiGo.servigo.service.ServicioService;
 
 @Controller
 @RequestMapping("/servicios")
 public class ServicioController {
 
-    @Autowired
-    private ServicioRepository servicioRepository;
+    private final ServicioService servicioService;
+    private final FavoritoService favoritoService;
 
-    @Autowired
-    private FavoritoRepository favoritoRepository;
+    public ServicioController(ServicioService servicioService, FavoritoService favoritoService) {
+        this.servicioService = servicioService;
+        this.favoritoService = favoritoService;
+    }
 
     @GetMapping
     public String listaServicios(
@@ -33,39 +33,27 @@ public class ServicioController {
             @RequestParam(required = false) String categoria,
             @RequestParam(name = "orden", required = false) String ordenar,
             Model model) {
-        List<Servicio> servicios = servicioRepository.search(q, categoria);
-        sortServicios(servicios, ordenar);
+        List<Servicio> servicios = servicioService.buscar(q, categoria);
+        servicioService.ordenar(servicios, ordenar);
 
         model.addAttribute("servicios", servicios);
-        model.addAttribute("categorias", servicioRepository.findDistinctCategoria());
+        model.addAttribute("categorias", servicioService.obtenerCategorias());
         model.addAttribute("query", q);
         model.addAttribute("categoriaSeleccionada", categoria);
         model.addAttribute("ordenSeleccionado", ordenar);
         return "servicios";
     }
 
-    private void sortServicios(List<Servicio> servicios, String ordenar) {
-        if (ordenar == null) {
-            return;
-        }
-        switch (ordenar) {
-            case "precio-menor" -> servicios.sort(Comparator.comparing(Servicio::getPrecio));
-            case "precio-mayor" -> servicios.sort(Comparator.comparing(Servicio::getPrecio).reversed());
-            case "mejor-calificacion" -> servicios.sort(Comparator.comparing(Servicio::getCalificacion).reversed());
-            default -> {}
-        }
-    }
-
     @GetMapping("/{id}")
     public String detalleServicio(@PathVariable Long id, HttpSession session, Model model) {
-        var servicio = servicioRepository.findById(id);
+        var servicio = servicioService.findById(id);
         if (servicio.isEmpty()) return "redirect:/servicios";
 
         model.addAttribute("servicio", servicio.get());
         Usuario usuario = (Usuario) session.getAttribute("usuarioLogueado");
         if (usuario != null) {
             model.addAttribute("esFavorito",
-                    favoritoRepository.existsByUsuarioIdAndServicioId(usuario.getId(), id));
+                    favoritoService.esFavorito(usuario.getId(), id));
         }
         return "servicio-detalle";
     }

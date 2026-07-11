@@ -1,12 +1,8 @@
 package com.ServiGo.servigo.controller;
 
-import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 import jakarta.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,17 +10,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ServiGo.servigo.model.Servicio;
 import com.ServiGo.servigo.model.Usuario;
-import com.ServiGo.servigo.repository.NotificacionRepository;
-import com.ServiGo.servigo.repository.ServicioRepository;
+import com.ServiGo.servigo.service.NotificacionService;
+import com.ServiGo.servigo.service.ServicioService;
 
 @Controller
 public class HomeController {
     
-    @Autowired
-    private ServicioRepository servicioRepository;
+    private final ServicioService servicioService;
+    private final NotificacionService notificacionService;
     
-    @Autowired
-    private NotificacionRepository notificacionRepository;
+    public HomeController(ServicioService servicioService, NotificacionService notificacionService) {
+        this.servicioService = servicioService;
+        this.notificacionService = notificacionService;
+    }
     
     @GetMapping("/")
     public String inicio(
@@ -33,43 +31,23 @@ public class HomeController {
             @RequestParam(name = "orden", required = false) String ordenar,
             HttpSession session,
             Model model) {
-        List<Servicio> servicios = servicioRepository.search(q, categoria);
-        sortServicios(servicios, ordenar);
+        List<Servicio> servicios = servicioService.buscar(q, categoria);
+        servicioService.ordenar(servicios, ordenar);
 
-        // One best-rated service per category for Tendencias
-        List<Servicio> tendencias = servicioRepository.findAll().stream()
-                .collect(Collectors.toMap(
-                        Servicio::getCategoria,
-                        s -> s,
-                        (a, b) -> a.getCalificacion() >= b.getCalificacion() ? a : b))
-                .values().stream()
-                .sorted(Comparator.comparing(Servicio::getCategoria))
-                .collect(Collectors.toList());
+        List<Servicio> tendencias = servicioService.obtenerTendencias();
 
         model.addAttribute("servicios", servicios);
         model.addAttribute("tendencias", tendencias);
         Usuario usuarioLogueado = (Usuario) session.getAttribute("usuarioLogueado");
         int noLeidas = (usuarioLogueado != null)
-                ? notificacionRepository.findByUsuarioIdAndLeidaFalse(usuarioLogueado.getId()).size()
+                ? notificacionService.contarNoLeidas(usuarioLogueado.getId())
                 : 0;
         model.addAttribute("notificacionesNoLeidas", noLeidas);
-        model.addAttribute("categorias", servicioRepository.findDistinctCategoria());
+        model.addAttribute("categorias", servicioService.obtenerCategorias());
         model.addAttribute("query", q);
         model.addAttribute("categoriaSeleccionada", categoria);
         model.addAttribute("ordenSeleccionado", ordenar);
         return "inicio";
-    }
-    
-    private void sortServicios(List<Servicio> servicios, String ordenar) {
-        if (ordenar == null) {
-            return;
-        }
-        switch (ordenar) {
-            case "precio-menor" -> servicios.sort(Comparator.comparing(Servicio::getPrecio));
-            case "precio-mayor" -> servicios.sort(Comparator.comparing(Servicio::getPrecio).reversed());
-            case "mejor-calificacion" -> servicios.sort(Comparator.comparing(Servicio::getCalificacion).reversed());
-            default -> {}
-        }
     }
     
     @GetMapping("/home")

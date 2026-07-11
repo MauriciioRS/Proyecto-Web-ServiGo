@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión - ServiGo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/CSS/IniciarSesion.css?v=2" rel="stylesheet" th:href="@{/CSS/IniciarSesion.css(v=2)}">
-</head>
+<head th:replace="~{fragments/head :: head('Iniciar Sesión - ServiGo', '/CSS/IniciarSesion.css')}"></head>
 
 <body>
     <main class="login-page">
@@ -86,7 +80,7 @@
         </section>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <div th:replace="~{fragments/footer :: footer}"></div>
     <script>
     function mostrarAvisoSocial() {
         const el = document.getElementById('aviso-social');

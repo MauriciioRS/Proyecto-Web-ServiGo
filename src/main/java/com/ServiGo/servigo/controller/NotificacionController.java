@@ -3,28 +3,27 @@ package com.ServiGo.servigo.controller;
 import com.ServiGo.servigo.model.Notificacion;
 import com.ServiGo.servigo.model.SolicitudServicio;
 import com.ServiGo.servigo.model.Usuario;
-import com.ServiGo.servigo.repository.NotificacionRepository;
-import com.ServiGo.servigo.repository.SolicitudServicioRepository;
+import com.ServiGo.servigo.service.NotificacionService;
+import com.ServiGo.servigo.service.SolicitudService;
 import jakarta.servlet.http.HttpSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/notificaciones")
 public class NotificacionController {
 
-    @Autowired
-    private NotificacionRepository notificacionRepository;
+    private final NotificacionService notificacionService;
+    private final SolicitudService solicitudService;
 
-    @Autowired
-    private SolicitudServicioRepository solicitudRepository;
+    public NotificacionController(NotificacionService notificacionService, SolicitudService solicitudService) {
+        this.notificacionService = notificacionService;
+        this.solicitudService = solicitudService;
+    }
 
     @GetMapping
     public String listaNotificaciones(HttpSession session, Model model) {
@@ -33,27 +32,13 @@ public class NotificacionController {
             return "redirect:/iniciar-sesion";
         }
 
-        List<Notificacion> notificaciones = notificacionRepository.findByUsuarioId(usuario.getId());
+        List<Notificacion> notificaciones = notificacionService.obtenerPorUsuario(usuario.getId());
+        notificacionService.marcarTodasComoLeidas(usuario.getId());
 
-        // Mark all unread notifications as read
-        List<Notificacion> noLeidas = notificaciones.stream()
-                .filter(n -> !Boolean.TRUE.equals(n.getLeida()))
-                .collect(Collectors.toList());
-        if (!noLeidas.isEmpty()) {
-            noLeidas.forEach(n -> n.setLeida(true));
-            notificacionRepository.saveAll(noLeidas);
-        }
+        List<SolicitudServicio> todasSolicitudes = solicitudService.obtenerPorCliente(usuario.getId());
 
-        List<SolicitudServicio> todasSolicitudes =
-                solicitudRepository.findByClienteIdOrderByCreadoEnDesc(usuario.getId());
-
-        List<SolicitudServicio> solicitudesActivas = todasSolicitudes.stream()
-                .filter(s -> !s.getEstado().equals("COMPLETADO") && !s.getEstado().equals("CANCELADO"))
-                .collect(Collectors.toList());
-
-        List<SolicitudServicio> solicitudesHistorial = todasSolicitudes.stream()
-                .filter(s -> s.getEstado().equals("COMPLETADO") || s.getEstado().equals("CANCELADO"))
-                .collect(Collectors.toList());
+        List<SolicitudServicio> solicitudesActivas = solicitudService.filtrarActivas(todasSolicitudes);
+        List<SolicitudServicio> solicitudesHistorial = solicitudService.filtrarHistorial(todasSolicitudes);
 
         model.addAttribute("notificaciones", notificaciones);
         model.addAttribute("solicitudes", todasSolicitudes);

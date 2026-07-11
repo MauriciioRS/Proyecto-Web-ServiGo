@@ -33,7 +33,7 @@ public class CustomUserDetails implements UserDetails {
         }
 
         String normalized = rol.trim().toLowerCase();
-        if ("tecnico".equals(normalized) || "profesional".equals(normalized) || "contratista".equals(normalized) || "provider".equals(normalized)) {
+        if ("tecnico".equals(normalized) || "proveedor".equals(normalized) || "profesional".equals(normalized) || "contratista".equals(normalized) || "provider".equals(normalized)) {
             return "TECNICO";
         }
         return "CLIENTE";
