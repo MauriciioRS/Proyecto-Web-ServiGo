@@ -61,8 +61,21 @@
                         <i class="bi bi-arrow-left"></i> Volver a servicios
                     </a>
 
-                    <!-- Usuario logueado: solicitar servicio -->
-                    <form th:if="${session.usuarioLogueado != null}"
+                    <!-- Contactar al proveedor -->
+                    <a th:if="${session.usuarioLogueado != null and session.usuarioLogueado.rol == 'cliente' and not esProveedorDelServicio}"
+                       th:href="@{/mensajes(c=${servicio.proveedorId})}"
+                       class="btn btn-info text-white">
+                        <i class="bi bi-chat-dots-fill"></i> Contactar al proveedor
+                    </a>
+
+                    <!-- Ya tiene solicitud activa -->
+                    <span th:if="${session.usuarioLogueado != null and session.usuarioLogueado.rol == 'cliente' and yaContratado}"
+                          class="btn btn-secondary disabled">
+                        <i class="bi bi-check-circle-fill me-1"></i>Ya contratado
+                    </span>
+
+                    <!-- Usuario logueado: solicitar servicio (no es su propio servicio) -->
+                    <form th:if="${session.usuarioLogueado != null and session.usuarioLogueado.rol == 'cliente' and not esProveedorDelServicio and not yaContratado}"
                           th:action="@{/solicitudes/crear}" method="post" class="d-inline">
                         <input type="hidden" name="servicioId" th:value="${servicio.id}">
                         <button type="submit" class="btn btn-success">

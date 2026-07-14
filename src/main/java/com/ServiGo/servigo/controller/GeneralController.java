@@ -2,6 +2,7 @@ package com.ServiGo.servigo.controller;
 
 import com.ServiGo.servigo.model.Servicio;
 import com.ServiGo.servigo.model.Usuario;
+import com.ServiGo.servigo.repository.UsuarioRepository;
 import com.ServiGo.servigo.service.FavoritoService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -15,9 +16,11 @@ import java.util.List;
 public class GeneralController {
 
     private final FavoritoService favoritoService;
+    private final UsuarioRepository usuarioRepository;
 
-    public GeneralController(FavoritoService favoritoService) {
+    public GeneralController(FavoritoService favoritoService, UsuarioRepository usuarioRepository) {
         this.favoritoService = favoritoService;
+        this.usuarioRepository = usuarioRepository;
     }
 
     @GetMapping("/landing")
@@ -68,5 +71,40 @@ public class GeneralController {
 
         favoritoService.toggle(usuario.getId(), servicioId);
         return "redirect:" + returnUrl;
+    }
+
+    @GetMapping("/premium")
+    public String premium(HttpSession session, Model model) {
+        Usuario usuario = (Usuario) session.getAttribute("usuarioLogueado");
+        if (usuario != null) {
+            model.addAttribute("yaPremium", Boolean.TRUE.equals(usuario.getPremium()));
+        } else {
+            model.addAttribute("yaPremium", false);
+        }
+        return "premium";
+    }
+
+    @PostMapping("/premium/activar")
+    public String activarPremium(HttpSession session, RedirectAttributes redirectAttributes) {
+        Usuario usuario = (Usuario) session.getAttribute("usuarioLogueado");
+        if (usuario == null) return "redirect:/iniciar-sesion";
+
+        usuario.setPremium(true);
+        usuarioRepository.save(usuario);
+        session.setAttribute("usuarioLogueado", usuario);
+        redirectAttributes.addFlashAttribute("success", "¡Felicitaciones! Ahora eres Premium. Disfruta de beneficios ilimitados.");
+        return "redirect:/";
+    }
+
+    @PostMapping("/premium/desactivar")
+    public String desactivarPremium(HttpSession session, RedirectAttributes redirectAttributes) {
+        Usuario usuario = (Usuario) session.getAttribute("usuarioLogueado");
+        if (usuario == null) return "redirect:/iniciar-sesion";
+
+        usuario.setPremium(false);
+        usuarioRepository.save(usuario);
+        session.setAttribute("usuarioLogueado", usuario);
+        redirectAttributes.addFlashAttribute("success", "Has desactivado tu membresía Premium.");
+        return "redirect:/";
     }
 }

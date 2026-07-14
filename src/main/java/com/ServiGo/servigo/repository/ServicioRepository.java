@@ -6,6 +6,7 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -40,4 +41,12 @@ public interface ServicioRepository extends JpaRepository<Servicio, Long> {
 
     @Query("SELECT DISTINCT s.categoria FROM Servicio s ORDER BY s.categoria")
     List<String> findDistinctCategoria();
+
+    List<Servicio> findByProveedorIdOrderByCalificacionDesc(Long proveedorId);
+
+    @Query("SELECT s FROM Servicio s WHERE s.id IN :ids")
+    List<Servicio> findByIds(@Param("ids") List<Long> ids);
+
+    @Query("SELECT DISTINCT s.proveedorId FROM Servicio s WHERE s.id IN :servicioIds AND s.proveedorId IS NOT NULL")
+    List<Long> findProveedorIdsByServicioIds(@Param("servicioIds") List<Long> servicioIds);
 }

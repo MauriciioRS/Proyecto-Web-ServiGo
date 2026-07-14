@@ -61,7 +61,7 @@ public class SecurityConfig {
                                 "/webjars/**",
                                 "/h2-console/**"
                         ).permitAll()
-                        .requestMatchers("/perfil", "/cambiar-contrasena", "/mensajes/**", "/notificaciones/**", "/solicitudes/**", "/favoritos/**").authenticated()
+                        .requestMatchers("/perfil", "/cambiar-contrasena", "/mensajes/**", "/notificaciones/**", "/solicitudes/**", "/favoritos/**", "/calificaciones/**").authenticated()
                         .requestMatchers("/tecnico/**").hasRole("TECNICO")
                         .requestMatchers("/cliente/**").hasRole("CLIENTE")
                         .anyRequest().permitAll()

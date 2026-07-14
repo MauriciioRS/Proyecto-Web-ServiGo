@@ -26,4 +26,5 @@ public class Usuario {
     private String imagen;
     private Boolean activo;
     private String password;
+    private Boolean premium;
 }

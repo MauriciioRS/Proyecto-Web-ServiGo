@@ -71,9 +71,9 @@
                                        class="btn btn-outline-primary btn-sm">
                                         <i class="bi bi-eye-fill"></i> Ver
                                     </a>
-                                    <a th:href="@{/mensajes}" class="btn btn-primary btn-sm">
-                                        <i class="bi bi-chat-dots-fill"></i> Contactar
-                                    </a>
+                                    <a th:href="@{/mensajes(c=${servicio.proveedorId})}" class="btn btn-primary btn-sm">
+                                         <i class="bi bi-chat-dots-fill"></i> Contactar
+                                     </a>
                                 </div>
                             </div>
                         </div>

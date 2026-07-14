@@ -55,4 +55,32 @@ public class ServicioService {
     public List<Servicio> obtenerPorIds(List<Long> ids) {
         return ids.isEmpty() ? List.of() : servicioRepository.findAllById(ids);
     }
+
+    public List<Servicio> obtenerPorProveedor(Long proveedorId) {
+        return servicioRepository.findByProveedorIdOrderByCalificacionDesc(proveedorId);
+    }
+
+    public Servicio crear(Servicio servicio) {
+        return servicioRepository.save(servicio);
+    }
+
+    public Servicio editar(Long id, Servicio datos) {
+        Servicio existente = servicioRepository.findById(id).orElse(null);
+        if (existente == null) return null;
+        existente.setNombre(datos.getNombre());
+        existente.setDescripcion(datos.getDescripcion());
+        existente.setCategoria(datos.getCategoria());
+        existente.setPrecio(datos.getPrecio());
+        existente.setImagen(datos.getImagen());
+        existente.setDisponible(datos.getDisponible());
+        return servicioRepository.save(existente);
+    }
+
+    public boolean eliminar(Long id, Long proveedorId) {
+        Servicio existente = servicioRepository.findById(id).orElse(null);
+        if (existente == null) return false;
+        if (existente.getProveedorId() == null || !existente.getProveedorId().equals(proveedorId)) return false;
+        servicioRepository.deleteById(id);
+        return true;
+    }
 }

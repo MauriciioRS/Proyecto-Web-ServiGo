@@ -35,3 +35,6 @@ build/
 ### Logs ###
 *.log
 spring-boot.log
+
+### H2 database files ###
+data/

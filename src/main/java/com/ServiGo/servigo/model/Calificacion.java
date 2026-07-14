@@ -4,23 +4,23 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "servicios")
+@Table(name = "calificaciones")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Servicio {
+public class Calificacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    private String nombre;
-    private String descripcion;
-    private String categoria;
-    private Double precio;
-    private String imagen;
-    private Boolean disponible;
-    private Integer calificacion;
+
+    private Long solicitudId;
+    private Long clienteId;
     private Long proveedorId;
+    private Long servicioId;
+    private Integer estrellas;
+    private String comentario;
+    private LocalDateTime creadoEn;
 }

@@ -14,4 +14,5 @@ public class ContactoConversacion {
 	private String avatarUrl;
 	private String ultimaVistaPrevia;
 	private String ultimoTiempoRelativo;
+	private int mensajesNoLeidos;
 }

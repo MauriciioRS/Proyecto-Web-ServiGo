@@ -3,6 +3,7 @@ package com.ServiGo.servigo.controller;
 import java.util.List;
 
 import com.ServiGo.servigo.model.Usuario;
+import com.ServiGo.servigo.repository.SolicitudServicioRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,10 +22,13 @@ public class ServicioController {
 
     private final ServicioService servicioService;
     private final FavoritoService favoritoService;
+    private final SolicitudServicioRepository solicitudRepository;
 
-    public ServicioController(ServicioService servicioService, FavoritoService favoritoService) {
+    public ServicioController(ServicioService servicioService, FavoritoService favoritoService,
+                              SolicitudServicioRepository solicitudRepository) {
         this.servicioService = servicioService;
         this.favoritoService = favoritoService;
+        this.solicitudRepository = solicitudRepository;
     }
 
     @GetMapping
@@ -54,6 +58,11 @@ public class ServicioController {
         if (usuario != null) {
             model.addAttribute("esFavorito",
                     favoritoService.esFavorito(usuario.getId(), id));
+            model.addAttribute("esProveedorDelServicio",
+                    servicio.get().getProveedorId() != null
+                            && servicio.get().getProveedorId().equals(usuario.getId()));
+            model.addAttribute("yaContratado",
+                    solicitudRepository.existsActivaByServicioIdAndClienteId(id, usuario.getId()));
         }
         return "servicio-detalle";
     }

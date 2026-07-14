@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head :: head('Dashboard - ServiGo', '/CSS/Notificaciones.css')}"></head>
+
+<body>
+    <style>
+        .kanban-board {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            min-height: 400px;
+        }
+        @media (max-width: 991px) {
+            .kanban-board {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 576px) {
+            .kanban-board {
+                grid-template-columns: 1fr;
+            }
+        }
+        .kanban-col {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+        }
+        .kanban-col-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: .75rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .kanban-col-header .badge {
+            font-size: .85rem;
+            padding: .35rem .65rem;
+        }
+        .kanban-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: .75rem;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #2563eb;
+            transition: box-shadow .2s, transform .15s;
+            cursor: default;
+        }
+        .kanban-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,.08);
+            transform: translateY(-2px);
+        }
+        .kanban-card .servicio-name {
+            font-weight: 700;
+            font-size: .95rem;
+            color: #0f172a;
+            margin-bottom: .35rem;
+        }
+        .kanban-card .meta {
+            font-size: .8rem;
+            color: #64748b;
+        }
+        .kanban-card .meta i {
+            margin-right: .2rem;
+        }
+        .kanban-card .acciones {
+            margin-top: .75rem;
+            display: flex;
+            gap: .5rem;
+            flex-wrap: wrap;
+        }
+        .col-pendiente .kanban-col-header { border-bottom-color: #f59e0b; }
+        .col-pendiente .kanban-card { border-left-color: #f59e0b; }
+        .col-aceptado .kanban-col-header { border-bottom-color: #2563eb; }
+        .col-aceptado .kanban-card { border-left-color: #2563eb; }
+        .col-progreso .kanban-col-header { border-bottom-color: #8b5cf6; }
+        .col-progreso .kanban-card { border-left-color: #8b5cf6; }
+        .col-completado .kanban-col-header { border-bottom-color: #16a34a; }
+        .col-completado .kanban-card { border-left-color: #16a34a; }
+
+        .stat-card {
+            border: none;
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            transition: transform .2s;
+        }
+        .stat-card:hover { transform: translateY(-3px); }
+        .stat-card .stat-icon {
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto .75rem;
+            font-size: 1.3rem;
+        }
+    </style>
+
+    <nav th:replace="~{fragments/navbar :: navbar('dashboard')}"></nav>
+
+    <div class="container py-4">
+
+        <!-- Encabezado -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h3 class="fw-bold mb-1"><i class="bi bi-speedometer2 me-2 text-primary"></i>Dashboard</h3>
+                <p class="text-muted mb-0">Gestiona tus solicitudes de servicio</p>
+            </div>
+            <a th:href="@{/tecnico/servicios/crear}" class="btn btn-primary">
+                <i class="bi bi-plus-circle me-1"></i>Nuevo Servicio
+            </a>
+        </div>
+
+        <!-- Stats resumen -->
+        <div class="row g-3 mb-4">
+            <div class="col-6 col-md-3">
+                <div class="card stat-card shadow-sm">
+                    <div class="stat-icon" style="background:#fef3c7;color:#f59e0b">
+                        <i class="bi bi-clock-history"></i>
+                    </div>
+                    <div class="fs-3 fw-bold text-warning" th:text="${pendientes}">0</div>
+                    <small class="text-muted">Pendientes</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card stat-card shadow-sm">
+                    <div class="stat-icon" style="background:#dbeafe;color:#2563eb">
+                        <i class="bi bi-check2-circle"></i>
+                    </div>
+                    <div class="fs-3 fw-bold text-primary" th:text="${aceptadas}">0</div>
+                    <small class="text-muted">Aceptadas</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card stat-card shadow-sm">
+                    <div class="stat-icon" style="background:#ede9fe;color:#8b5cf6">
+                        <i class="bi bi-tools"></i>
+                    </div>
+                    <div class="fs-3 fw-bold" style="color:#8b5cf6" th:text="${enProgreso}">0</div>
+                    <small class="text-muted">En Progreso</small>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card stat-card shadow-sm">
+                    <div class="stat-icon" style="background:#dcfce7;color:#16a34a">
+                        <i class="bi bi-trophy-fill"></i>
+                    </div>
+                    <div class="fs-3 fw-bold text-success" th:text="${completadas}">0</div>
+                    <small class="text-muted">Completadas</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kanban Board -->
+        <div class="kanban-board">
+
+            <!-- Pendientes -->
+            <div class="kanban-col col-pendiente">
+                <div class="kanban-col-header">
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="bi bi-clock text-warning"></i>
+                        <strong>Pendientes</strong>
+                    </div>
+                    <span class="badge bg-warning text-dark" th:text="${pendientes}">0</span>
+                </div>
+                <div th:each="s : ${todasSolicitudes}" th:if="${s.estado == 'PENDIENTE'}">
+                    <div class="kanban-card">
+                        <div class="servicio-name" th:text="${s.servicioNombre}">Servicio</div>
+                        <div class="meta">
+                            <i class="bi bi-tag"></i><span th:text="${s.servicioCategoria}"></span>
+                        </div>
+                        <div class="meta">
+                            <i class="bi bi-cash"></i><span th:text="'S/.' + ${s.servicioPrecio}"></span>
+                        </div>
+                        <div class="meta">
+                            <i class="bi bi-clock"></i><span th:text="${#temporals.format(s.creadoEn, 'dd/MM HH:mm')}"></span>
+                        </div>
+                        <div class="acciones">
+                            <form th:action="@{'/solicitudes/' + ${s.id} + '/avanzar'}" method="post">
+                                <button type="submit" class="btn btn-sm btn-primary">
+                                    <i class="bi bi-check-lg me-1"></i>Aceptar
+                                </button>
+                            </form>
+                            <form th:action="@{'/solicitudes/' + ${s.id} + '/cancelar'}" method="post"
+                                  onsubmit="return confirm('¿Rechazar esta solicitud?')">
+                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                    <i class="bi bi-x-lg me-1"></i>Rechazar
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aceptadas -->
+            <div class="kanban-col col-aceptado">
+                <div class="kanban-col-header">
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="bi bi-check-circle text-primary"></i>
+                        <strong>Aceptadas</strong>
+                    </div>
+                    <span class="badge bg-primary" th:text="${aceptadas}">0</span>
+                </div>
+                <div th:each="s : ${todasSolicitudes}" th:if="${s.estado == 'ACEPTADO'}">
+                    <div class="kanban-card">
+                        <div class="servicio-name" th:text="${s.servicioNombre}">Servicio</div>
+                        <div class="meta">
+                            <i class="bi bi-tag"></i><span th:text="${s.servicioCategoria}"></span>
+                        </div>
+                        <div class="meta">
+                            <i class="bi bi-cash"></i><span th:text="'S/.' + ${s.servicioPrecio}"></span>
+                        </div>
+                        <div class="meta">
+                            <i class="bi bi-calendar-check"></i>Aceptado: <span th:text="${#temporals.format(s.aceptadoEn, 'dd/MM HH:mm')}"></span>
+                        </div>
+                        <div class="acciones">
+                            <form th:action="@{'/solicitudes/' + ${s.id} + '/avanzar'}" method="post">
+                                <button type="submit" class="btn btn-sm btn-primary">
+                                    <i class="bi bi-arrow-right-circle me-1"></i>Iniciar Trabajo
+                                </button>
+                            </form>
+                            <a th:if="${chatMap.get(s.id) != null}" th:href="@{/mensajes(c=${chatMap.get(s.id)})}" class="btn btn-sm btn-outline-secondary">
+                                <i class="bi bi-chat-dots-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- En Progreso -->
+            <div class="kanban-col col-progreso">
+                <div class="kanban-col-header">
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="bi bi-tools" style="color:#8b5cf6"></i>
+                        <strong>En Progreso</strong>
+                    </div>
+                    <span class="badge" style="background:#8b5cf6" th:text="${enProgreso}">0</span>
+                </div>
+                <div th:each="s : ${todasSolicitudes}" th:if="${s.estado == 'EN_PROGRESO'}">
+                    <div class="kanban-card">
+                        <div class="servicio-name" th:text="${s.servicioNombre}">Servicio</div>
+                        <div class="meta">
+                            <i class="bi bi-tag"></i><span th:text="${s.servicioCategoria}"></span>
+                        </div>
+                        <div class="meta">
+                            <i class="bi bi-cash"></i><span th:text="'S/.' + ${s.servicioPrecio}"></span>
+                        </div>
+                        <div class="meta">
+                            <i class="bi bi-clock"></i>Inicio: <span th:text="${#temporals.format(s.enProgresoEn, 'dd/MM HH:mm')}"></span>
+                        </div>
+                        <div class="acciones">
+                            <form th:action="@{'/solicitudes/' + ${s.id} + '/avanzar'}" method="post">
+                                <button type="submit" class="btn btn-sm btn-success">
+                                    <i class="bi bi-check-circle me-1"></i>Completar
+                                </button>
+                            </form>
+                            <a th:if="${chatMap.get(s.id) != null}" th:href="@{/mensajes(c=${chatMap.get(s.id)})}" class="btn btn-sm btn-outline-secondary">
+                                <i class="bi bi-chat-dots-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Completadas -->
+            <div class="kanban-col col-completado">
+                <div class="kanban-col-header">
+                    <div class="d-flex align-items-center gap-2">
+                        <i class="bi bi-trophy-fill text-success"></i>
+                        <strong>Completadas</strong>
+                    </div>
+                    <span class="badge bg-success" th:text="${completadas}">0</span>
+                </div>
+                <div th:each="s : ${todasSolicitudes}" th:if="${s.estado == 'COMPLETADO'}">
+                    <div class="kanban-card">
+                        <div class="servicio-name" th:text="${s.servicioNombre}">Servicio</div>
+                        <div class="meta">
+                            <i class="bi bi-tag"></i><span th:text="${s.servicioCategoria}"></span>
+                        </div>
+                        <div class="meta">
+                            <i class="bi bi-cash"></i><span th:text="'S/.' + ${s.servicioPrecio}"></span>
+                        </div>
+                        <div class="meta">
+                            <i class="bi bi-check-circle text-success"></i>Completado: <span th:text="${#temporals.format(s.completadoEn, 'dd/MM HH:mm')}"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer class="bg-light text-center py-4 mt-5 border-top">
+        <div class="container">
+            <p class="text-muted mb-0">© 2026 ServiGo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+
+</html>

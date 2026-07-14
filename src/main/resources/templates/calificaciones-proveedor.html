@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head :: head('Mis Calificaciones - ServiGo', '/CSS/Notificaciones.css')}"></head>
+
+<body>
+    <style>
+        .calif-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: #fff;
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .calif-header .big-score {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .calif-header .stars {
+            font-size: 1.5rem;
+            color: #facc15;
+            margin: .5rem 0;
+        }
+        .calif-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
+            transition: box-shadow .2s;
+        }
+        .calif-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,.06);
+        }
+        .calif-stars {
+            color: #facc15;
+            font-size: 1.1rem;
+        }
+        .calif-stars .empty {
+            color: #e2e8f0;
+        }
+        .calif-text {
+            color: #475569;
+            font-size: .95rem;
+            line-height: 1.6;
+        }
+        .calif-meta {
+            font-size: .8rem;
+            color: #94a3b8;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        .empty-state i {
+            font-size: 4rem;
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+            display: block;
+        }
+    </style>
+
+    <nav th:replace="~{fragments/navbar :: navbar('')}"></nav>
+
+    <div class="container py-4">
+
+        <!-- Encabezado con promedio -->
+        <div class="calif-header">
+            <h3 class="mb-3 fw-bold"><i class="bi bi-star-fill me-2"></i>Mis Calificaciones</h3>
+            <div class="big-score" th:text="${#numbers.formatDecimal(promedio, 1, 1)}">0.0</div>
+            <div class="stars">
+                <i th:each="i : ${#numbers.sequence(1,5)}"
+                   th:classappend="${i <= promedio} ? 'bi bi-star-fill' : 'bi bi-star-fill empty'"></i>
+            </div>
+            <p class="mb-0 mt-2" style="opacity:.8" th:text="${#lists.size(calificaciones)} + ' calificación(es) recibida(s)'">Calificaciones</p>
+        </div>
+
+        <!-- Sin calificaciones -->
+        <div th:if="${#lists.isEmpty(calificaciones)}" class="empty-state">
+            <i class="bi bi-star"></i>
+            <h4 class="text-muted fw-normal">Aún no tienes calificaciones</h4>
+            <p class="text-muted">Cuando completes servicios, los clientes podrán calificarte aquí.</p>
+        </div>
+
+        <!-- Lista de calificaciones -->
+        <div th:each="c : ${calificaciones}" class="calif-card">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+                <div>
+                    <div class="calif-stars">
+                        <i th:each="i : ${#numbers.sequence(1,5)}"
+                           th:classappend="${i <= c.estrellas} ? 'bi bi-star-fill' : 'bi bi-star-fill empty'"></i>
+                    </div>
+                </div>
+                <span class="calif-meta" th:text="${#temporals.format(c.creadoEn, 'dd/MM/yyyy')}">Fecha</span>
+            </div>
+            <p class="calif-text mb-1" th:text="${c.comentario}">Comentario</p>
+            <div class="calif-meta">
+                <i class="bi bi-tag me-1"></i>Servicio ID: <span th:text="${c.servicioId}"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="bg-light text-center py-4 mt-5 border-top">
+        <div class="container">
+            <p class="text-muted mb-0">© 2026 ServiGo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+
+</html>

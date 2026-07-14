@@ -28,6 +28,7 @@ public class MensajeChat {
     private boolean delProveedor;
     private String texto;
     private LocalDateTime creadoEn;
+    private boolean leido;
 
     public String getHoraCorta() {
         if (creadoEn == null) {

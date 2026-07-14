@@ -38,6 +38,8 @@ public class MensajeController {
             return "mensajes";
         }
 
+        model.addAttribute("sinContactos", false);
+
         final Long requestedId = otroUsuarioId;
         boolean validContact = requestedId != null
                 && contactos.stream().anyMatch(c -> c.getId().equals(requestedId));
@@ -46,6 +48,7 @@ public class MensajeController {
                 .filter(c -> c.getId().equals(otroId)).findFirst()
                 .orElse(contactos.get(0));
 
+        mensajeService.marcarLeidos(yo.getId(), otroId);
         List<MensajeChat> mensajes = mensajeService.obtenerMensajes(yo.getId(), otroId);
 
         model.addAttribute("contactos", contactos);

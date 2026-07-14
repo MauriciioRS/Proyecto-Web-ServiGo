@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head :: head('Crear Servicio - ServiGo', '/CSS/Registro.css')}"></head>
+
+<body>
+    <style>
+        .form-card {
+            max-width: 680px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,.08);
+            padding: 2.5rem;
+        }
+        .form-card h3 {
+            font-weight: 700;
+            color: #0f172a;
+        }
+        .form-label {
+            font-weight: 600;
+            color: #334155;
+            font-size: .9rem;
+        }
+        .form-control, .form-select {
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+            padding: .65rem 1rem;
+            transition: border-color .2s, box-shadow .2s;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37,99,235,.15);
+        }
+        .preview-img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px dashed #cbd5e1;
+            margin-top: .5rem;
+        }
+        .btn-primary {
+            border-radius: 10px;
+            padding: .65rem 2rem;
+            font-weight: 600;
+        }
+        .btn-outline-secondary {
+            border-radius: 10px;
+        }
+    </style>
+
+    <nav th:replace="~{fragments/navbar :: navbar('mis-servicios')}"></nav>
+
+    <div class="container py-5">
+        <div class="form-card">
+            <div class="text-center mb-4">
+                <i class="bi bi-tools text-primary" style="font-size:2.5rem"></i>
+                <h3 class="mt-2" th:text="${servicio.id != null} ? 'Editar Servicio' : 'Crear Nuevo Servicio'">Crear Servicio</h3>
+                <p class="text-muted" th:text="${servicio.id != null} ? 'Actualiza los datos de tu servicio' : 'Completa los datos para publicar tu servicio'">Descripción</p>
+            </div>
+
+            <form th:action="${servicio.id != null}
+                            ? @{|/tecnico/servicios/${servicio.id}/editar|}
+                            : @{/tecnico/servicios/crear}"
+                  method="post">
+
+                <div class="mb-3">
+                    <label class="form-label">Nombre del servicio *</label>
+                    <input type="text" name="nombre" class="form-control"
+                           th:value="${servicio.nombre}"
+                           placeholder="Ej: Reparación de Plomería" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Descripción *</label>
+                    <textarea name="descripcion" class="form-control" rows="3"
+                              th:text="${servicio.descripcion}"
+                              placeholder="Describe brevemente qué incluye tu servicio..." required></textarea>
+                </div>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Categoría *</label>
+                        <select name="categoria" class="form-select" required>
+                            <option value="">Seleccionar categoría</option>
+                            <option th:each="cat : ${categorias}"
+                                    th:value="${cat}"
+                                    th:text="${cat}"
+                                    th:selected="${servicio.categoria == cat}"></option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Precio (S/.) *</label>
+                        <input type="number" name="precio" class="form-control"
+                               th:value="${servicio.precio}"
+                               placeholder="0.00" step="0.01" min="0" required />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">URL de imagen</label>
+                    <input type="url" name="imagen" class="form-control"
+                           id="imagenInput"
+                           th:value="${servicio.imagen}"
+                           placeholder="https://ejemplo.com/imagen.jpg"
+                           oninput="document.getElementById('preview').src=this.value" />
+                    <img id="preview" th:src="${servicio.imagen != null} ? ${servicio.imagen} : ''"
+                         class="preview-img d-none"
+                         onerror="this.classList.add('d-none')"
+                         onload="this.classList.remove('d-none')" />
+                </div>
+
+                <hr class="my-4">
+
+                <div class="d-flex justify-content-between">
+                    <a th:href="@{/tecnico/servicios}" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left me-1"></i>Cancelar
+                    </a>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-check-circle me-1"></i>
+                        <span th:text="${servicio.id != null} ? 'Guardar Cambios' : 'Publicar Servicio'">Publicar</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-light text-center py-4 mt-5 border-top">
+        <div class="container">
+            <p class="text-muted mb-0">© 2026 ServiGo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+
+</html>

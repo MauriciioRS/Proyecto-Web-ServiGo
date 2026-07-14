@@ -42,7 +42,8 @@ public class UsuarioService {
                 rol,
                 "default.png",
                 true,
-                passwordEncoder.encode(password)
+                passwordEncoder.encode(password),
+                false
         );
         return usuarioRepository.save(usuario);
     }

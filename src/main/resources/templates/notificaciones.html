@@ -5,7 +5,6 @@
 
 <body>
     <style>
-        /* ── Voucher / historial ── */
         .historial-card {
             border: 1px solid #e2e8f0;
             border-radius: 12px;
@@ -33,7 +32,6 @@
         }
         .historial-body.show { display: block; }
 
-        /* Voucher receipt */
         .voucher {
             background: #f8fafc;
             border: 1px dashed #cbd5e1;
@@ -56,7 +54,6 @@
         .voucher-title { font-size: 1.15rem; font-weight: 700; color: #0f172a; }
         .voucher-meta  { font-size: .8rem; color: #64748b; }
 
-        /* Línea vertical del voucher */
         .vtl { border-left: 2px dashed #cbd5e1; margin-left: 10px; padding-left: 1.1rem; }
         .vtl-item { position: relative; padding-bottom: .9rem; }
         .vtl-item:last-child { padding-bottom: 0; }
@@ -75,24 +72,40 @@
 
         .chevron-icon { transition: transform .25s; }
         .chevron-icon.open { transform: rotate(180deg); }
+
+        /* Rating stars */
+        .rating-form .star-btn {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #e2e8f0;
+            cursor: pointer;
+            transition: color .15s;
+            padding: 0 .15rem;
+        }
+        .rating-form .star-btn.active,
+        .rating-form .star-btn:hover {
+            color: #facc15;
+        }
     </style>
-    <!-- Navbar -->
-    <nav th:replace="~{fragments/navbar :: navbar('notificaciones')}"></nav>
+
+    <nav th:replace="~{fragments/navbar :: navbar(${esProveedor} ? 'mis-solicitudes' : 'notificaciones')}"></nav>
 
     <div class="container py-5">
 
-        <!-- ══════════════════════════════════
-             SECCIÓN 1 — EN PROCESO (activas)
-             ══════════════════════════════════ -->
+        <!-- Título dinámico -->
         <h4 class="fw-bold mb-4">
-            <i class="bi bi-grid-1x2-fill me-2 text-primary"></i>Mis Solicitudes
+            <i class="bi bi-grid-1x2-fill me-2 text-primary"></i>
+            <span th:if="${esProveedor}">Solicitudes Recibidas</span>
+            <span th:unless="${esProveedor}">Mis Solicitudes</span>
         </h4>
 
         <!-- Sin ninguna solicitud -->
         <div th:if="${#lists.isEmpty(solicitudes)}" class="text-center py-5">
             <i class="bi bi-inbox text-muted d-block mb-3" style="font-size:4rem;opacity:.3"></i>
             <h4 class="text-muted fw-normal">No tienes solicitudes aún</h4>
-            <p class="text-muted mb-4">Explora nuestros servicios y solicita uno para verlo aquí.</p>
+            <p class="text-muted mb-4" th:if="${esProveedor}">Los clientes te enviarán solicitudes cuando contraten tus servicios.</p>
+            <p class="text-muted mb-4" th:unless="${esProveedor}">Explora nuestros servicios y solicita uno para verlo aquí.</p>
             <a th:href="@{/servicios}" class="btn btn-primary px-4">
                 <i class="bi bi-search me-2"></i>Explorar servicios
             </a>
@@ -122,7 +135,7 @@
                               th:classappend="${s.estado == 'EN_PROGRESO'} ? 'bg-warning text-dark' :
                                               (${s.estado == 'ACEPTADO'} ? 'bg-primary' : 'bg-secondary')"
                               th:text="${s.estado == 'PENDIENTE'} ? 'Esperando respuesta' :
-                                        (${s.estado == 'ACEPTADO'} ? 'Aceptado' : 'En progreso')">
+                                       (${s.estado == 'ACEPTADO'} ? 'Aceptado' : 'En progreso')">
                         </span>
                     </div>
 
@@ -152,14 +165,33 @@
                         </div>
                     </div>
 
-                    <!-- Acciones -->
-                    <div class="d-flex gap-2 flex-wrap mt-3">
+                    <!-- Acciones — Proveedor -->
+                    <div class="d-flex gap-2 flex-wrap mt-3" th:if="${esProveedor}">
                         <form th:action="@{'/solicitudes/' + ${s.id} + '/avanzar'}" method="post">
                             <button type="submit" class="btn btn-sm btn-primary">
                                 <i class="bi bi-arrow-right-circle-fill me-1"></i>
-                                <span th:text="${s.estado == 'PENDIENTE'}  ? 'Proveedor aceptó ✓' :
-                                               (${s.estado == 'ACEPTADO'} ? 'Profesional en camino ✓' :
+                                <span th:text="${s.estado == 'PENDIENTE'} ? 'Aceptar Solicitud ✓' :
+                                               (${s.estado == 'ACEPTADO'} ? 'Iniciar Trabajo ✓' :
                                                'Marcar como completado ✓')"></span>
+                            </button>
+                        </form>
+                        <form th:action="@{'/solicitudes/' + ${s.id} + '/cancelar'}" method="post"
+                              onsubmit="return confirm('¿Seguro que deseas cancelar/rechazar esta solicitud?')">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                <i class="bi bi-x-circle me-1"></i>
+                                <span th:text="${s.estado == 'PENDIENTE'} ? 'Rechazar' : 'Cancelar'"></span>
+                            </button>
+                        </form>
+                        <a th:if="${chatMap.get(s.id) != null}" th:href="@{/mensajes(c=${chatMap.get(s.id)})}" class="btn btn-sm btn-outline-secondary">
+                            <i class="bi bi-chat-dots-fill me-1"></i>Chat
+                        </a>
+                    </div>
+
+                    <!-- Acciones — Cliente -->
+                    <div class="d-flex gap-2 flex-wrap mt-3" th:unless="${esProveedor}">
+                        <form th:if="${s.estado == 'PENDIENTE'}" th:action="@{'/solicitudes/' + ${s.id} + '/avanzar'}" method="post">
+                            <button type="submit" class="btn btn-sm btn-primary" disabled title="Esperando respuesta del proveedor">
+                                <i class="bi bi-hourglass-split me-1"></i>Esperando respuesta
                             </button>
                         </form>
                         <form th:action="@{'/solicitudes/' + ${s.id} + '/cancelar'}" method="post"
@@ -168,7 +200,7 @@
                                 <i class="bi bi-x-circle me-1"></i>Cancelar
                             </button>
                         </form>
-                        <a th:href="@{/mensajes}" class="btn btn-sm btn-outline-secondary">
+                        <a th:if="${chatMap.get(s.id) != null}" th:href="@{/mensajes(c=${chatMap.get(s.id)})}" class="btn btn-sm btn-outline-secondary">
                             <i class="bi bi-chat-dots-fill me-1"></i>Ir al chat
                         </a>
                     </div>
@@ -177,14 +209,13 @@
         </div>
 
         <!-- ══════════════════════════════════
-             SECCIÓN 2 — HISTORIAL (completadas/canceladas)
+             SECCIÓN 2 — HISTORIAL
              ══════════════════════════════════ -->
         <div th:if="${not #lists.isEmpty(solicitudesHistorial)}">
             <p class="text-muted small mb-3 fw-semibold text-uppercase">Historial</p>
 
             <div th:each="s, iterStat : ${solicitudesHistorial}" class="historial-card">
 
-                <!-- Cabecera colapsable -->
                 <div class="historial-header" th:onclick="'toggleVoucher(' + ${iterStat.index} + ')'">
                     <div class="d-flex align-items-center gap-3">
                         <div class="rounded-circle d-flex align-items-center justify-content-center"
@@ -210,11 +241,9 @@
                     </div>
                 </div>
 
-                <!-- Cuerpo — voucher/recibo del trabajo -->
                 <div th:id="'voucher-' + ${iterStat.index}" class="historial-body">
                     <div class="voucher mt-1">
 
-                        <!-- Encabezado del voucher -->
                         <div class="text-center mb-4">
                             <div class="fw-bold text-primary mb-1" style="font-size:.8rem;letter-spacing:2px">COMPROBANTE DE SERVICIO</div>
                             <div class="voucher-title" th:text="${s.servicioNombre}">Servicio</div>
@@ -227,38 +256,27 @@
 
                         <hr class="border-dashed my-3" style="border-style:dashed">
 
-                        <!-- Timeline vertical del proceso -->
                         <div class="vtl">
-
-                            <!-- Paso 1: Enviado -->
                             <div class="vtl-item">
                                 <div class="vtl-dot done"><i class="bi bi-send-fill"></i></div>
                                 <div class="vtl-label">Solicitud enviada</div>
                                 <div class="vtl-time" th:text="${#temporals.format(s.creadoEn, 'dd/MM/yyyy HH:mm')}"></div>
                             </div>
-
-                            <!-- Paso 2: Aceptado -->
                             <div class="vtl-item" th:if="${s.aceptadoEn != null}">
                                 <div class="vtl-dot done"><i class="bi bi-check-circle-fill"></i></div>
                                 <div class="vtl-label">Proveedor aceptó la solicitud</div>
                                 <div class="vtl-time" th:text="${#temporals.format(s.aceptadoEn, 'dd/MM/yyyy HH:mm')}"></div>
                             </div>
-
-                            <!-- Paso 3: En camino -->
                             <div class="vtl-item" th:if="${s.enProgresoEn != null}">
                                 <div class="vtl-dot done"><i class="bi bi-wrench-adjustable-circle-fill"></i></div>
                                 <div class="vtl-label">Profesional en camino</div>
                                 <div class="vtl-time" th:text="${#temporals.format(s.enProgresoEn, 'dd/MM/yyyy HH:mm')}"></div>
                             </div>
-
-                            <!-- Paso 4: Completado -->
                             <div class="vtl-item" th:if="${s.completadoEn != null}">
                                 <div class="vtl-dot green"><i class="bi bi-star-fill"></i></div>
                                 <div class="vtl-label" style="color:#16a34a;font-weight:700">¡Servicio completado!</div>
                                 <div class="vtl-time" th:text="${#temporals.format(s.completadoEn, 'dd/MM/yyyy HH:mm')}"></div>
                             </div>
-
-                            <!-- Cancelado -->
                             <div class="vtl-item" th:if="${s.estado == 'CANCELADO'}">
                                 <div class="vtl-dot cancel"><i class="bi bi-x-circle-fill"></i></div>
                                 <div class="vtl-label" style="color:#dc2626;font-weight:700">Solicitud cancelada</div>
@@ -268,8 +286,38 @@
 
                         <hr class="border-dashed my-3" style="border-style:dashed">
 
-                        <div class="d-flex justify-content-between align-items-center">
-                            <a th:href="@{/mensajes}" class="btn btn-sm btn-outline-secondary">
+                        <!-- Formulario de calificación — solo para cliente cuando COMPLETADO -->
+                        <div th:if="${!esProveedor and s.estado == 'COMPLETADO' and not calificacionService.yaCalificada(s.id)}"
+                             class="rating-form mt-3 p-3 bg-light rounded-3">
+                            <p class="fw-bold mb-2"><i class="bi bi-star-fill text-warning me-1"></i>¿Cómo fue tu experiencia?</p>
+                            <form th:action="@{/calificaciones/calificar}" method="post">
+                                <input type="hidden" name="solicitudId" th:value="${s.id}" />
+                                <div class="mb-2" id="stars-container">
+                                    <button type="button" class="star-btn" data-value="1" onclick="setRating(1)">&#9733;</button>
+                                    <button type="button" class="star-btn" data-value="2" onclick="setRating(2)">&#9733;</button>
+                                    <button type="button" class="star-btn" data-value="3" onclick="setRating(3)">&#9733;</button>
+                                    <button type="button" class="star-btn" data-value="4" onclick="setRating(4)">&#9733;</button>
+                                    <button type="button" class="star-btn" data-value="5" onclick="setRating(5)">&#9733;</button>
+                                </div>
+                                <input type="hidden" name="estrellas" id="estrellasInput" value="5" />
+                                <textarea name="comentario" class="form-control form-control-sm mb-2" rows="2"
+                                          placeholder="Cuéntanos sobre tu experiencia (opcional)"></textarea>
+                                <button type="submit" class="btn btn-sm btn-warning fw-semibold">
+                                    <i class="bi bi-send-fill me-1"></i>Enviar Calificación
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Ya calificado -->
+                        <div th:if="${!esProveedor and s.estado == 'COMPLETADO' and calificacionService.yaCalificada(s.id)}"
+                             class="mt-3 p-3 bg-light rounded-3">
+                            <p class="text-success fw-semibold mb-0">
+                                <i class="bi bi-check-circle me-1"></i>Ya calificaste este servicio
+                            </p>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <a th:if="${chatMap.get(s.id) != null}" th:href="@{/mensajes(c=${chatMap.get(s.id)})}" class="btn btn-sm btn-outline-secondary">
                                 <i class="bi bi-chat-dots-fill me-1"></i>Ir al chat
                             </a>
                             <small class="text-muted" th:text="'ID #' + ${s.id}"></small>
@@ -281,7 +329,6 @@
 
     </div>
 
-    <!-- Footer -->
     <footer class="bg-light text-center py-4 mt-5 border-top">
         <div class="container">
             <p class="text-muted mb-0">© 2026 ServiGo. Todos los derechos reservados.</p>
@@ -297,6 +344,18 @@
         body.classList.toggle('show', !isOpen);
         chev.classList.toggle('open', !isOpen);
     }
+
+    function setRating(value) {
+        document.getElementById('estrellasInput').value = value;
+        const stars = document.querySelectorAll('#stars-container .star-btn');
+        stars.forEach((star, index) => {
+            star.classList.toggle('active', index < value);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        setRating(5);
+    });
     </script>
 </body>
 

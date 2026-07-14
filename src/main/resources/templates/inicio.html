@@ -7,46 +7,173 @@
     <!-- Navbar -->
     <nav th:replace="~{fragments/navbar :: navbar('inicio')}"></nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1 class="hero-title">Encuentra el profesional que necesitas</h1>
-            <p class="hero-subtitle">Plomeros, electricistas, pintores y más — cerca de ti</p>
+    <!-- ═══════════════════════════════════════════════════
+         HOME — PROVEEDOR
+         ═══════════════════════════════════════════════════ -->
+    <div th:if="${esProveedor}">
 
-        </div>
-    </section>
+        <!-- Hero proveedor -->
+        <section class="hero">
+            <div class="container">
+                <p class="text-light mb-1" style="font-size:.9rem;opacity:.8">Bienvenido de vuelta</p>
+                <h1 class="hero-title" th:text="${session.usuarioLogueado.nombre}">Proveedor</h1>
+                <p class="hero-subtitle">Gestiona tus servicios y solicitudes desde tu panel</p>
+            </div>
+        </section>
 
-    <br>
+        <!-- Stats -->
+        <section class="container py-4">
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <div class="card border-0 shadow-sm text-center p-3">
+                        <div class="fs-2 fw-bold text-primary" th:text="${pendientes}">0</div>
+                        <small class="text-muted">Pendientes</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card border-0 shadow-sm text-center p-3">
+                        <div class="fs-2 fw-bold text-warning" th:text="${enProgreso}">0</div>
+                        <small class="text-muted">En Progreso</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card border-0 shadow-sm text-center p-3">
+                        <div class="fs-2 fw-bold text-success" th:text="${completadas}">0</div>
+                        <small class="text-muted">Completadas</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card border-0 shadow-sm text-center p-3">
+                        <div class="fs-2 fw-bold text-info" th:text="${totalServicios}">0</div>
+                        <small class="text-muted">Mis Servicios</small>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Servicios destacados -->
-    <section>
-        <div class="container">
-            <h2 class="text-center mb-4">Tendencias</h2>
-            <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4" th:each="servicio : ${tendencias}">
-                    <div class="card servicio-card h-100">
-                        <img th:src="${servicio.imagen.startsWith('http') ? servicio.imagen : '/img/' + servicio.imagen}" class="card-img-top servicio-card-img" th:alt="|${servicio.nombre} - imagen|" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Sin+imagen';" />
-                        <div class="card-body">
-                            <h5 class="card-title" th:text="${servicio.nombre}">Servicio</h5>
-                            <p class="card-text" th:text="${servicio.descripcion}">Descripción</p>
-                            <p class="text-muted">
-                                <strong>Categoría:</strong> <span th:text="${servicio.categoria}">Cat</span>
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <strong class="text-success" th:text="'S/.' + ${servicio.precio}">Precio</strong>
-                                <span class="badge bg-warning" th:text="${servicio.calificacion} + '★'">Rating</span>
+        <!-- Accesos rápidos -->
+        <section class="container pb-4">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <a th:href="@{/tecnico/dashboard}" class="text-decoration-none">
+                        <div class="card border-0 shadow-sm p-4 h-100" style="cursor:pointer;transition:transform .2s"
+                             onmouseover="this.style.transform='translateY(-3px)'"
+                             onmouseout="this.style.transform='none'">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="rounded-circle bg-primary bg-opacity-10 d-flex align-items-center justify-content-center"
+                                     style="width:56px;height:56px">
+                                    <i class="bi bi-kanban fs-3 text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1 text-dark fw-bold">Dashboard</h5>
+                                    <small class="text-muted">Gestiona tus solicitudes en tiempo real</small>
+                                </div>
                             </div>
                         </div>
-                        <div class="card-footer bg-white">
-                            <a th:href="'/servicios/' + ${servicio.id}" class="btn btn-sm btn-primary w-100">Ver Detalles</a>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a th:href="@{/tecnico/servicios}" class="text-decoration-none">
+                        <div class="card border-0 shadow-sm p-4 h-100" style="cursor:pointer;transition:transform .2s"
+                             onmouseover="this.style.transform='translateY(-3px)'"
+                             onmouseout="this.style.transform='none'">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="rounded-circle bg-success bg-opacity-10 d-flex align-items-center justify-content-center"
+                                     style="width:56px;height:56px">
+                                    <i class="bi bi-tools fs-3 text-success"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1 text-dark fw-bold">Mis Servicios</h5>
+                                    <small class="text-muted">Crea, edita y administra tus servicios</small>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solicitudes recientes -->
+        <section class="container pb-5" th:if="${not #lists.isEmpty(solicitudesActivas)}">
+            <h4 class="fw-bold mb-3"><i class="bi bi-inbox me-2 text-primary"></i>Solicitudes Recientes</h4>
+            <div th:each="s : ${solicitudesActivas}" class="card border-0 shadow-sm mb-3">
+                <div class="card-body d-flex justify-content-between align-items-center p-3">
+                    <div>
+                        <h6 class="fw-bold mb-1" th:text="${s.servicioNombre}">Servicio</h6>
+                        <small class="text-muted">
+                            <i class="bi bi-tag me-1"></i><span th:text="${s.servicioCategoria}"></span>
+                            &nbsp;·&nbsp;
+                            <i class="bi bi-cash me-1"></i><span th:text="'S/.' + ${s.servicioPrecio}"></span>
+                            &nbsp;·&nbsp;
+                            <i class="bi bi-clock me-1"></i><span th:text="${#temporals.format(s.creadoEn, 'dd/MM HH:mm')}"></span>
+                        </small>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="badge"
+                              th:classappend="${s.estado == 'PENDIENTE'} ? 'bg-warning text-dark' :
+                                              (${s.estado == 'ACEPTADO'} ? 'bg-primary' :
+                                              (${s.estado == 'EN_PROGRESO'} ? 'bg-info' : 'bg-secondary'))"
+                              th:text="${s.estado == 'PENDIENTE'} ? 'Pendiente' :
+                                       (${s.estado == 'ACEPTADO'} ? 'Aceptado' :
+                                       (${s.estado == 'EN_PROGRESO'} ? 'En Progreso' : ${s.estado}))">
+                        </span>
+                        <a th:href="@{/tecnico/dashboard}" class="btn btn-sm btn-outline-primary">Ver</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <a th:href="@{/tecnico/dashboard}" class="btn btn-outline-primary btn-sm">
+                    Ver todas las solicitudes <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+         HOME — CLIENTE (o no logueado)
+         ═══════════════════════════════════════════════════ -->
+    <div th:unless="${esProveedor}">
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">Encuentra el profesional que necesitas</h1>
+                <p class="hero-subtitle">Plomeros, electricistas, pintores y más — cerca de ti</p>
+            </div>
+        </section>
+
+        <br>
+
+        <!-- Servicios destacados -->
+        <section>
+            <div class="container">
+                <h2 class="text-center mb-4">Tendencias</h2>
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 mb-4" th:each="servicio : ${tendencias}">
+                        <div class="card servicio-card h-100">
+                            <img th:src="${servicio.imagen.startsWith('http') ? servicio.imagen : '/img/' + servicio.imagen}" class="card-img-top servicio-card-img" th:alt="|${servicio.nombre} - imagen|" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300?text=Sin+imagen';" />
+                            <div class="card-body">
+                                <h5 class="card-title" th:text="${servicio.nombre}">Servicio</h5>
+                                <p class="card-text" th:text="${servicio.descripcion}">Descripción</p>
+                                <p class="text-muted">
+                                    <strong>Categoría:</strong> <span th:text="${servicio.categoria}">Cat</span>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <strong class="text-success" th:text="'S/.' + ${servicio.precio}">Precio</strong>
+                                    <span class="badge bg-warning" th:text="${servicio.calificacion} + '★'">Rating</span>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-white">
+                                <a th:href="'/servicios/' + ${servicio.id}" class="btn btn-sm btn-primary w-100">Ver Detalles</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <br>
+        <br>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-light text-center py-4 mt-5 border-top">

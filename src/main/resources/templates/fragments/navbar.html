@@ -34,26 +34,51 @@
                         <i class="bi bi-envelope-fill"></i> Contáctanos
                     </a>
                 </li>
-                <li class="nav-item" th:if="${session.usuarioLogueado != null}">
+
+                <!-- Links solo para cliente -->
+                <li class="nav-item" th:if="${session.usuarioLogueado != null and session.usuarioLogueado.rol == 'cliente'}">
                     <a class="nav-link" th:classappend="${activePage == 'favoritos'} ? 'active'" th:href="@{/favoritos}">
                         <i class="bi bi-heart-fill"></i> Favoritos
                     </a>
                 </li>
-                <li class="nav-item" th:if="${session.usuarioLogueado != null}">
+                <li class="nav-item" th:if="${session.usuarioLogueado != null and session.usuarioLogueado.rol == 'cliente'}">
                     <a class="nav-link" th:classappend="${activePage == 'mensajes'} ? 'active'" th:href="@{/mensajes}">
                         <i class="bi bi-chat-dots-fill"></i> Mensajes
                     </a>
                 </li>
-                <li class="nav-item" th:if="${session.usuarioLogueado != null}">
+                <li class="nav-item" th:if="${session.usuarioLogueado != null and session.usuarioLogueado.rol == 'cliente'}">
                     <a class="nav-link" th:classappend="${activePage == 'notificaciones'} ? 'active'" th:href="@{/notificaciones}">
                         <i class="bi bi-grid-1x2-fill"></i> Mis Solicitudes
+                    </a>
+                </li>
+
+                <!-- Links solo para proveedor -->
+                <li class="nav-item" th:if="${session.usuarioLogueado != null and session.usuarioLogueado.rol == 'proveedor'}">
+                    <a class="nav-link" th:classappend="${activePage == 'dashboard'} ? 'active'" th:href="@{/tecnico/dashboard}">
+                        <i class="bi bi-speedometer2"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item" th:if="${session.usuarioLogueado != null and session.usuarioLogueado.rol == 'proveedor'}">
+                    <a class="nav-link" th:classappend="${activePage == 'mis-servicios'} ? 'active'" th:href="@{/tecnico/servicios}">
+                        <i class="bi bi-tools"></i> Mis Servicios
+                    </a>
+                </li>
+                <li class="nav-item" th:if="${session.usuarioLogueado != null and session.usuarioLogueado.rol == 'proveedor'}">
+                    <a class="nav-link" th:classappend="${activePage == 'mensajes'} ? 'active'" th:href="@{/mensajes}">
+                        <i class="bi bi-chat-dots-fill"></i> Mensajes
+                    </a>
+                </li>
+                <li class="nav-item" th:if="${session.usuarioLogueado != null and session.usuarioLogueado.rol == 'proveedor'}">
+                    <a class="nav-link" th:classappend="${activePage == 'mis-solicitudes'} ? 'active'" th:href="@{/notificaciones}">
+                        <i class="bi bi-grid-1x2-fill"></i> Solicitudes
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="btn btn-warning btn-sm ms-2 fw-semibold" th:href="@{/premium}">
                         <i class="bi bi-stars"></i>
-                        Hazte Premium
+                        <span th:if="${session.usuarioLogueado == null or not session.usuarioLogueado.premium}">Hazte Premium</span>
+                        <span th:if="${session.usuarioLogueado != null and session.usuarioLogueado.premium}">Mi Premium</span>
                     </a>
                 </li>
 
@@ -63,11 +88,21 @@
                         <i class="bi bi-person-circle"></i>
                         <span th:if="${session.usuarioLogueado == null}">Yo</span>
                         <span th:if="${session.usuarioLogueado != null}" th:text="${session.usuarioLogueado.nombre}">Yo</span>
+                        <span th:if="${session.usuarioLogueado != null and session.usuarioLogueado.premium}" class="badge bg-warning text-dark ms-1" style="font-size:.6rem;"><i class="bi bi-stars"></i></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li th:if="${session.usuarioLogueado == null}"><a class="dropdown-item" th:href="@{/iniciar-sesion}">Iniciar Sesión</a></li>
                         <li th:if="${session.usuarioLogueado == null}"><a class="dropdown-item" th:href="@{/registro}">Registrarse</a></li>
                         <li th:if="${session.usuarioLogueado != null}"><a class="dropdown-item" th:href="@{/perfil}">Mi Perfil</a></li>
+                        <li th:if="${session.usuarioLogueado != null and session.usuarioLogueado.rol == 'proveedor'}">
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li th:if="${session.usuarioLogueado != null and session.usuarioLogueado.rol == 'proveedor'}">
+                            <a class="dropdown-item" th:href="@{/tecnico/calificaciones}">
+                                <i class="bi bi-star-fill me-1 text-warning"></i> Mis Calificaciones
+                            </a>
+                        </li>
+                        <li th:if="${session.usuarioLogueado != null}"><hr class="dropdown-divider"></li>
                         <li th:if="${session.usuarioLogueado != null}"><a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a></li>
                     </ul>
                 </li>

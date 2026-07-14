@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head :: head('Premium - ServiGo', null)}"></head>
+
+<body class="bg-light">
+
+    <nav th:replace="~{fragments/navbar :: navbar('inicio')}"></nav>
+
+    <div class="container py-5">
+
+        <!-- Flash messages -->
+        <div th:if="${error}" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="bi bi-exclamation-triangle me-2"></i><span th:text="${error}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        <div th:if="${success}" class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="bi bi-check-circle me-2"></i><span th:text="${success}"></span>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+
+        <!-- Header -->
+        <div class="text-center mb-5">
+            <div class="d-inline-block px-4 py-2 rounded-pill mb-3" style="background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#fff;font-weight:700;font-size:.85rem;letter-spacing:1px;">
+                <i class="bi bi-stars me-1"></i> MEMBRESÍA PREMIUM
+            </div>
+            <h1 class="fw-bold display-5">Desbloquea todo el potencial de <span class="text-primary">ServiGo</span></h1>
+            <p class="text-muted fs-5 mt-3">Sin límites, sin restricciones. Tu negocio, tu ritmo.</p>
+        </div>
+
+        <!-- Ya es Premium -->
+        <div th:if="${yaPremium}" class="text-center mb-5">
+            <div class="card mx-auto border-0 shadow-lg" style="max-width:500px;">
+                <div class="card-body p-5">
+                    <div class="mb-3">
+                        <i class="bi bi-patch-check-fill text-warning" style="font-size:4rem;"></i>
+                    </div>
+                    <h3 class="fw-bold text-warning">Ya eres Premium</h3>
+                    <p class="text-muted">Disfruta de todos los beneficios sin límites.</p>
+                    <form th:action="@{/premium/desactivar}" method="post"
+                          onsubmit="return confirm('¿Estás seguro de desactivar tu membresía Premium?')">
+                        <button type="submit" class="btn btn-outline-secondary btn-sm">
+                            <i class="bi bi-x-circle me-1"></i>Desactivar Premium
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beneficios -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle" style="width:64px;height:64px;background:#dbeafe;">
+                        <i class="bi bi-infinity text-primary fs-2"></i>
+                    </div>
+                    <h5 class="fw-bold">Servicios Ilimitados</h5>
+                    <p class="text-muted">Publica todos los servicios que quieras. Sin tope máximo.</p>
+                    <div class="mt-auto">
+                        <small class="text-danger fw-semibold">Normal: máx. 5 servicios</small>
+                        <br>
+                        <small class="text-success fw-semibold">Premium: ilimitado</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle" style="width:64px;height:64px;background:#dcfce7;">
+                        <i class="bi bi-briefcase-check text-success fs-2"></i>
+                    </div>
+                    <h5 class="fw-bold">Solicitudes Activas</h5>
+                    <p class="text-muted">Acepta más trabajos simultáneos sin restricciones.</p>
+                    <div class="mt-auto">
+                        <small class="text-danger fw-semibold">Normal: máx. 3 aceptados</small>
+                        <br>
+                        <small class="text-success fw-semibold">Premium: ilimitado</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 text-center p-4">
+                    <div class="mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle" style="width:64px;height:64px;background:#fef3c7;">
+                        <i class="bi bi-send-check text-warning fs-2"></i>
+                    </div>
+                    <h5 class="fw-bold">Solicitudes de Cliente</h5>
+                    <p class="text-muted">Solicita servicios sin límite de solicitudes activas.</p>
+                    <div class="mt-auto">
+                        <small class="text-danger fw-semibold">Normal: máx. 3 activas</small>
+                        <br>
+                        <small class="text-success fw-semibold">Premium: ilimitado</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div th:unless="${yaPremium}" class="text-center">
+            <div class="card mx-auto border-0 shadow-lg" style="max-width:600px;background:linear-gradient(135deg,#1e3a5f,#2563eb);">
+                <div class="card-body p-5 text-white">
+                    <h3 class="fw-bold mb-3"><i class="bi bi-stars me-2"></i>Activa Premium Ahora</h3>
+                    <p class="mb-4 opacity-75">Disfruta de todas las ventajas sin límites. Tu crecimiento no tiene techo.</p>
+                    <form th:action="@{/premium/activar}" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-warning btn-lg fw-bold px-5">
+                            <i class="bi bi-stars me-2"></i>Hazte Premium
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="bg-light text-center py-4 mt-5 border-top">
+        <div class="container">
+            <p class="text-muted mb-0">&copy; 2026 ServiGo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+
+</html>
