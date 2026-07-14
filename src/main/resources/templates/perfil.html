@@ -7,64 +7,145 @@
     <!-- Navbar -->
     <nav th:replace="~{fragments/navbar :: navbar('perfil')}"></nav>
 
-    <main class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="card shadow-sm">
-                    <div class="card-header bg-primary text-white">
-                        <h3 class="mb-0">Mi Perfil</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="row mb-3">
-                            <div class="col-md-4 text-center">
-                                <div class="border rounded p-3">
-                                    <i class="bi bi-person-circle display-1 text-primary"></i>
-                                    <h5 class="mt-3" th:text="${usuario.nombre}">Nombre</h5>
-                                    <p class="text-muted" th:text="${usuario.rol}">Rol</p>
-                                </div>
+    <main class="perfil-page py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+
+                    <div class="profile-card">
+
+                        <!-- Cover con avatar -->
+                        <div class="profile-cover">
+                            <div class="profile-avatar-wrap">
+                                <div class="profile-avatar" th:text="${#strings.isEmpty(usuario.nombre)} ? '?' : ${#strings.substring(usuario.nombre,0,1)}">J</div>
                             </div>
-                            <div class="col-md-8">
-                                <dl class="row mb-0">
-                                    <dt class="col-sm-4">Correo</dt>
-                                    <dd class="col-sm-8" th:text="${usuario.email}">correo@example.com</dd>
+                        </div>
 
-                                    <dt class="col-sm-4">Teléfono</dt>
-                                    <dd class="col-sm-8" th:text="${#strings.isEmpty(usuario.telefono)} ? 'No registrado' : ${usuario.telefono}">555-0000</dd>
-
-                                    <dt class="col-sm-4">DNI</dt>
-                                    <dd class="col-sm-8" th:text="${#strings.isEmpty(usuario.dni)} ? '—' : ${usuario.dni}">—</dd>
-
-                                    <dt class="col-sm-4">Fecha de nacimiento</dt>
-                                    <dd class="col-sm-8" th:text="${#strings.isEmpty(usuario.fechaNacimiento)} ? '—' : ${usuario.fechaNacimiento}">—</dd>
-
-                                    <dt class="col-sm-4">Dirección</dt>
-                                    <dd class="col-sm-8" th:text="${#strings.isEmpty(usuario.direccion)} ? '—' : ${usuario.direccion}">—</dd>
-
-                                    <dt class="col-sm-4">Distrito</dt>
-                                    <dd class="col-sm-8" th:text="${#strings.isEmpty(usuario.distrito)} ? '—' : ${usuario.distrito}">—</dd>
-
-                                    <dt class="col-sm-4">Tipo de cuenta</dt>
-                                    <dd class="col-sm-8" th:switch="${usuario.rol}">
+                        <!-- Header: nombre, rol, estado, acciones -->
+                        <div class="profile-header">
+                            <div>
+                                <h3 class="profile-name mb-1" th:text="${usuario.nombre}">Nombre</h3>
+                                <div class="d-flex align-items-center gap-2 flex-wrap">
+                                    <span class="role-badge" th:switch="${usuario.rol}">
                                         <span th:case="'cliente'">Cliente</span>
                                         <span th:case="'proveedor'">Contratista</span>
-                                        <span th:case="*" th:text="${usuario.rol}">—</span>
-                                    </dd>
-
-                                    <dt class="col-sm-4">Estado</dt>
-                                    <dd class="col-sm-8" th:text="${usuario.activo ? 'Activo' : 'Inactivo'}">Activo</dd>
-                                </dl>
+                                        <span th:case="*" th:text="${usuario.rol}">Rol</span>
+                                    </span>
+                                    <span class="d-flex align-items-center gap-1">
+                                        <span class="status-dot" th:classappend="${usuario.activo} ? 'is-active' : 'is-inactive'"></span>
+                                        <span class="status-text" th:text="${usuario.activo ? 'Activo' : 'Inactivo'}">Activo</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="profile-actions">
+                                <a th:href="@{/cambiar-contrasena}" class="btn btn-outline-secondary btn-sm">
+                                    <i class="bi bi-key"></i> Cambiar contraseña
+                                </a>
+                                <a th:href="@{/logout}" class="btn btn-danger btn-sm">
+                                    <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+                                </a>
                             </div>
                         </div>
-                        <div class="text-end">
-                            <a th:href="@{/cambiar-contrasena}" class="btn btn-outline-secondary">Cambiar Contraseña</a>
-                            <a th:href="@{/logout}" class="btn btn-danger">Cerrar Sesión</a>
+
+                        <!-- Cuerpo: secciones de información -->
+                        <div class="profile-body">
+
+                            <div class="info-section">
+                                <h6 class="info-section-title">Contacto</h6>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <i class="bi bi-envelope info-icon"></i>
+                                        <div>
+                                            <div class="info-label">Correo</div>
+                                            <div class="info-value" th:text="${usuario.email}">correo@example.com</div>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="bi bi-telephone info-icon"></i>
+                                        <div>
+                                            <div class="info-label">Teléfono</div>
+                                            <div class="info-value" th:text="${#strings.isEmpty(usuario.telefono)} ? 'No registrado' : ${usuario.telefono}">555-0000</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="info-section">
+                                <h6 class="info-section-title">Identificación</h6>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <i class="bi bi-person-vcard info-icon"></i>
+                                        <div>
+                                            <div class="info-label">DNI</div>
+                                            <div class="info-value" th:text="${#strings.isEmpty(usuario.dni)} ? 'No registrado' : ${usuario.dni}">—</div>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="bi bi-cake2 info-icon"></i>
+                                        <div>
+                                            <div class="info-label">Fecha de nacimiento</div>
+                                            <div class="info-value" th:text="${#strings.isEmpty(usuario.fechaNacimiento)} ? 'No registrada' : ${usuario.fechaNacimiento}">—</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="info-section">
+                                <h6 class="info-section-title">Ubicación</h6>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <i class="bi bi-geo-alt info-icon"></i>
+                                        <div>
+                                            <div class="info-label">Dirección</div>
+                                            <div class="info-value" th:text="${#strings.isEmpty(usuario.direccion)} ? 'No registrada' : ${usuario.direccion}">—</div>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="bi bi-map info-icon"></i>
+                                        <div>
+                                            <div class="info-label">Distrito</div>
+                                            <div class="info-value" th:text="${#strings.isEmpty(usuario.distrito)} ? 'No registrado' : ${usuario.distrito}">—</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="info-section">
+                                <h6 class="info-section-title">Cuenta</h6>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <i class="bi bi-shield-check info-icon"></i>
+                                        <div>
+                                            <div class="info-label">Tipo de cuenta</div>
+                                            <div class="info-value" th:switch="${usuario.rol}">
+                                                <span th:case="'cliente'">Cliente</span>
+                                                <span th:case="'proveedor'">Contratista</span>
+                                                <span th:case="*" th:text="${usuario.rol}">—</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="bi bi-check-circle info-icon"></i>
+                                        <div>
+                                            <div class="info-label">Estado</div>
+                                            <div class="info-value" th:text="${usuario.activo ? 'Activo' : 'Inactivo'}">Activo</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </main>
-
+         <footer class="bg-light text-center py-4 mt-5 border-top">
+        <div class="container">
+            <p class="text-muted">© 2026 ServiGo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
     <div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 
